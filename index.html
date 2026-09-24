@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>একসাথে — Seller & Admin MVP</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f4f7f5;color:#17352b}
+header{background:#087f5b;color:#fff;padding:15px;position:sticky;top:0;z-index:3}
+.brand{font-size:24px;font-weight:800}.sub{font-size:12px}
+.search{width:100%;padding:12px;border:0;border-radius:12px;margin-top:10px}
+main{max-width:900px;margin:auto;padding:14px 14px 80px}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.card{background:#fff;border-radius:14px;padding:13px;margin:8px 0;box-shadow:0 2px 8px #0001}
+.products{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.products .card{margin:0}
+img{width:100%;aspect-ratio:1.2;object-fit:cover;border-radius:10px}.price{font-weight:bold;margin:6px 0}
+button{background:#087f5b;color:#fff;border:0;border-radius:10px;padding:9px 12px;font-weight:bold;cursor:pointer}
+button.secondary{background:#e7f2ee;color:#087f5b}.danger{background:#d94841}.muted{font-size:12px;color:#687a73}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px}.hidden{display:none}
+.item{display:flex;gap:10px;align-items:center;border-bottom:1px solid #eee;padding:9px 0}.item img{width:55px;height:55px}
+nav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #ddd;display:flex;justify-content:space-around;padding:7px;z-index:5}
+nav button{background:#fff;color:#17352b;padding:6px;font-size:12px}
+input,select{width:100%;padding:10px;border:1px solid #d7e2dd;border-radius:10px;margin:5px 0}
+table{width:100%;border-collapse:collapse;font-size:13px}td,th{padding:8px;border-bottom:1px solid #eee;text-align:left}
+.stat{font-size:24px;font-weight:800}.green{color:#087f5b}
+@media(min-width:700px){.grid{grid-template-columns:repeat(4,1fr)}.products{grid-template-columns:repeat(4,1fr)}}
+</style>
+</head>
+<body>
+<header><div class="brand">একসাথে</div><div class="sub">Super App — MVP v2</div><input id="q" class="search" placeholder="পণ্য খুঁজুন..." oninput="render()"></header>
+<main>
+<section id="home">
+<h2>ক্যাটাগরি</h2><div class="grid">
+<div class="card" onclick="cat='সব';show('shop')">🛍️<br>সব পণ্য</div>
+<div class="card" onclick="cat='ফ্যাশন';show('shop')">👕<br>ফ্যাশন</div>
+<div class="card" onclick="cat='ইলেকট্রনিক্স';show('shop')">📱<br>ইলেকট্রনিক্স</div>
+<div class="card" onclick="cat='হোম';show('shop')">🏠<br>হোম</div>
+</div><h2>জনপ্রিয় পণ্য</h2><div id="homeProducts" class="products"></div>
+</section>
+
+<section id="shop" class="hidden"><div class="row"><h2>শপিং</h2><span class="muted" id="catLabel"></span></div><div id="products" class="products"></div></section>
+
+<section id="cart" class="hidden"><h2>কার্ট</h2><div id="cartItems"></div>
+<div class="card row"><b>মোট: <span id="total">৳0</span></b><button onclick="order()">অর্ডার করুন</button></div></section>
+
+<section id="orders" class="hidden"><h2>আমার অর্ডার</h2><div id="ordersList"></div></section>
+
+<section id="profile" class="hidden"><h2>প্রোফাইল</h2>
+<div class="card"><b>ডেমো ইউজার</b><p class="muted">এটি এখনো ডেমো। বাস্তব Login/OTP পরের ধাপে যুক্ত হবে।</p></div>
+<div class="card"><button onclick="show('seller')">🏪 Seller Panel খুলুন</button> <button onclick="show('admin')">🛠️ Admin Panel খুলুন</button></div>
+</section>
+
+<section id="seller" class="hidden"><h2>🏪 Seller Panel</h2>
+<div class="grid"><div class="card"><div class="muted">মোট পণ্য</div><div class="stat" id="sellerProducts">0</div></div>
+<div class="card"><div class="muted">অর্ডার</div><div class="stat" id="sellerOrders">0</div></div></div>
+<div class="card"><h3>নতুন পণ্য যোগ করুন</h3>
+<input id="pn" placeholder="পণ্যের নাম"><select id="pc"><option>ফ্যাশন</option><option>ইলেকট্রনিক্স</option><option>হোম</option></select>
+<input id="pp" type="number" placeholder="দাম"><input id="pi" placeholder="ছবির URL (ঐচ্ছিক)">
+<button onclick="addProduct()">পণ্য যোগ করুন</button></div>
+<div class="card"><h3>আমার পণ্য</h3><div id="sellerList"></div></div></section>
+
+<section id="admin" class="hidden"><h2>🛠️ Admin Panel</h2>
+<div class="grid">
+<div class="card"><div class="muted">মোট পণ্য</div><div class="stat" id="aProducts">0</div></div>
+<div class="card"><div class="muted">মোট অর্ডার</div><div class="stat" id="aOrders">0</div></div>
+<div class="card"><div class="muted">অর্ডার মূল্য</div><div class="stat green" id="aSales">৳0</div></div>
+<div class="card"><div class="muted">কমিশন (ডেমো 5%)</div><div class="stat green" id="aCommission">৳0</div></div>
+</div>
+<div class="card"><h3>অর্ডার ব্যবস্থাপনা</h3><table><thead><tr><th>অর্ডার</th><th>মূল্য</th><th>স্ট্যাটাস</th></tr></thead><tbody id="adminOrders"></tbody></table></div>
+<div class="card"><h3>Seller/পণ্য</h3><p class="muted">বাস্তব seller approval ও user management backend যুক্ত হলে এখান থেকে নিয়ন্ত্রণ করা যাবে।</p></div>
+</section>
+</main>
+
+<nav>
+<button onclick="show('home')">🏠<br>হোম</button><button onclick="show('shop')">🛍️<br>শপ</button>
+<button onclick="show('cart')">🛒<br>কার্ট</button><button onclick="show('orders')">📦<br>অর্ডার</button>
+<button onclick="show('profile')">👤<br>প্রোফাইল</button>
+</nav>
+
+<script>
+const starter=[
+{id:1,n:'পুরুষের শার্ট',c:'ফ্যাশন',p:450,i:'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=500&q=70'},
+{id:2,n:'মহিলাদের ড্রেস',c:'ফ্যাশন',p:750,i:'https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=500&q=70'},
+{id:3,n:'স্মার্ট ওয়াচ',c:'ইলেকট্রনিক্স',p:1500,i:'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=70'},
+{id:4,n:'ব্যাকপ্যাক',c:'ফ্যাশন',p:850,i:'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=500&q=70'},
+{id:5,n:'টেবিল ল্যাম্প',c:'হোম',p:650,i:'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=500&q=70'},
+{id:6,n:'স্পোর্টস জুতা',c:'ফ্যাশন',p:1200,i:'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=70'}];
+let custom=JSON.parse(localStorage.getItem('es_products')||'[]');
+let P=starter.concat(custom),cart=JSON.parse(localStorage.getItem('es_cart')||'[]'),orders=JSON.parse(localStorage.getItem('es_orders')||'[]'),cat='সব';
+
+function save(){localStorage.setItem('es_products',JSON.stringify(P.slice(starter.length)));localStorage.setItem('es_cart',JSON.stringify(cart));localStorage.setItem('es_orders',JSON.stringify(orders))}
+function card(x){return `<div class="card"><img src="${x.i}"><b>${x.n}</b><div class="muted">${x.c}</div><div class="price">৳${x.p}</div><button onclick="add(${x.id})">কার্টে যোগ</button></div>`}
+function render(){P=starter.concat(JSON.parse(localStorage.getItem('es_products')||'[]'));let q=(document.getElementById('q').value||'').toLowerCase();let a=P.filter(x=>(cat==='সব'||x.c===cat)&&x.n.toLowerCase().includes(q));document.getElementById('products').innerHTML=a.map(card).join('')||'কোনো পণ্য নেই';document.getElementById('homeProducts').innerHTML=P.slice(0,4).map(card).join('');document.getElementById('catLabel').textContent=cat;renderCart();renderOrders();renderSeller();renderAdmin()}
+function add(id){let x=cart.find(a=>a.id===id);x?x.q++:cart.push({id,q:1});save();renderCart();alert('কার্টে যোগ হয়েছে')}
+function renderCart(){let b=document.getElementById('cartItems'),t=0;if(!cart.length){b.innerHTML='<div class="card">কার্ট খালি</div>';document.getElementById('total').textContent='৳0';return}b.innerHTML=cart.map(x=>{let p=P.find(a=>a.id===x.id);t+=p.p*x.q;return `<div class="item"><img src="${p.i}"><div>${p.n}<br>৳${p.p} × ${x.q}</div></div>`}).join('');document.getElementById('total').textContent='৳'+t}
+function order(){if(!cart.length)return alert('কার্ট খালি');let t=cart.reduce((s,x)=>s+P.find(p=>p.id===x.id).p*x.q,0);orders.unshift({no:'EK'+Date.now().toString().slice(-7),total:t,status:'নতুন'});cart=[];save();render();show('orders');alert('ডেমো অর্ডার তৈরি হয়েছে')}
+function renderOrders(){document.getElementById('ordersList').innerHTML=orders.length?orders.map(o=>`<div class="card"><b>#${o.no}</b><div>মোট: ৳${o.total}</div><div>${o.status}</div></div>`).join(''):'<div class="card">কোনো অর্ডার নেই</div>'}
+function addProduct(){let n=document.getElementById('pn').value.trim(),c=document.getElementById('pc').value,p=Number(document.getElementById('pp').value),i=document.getElementById('pi').value.trim()||'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=70';if(!n||!p)return alert('নাম ও দাম দিন');P.push({id:Date.now(),n,c,p,i});save();document.getElementById('pn').value='';document.getElementById('pp').value='';document.getElementById('pi').value='';render();alert('পণ্য যোগ হয়েছে')}
+function renderSeller(){document.getElementById('sellerProducts').textContent=P.length;document.getElementById('sellerOrders').textContent=orders.length;document.getElementById('sellerList').innerHTML=P.slice(starter.length).map(x=>`<div class="item"><img src="${x.i}"><div>${x.n}<br>৳${x.p}</div></div>`).join('')||'<span class="muted">আপনার যোগ করা পণ্য নেই</span>'}
+function renderAdmin(){let sales=orders.reduce((s,o)=>s+o.total,0);document.getElementById('aProducts').textContent=P.length;document.getElementById('aOrders').textContent=orders.length;document.getElementById('aSales').textContent='৳'+sales;document.getElementById('aCommission').textContent='৳'+Math.round(sales*.05);document.getElementById('adminOrders').innerHTML=orders.map(o=>`<tr><td>#${o.no}</td><td>৳${o.total}</td><td><button class="secondary" onclick="statusChange('${o.no}')">${o.status}</button></td></tr>`).join('')}
+function statusChange(no){let o=orders.find(x=>x.no===no);if(!o)return;let states=['নতুন','গ্রহণ করা হয়েছে','প্রস্তুত হচ্ছে','ডেলিভারিতে','সম্পন্ন'];o.status=states[(states.indexOf(o.status)+1)%states.length];save();renderAdmin();renderOrders()}
+function show(id){['home','shop','cart','orders','profile','seller','admin'].forEach(x=>document.getElementById(x).classList.toggle('hidden',x!==id));render()}
+render();
+</script>
+</body></html>
