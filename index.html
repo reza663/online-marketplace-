@@ -39,6 +39,13 @@ table{width:100%;border-collapse:collapse;font-size:13px}td,th{padding:8px;borde
 <section id="shop" class="hidden"><div class="row"><h2>শপিং</h2><span class="muted" id="catLabel"></span></div><div id="products" class="products"></div></section>
 
 <section id="cart" class="hidden"><h2>কার্ট</h2><div id="cartItems"></div>
+  <h3>পেমেন্ট মাধ্যম</h3>
+<select id="payment">
+  <option>Cash on Delivery</option>
+  <option>bKash</option>
+  <option>Nagad</option>
+  <option>Rocket</option>
+</select>
 <div class="card row"><b>মোট: <span id="total">৳0</span></b><button onclick="order()">অর্ডার করুন</button></div></section>
 
 <section id="orders" class="hidden"><h2>আমার অর্ডার</h2><div id="ordersList"></div></section>
@@ -94,7 +101,8 @@ function renderCart(){let b=document.getElementById('cartItems'),t=0;if(!cart.le
 function order(){if(!cart.length)return alert('কার্ট খালি');let t=cart.reduce((s,x)=>s+P.find(p=>p.id===x.id).p*x.q,0);orders.unshift({no:'EK'+Date.now().toString().slice(-7),total:t,status:'নতুন'});cart=[];save();render();show('orders');alert('ডেমো অর্ডার তৈরি হয়েছে')}
 function renderOrders(){document.getElementById('ordersList').innerHTML=orders.length?orders.map(o=>`<div class="card"><b>#${o.no}</b><div>মোট: ৳${o.total}</div><div>${o.status}</div></div>`).join(''):'<div class="card">কোনো অর্ডার নেই</div>'}
 function addProduct(){let n=document.getElementById('pn').value.trim(),c=document.getElementById('pc').value,p=Number(document.getElementById('pp').value),i=document.getElementById('pi').value.trim()||'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=70';if(!n||!p)return alert('নাম ও দাম দিন');P.push({id:Date.now(),n,c,p,i});save();document.getElementById('pn').value='';document.getElementById('pp').value='';document.getElementById('pi').value='';render();alert('পণ্য যোগ হয়েছে')}
-function renderSeller(){document.getElementById('sellerProducts').textContent=P.length;document.getElementById('sellerOrders').textContent=orders.length;document.getElementById('sellerList').innerHTML=P.slice(starter.length).map(x=>`<div class="item"><img src="${x.i}"><div>${x.n}<br>৳${x.p}</div></div>`).join('')||'<span class="muted">আপনার যোগ করা পণ্য নেই</span>'}
+function renderSeller(){let sellerItems=P.slice(starter.length);
+document.getElementById('sellerProducts').textContent=sellerItems.length; document.getElementById('sellerOrders').textContent=orders.length;document.getElementById('sellerList').innerHTML=P.slice(starter.length).map(x=>`<div class="item"><img src="${x.i}"><div>${x.n}<br>৳${x.p}</div></div>`).join('')||'<span class="muted">আপনার যোগ করা পণ্য নেই</span>'}
 function renderAdmin(){let sales=orders.reduce((s,o)=>s+o.total,0);document.getElementById('aProducts').textContent=P.length;document.getElementById('aOrders').textContent=orders.length;document.getElementById('aSales').textContent='৳'+sales;document.getElementById('aCommission').textContent='৳'+Math.round(sales*.05);document.getElementById('adminOrders').innerHTML=orders.map(o=>`<tr><td>#${o.no}</td><td>৳${o.total}</td><td><button class="secondary" onclick="statusChange('${o.no}')">${o.status}</button></td></tr>`).join('')}
 function statusChange(no){let o=orders.find(x=>x.no===no);if(!o)return;let states=['নতুন','গ্রহণ করা হয়েছে','প্রস্তুত হচ্ছে','ডেলিভারিতে','সম্পন্ন'];o.status=states[(states.indexOf(o.status)+1)%states.length];save();renderAdmin();renderOrders()}
 function show(id){['home','shop','cart','orders','profile','seller','admin'].forEach(x=>document.getElementById(x).classList.toggle('hidden',x!==id));render()}
