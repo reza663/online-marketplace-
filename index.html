@@ -98,7 +98,7 @@ function card(x){return `<div class="card"><img src="${x.i}"><b>${x.n}</b><div c
 function render(){P=starter.concat(JSON.parse(localStorage.getItem('es_products')||'[]'));let q=(document.getElementById('q').value||'').toLowerCase();let a=P.filter(x=>(cat==='সব'||x.c===cat)&&x.n.toLowerCase().includes(q));document.getElementById('products').innerHTML=a.map(card).join('')||'কোনো পণ্য নেই';document.getElementById('homeProducts').innerHTML=P.slice(0,4).map(card).join('');document.getElementById('catLabel').textContent=cat;renderCart();renderOrders();renderSeller();renderAdmin()}
 function add(id){let x=cart.find(a=>a.id===id);x?x.q++:cart.push({id,q:1});save();renderCart();alert('কার্টে যোগ হয়েছে')}
 function renderCart(){let b=document.getElementById('cartItems'),t=0;if(!cart.length){b.innerHTML='<div class="card">কার্ট খালি</div>';document.getElementById('total').textContent='৳0';return}b.innerHTML=cart.map(x=>{let p=P.find(a=>a.id===x.id);t+=p.p*x.q;return `<div class="item"><img src="${p.i}"><div>${p.n}<br>৳${p.p} × ${x.q}</div></div>`}).join('');document.getElementById('total').textContent='৳'+t}
-function order(){function order(){
+function order(){
   if(!cart.length) return alert('কার্ট খালি');
 
   let pay = document.getElementById('payment').value;
@@ -116,8 +116,20 @@ function order(){function order(){
   render();
   show('orders');
   alert('অর্ডার সফল!');
-} });cart=[];save();render();show('orders');alert('ডেমো অর্ডার তৈরি হয়েছে')}
-function renderOrders(){document.getElementById('ordersList').innerHTML=orders.length?orders.map(o=>`<div class="card"><b>#${o.no}</b><div>মোট: ৳${o.total}</div><div>${o.status}</div></div>`).join(''):'<div class="card">কোনো অর্ডার নেই</div>'}
+}
+
+function renderOrders(){
+  document.getElementById('ordersList').innerHTML =
+    orders.length
+      ? orders.map(o => `
+        <div class="card">
+          <b>#${o.no}</b>
+          <div>মোট: ৳${o.total}</div>
+          <div>পেমেন্ট: ${o.payment || 'Cash on Delivery'}</div>
+          <div>${o.status}</div>
+        </div>`).join('')
+      : '<div class="card">কোনো অর্ডার নেই</div>';
+} functionnrenderOrders(){document.getElementById('ordersList').innerHTML=orders.length?orders.map(o=>`<div class="card"><b>#${o.no}</b><div>মোট: ৳${o.total}</div><div>${o.status}</div></div>`).join(''):'<div class="card">কোনো অর্ডার নেই</div>'}
 function addProduct(){let n=document.getElementById('pn').value.trim(),c=document.getElementById('pc').value,p=Number(document.getElementById('pp').value),i=document.getElementById('pi').value.trim()||'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=70';if(!n||!p)return alert('নাম ও দাম দিন');P.push({id:Date.now(),n,c,p,i});save();document.getElementById('pn').value='';document.getElementById('pp').value='';document.getElementById('pi').value='';render();alert('পণ্য যোগ হয়েছে')}
 function renderSeller(){let sellerItems=P.slice(starter.length);
 document.getElementById('sellerProducts').textContent=sellerItems.length; document.getElementById('sellerOrders').textContent=orders.length;document.getElementById('sellerList').innerHTML=P.slice(starter.length).map(x=>`<div class="item"><img src="${x.i}"><div>${x.n}<br>৳${x.p}</div></div>`).join('')||'<span class="muted">আপনার যোগ করা পণ্য নেই</span>'}
