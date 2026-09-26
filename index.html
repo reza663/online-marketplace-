@@ -133,7 +133,9 @@ function renderOrders(){
           <b>#${o.no}</b>
           <div>মোট: ৳${o.total}</div>
           <div>পেমেন্ট: ${o.payment || 'Cash on Delivery'}</div>
-          <div>${o.status}</div>
+<div>Transaction ID: ${o.trxId || 'N/A'}</div>
+<div>${o.status}</div>
+      
         </div>`).join('')
       : '<div class="card">কোনো অর্ডার নেই</div>';
 }
