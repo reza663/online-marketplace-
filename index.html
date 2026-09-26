@@ -201,6 +201,9 @@ function renderAdmin(){
   document.getElementById("payNumber").textContent = text;
 }
 function show(id){['home','shop','cart','orders','profile','seller','admin'].forEach(x=>document.getElementById(x).classList.toggle('hidden',x!==id));render()}
+  localStorage.removeItem('es_products');
+localStorage.removeItem('es_cart');
+localStorage.removeItem('es_orders');
 render();
 function getProductImage(name){
   name = name.toLowerCase();
