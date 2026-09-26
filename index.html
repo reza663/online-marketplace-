@@ -148,6 +148,9 @@ function renderOrders(){
           <b>#${o.no}</b>
           <div>মোট: ৳${o.total}</div>
           <div>পেমেন্ট: ${o.payment || 'Cash on Delivery'}</div>
+          <div>নাম: ${o.name || ''}</div>
+<div>মোবাইল: ${o.phone || ''}</div>
+<div>ঠিকানা: ${o.address || ''}</div>
 <div>Transaction ID: ${o.trxId || 'N/A'}</div>
 <div>${o.status}</div>
       
@@ -189,7 +192,7 @@ function renderAdmin(){
   document.getElementById("payNumber").textContent = text;
 }
 function show(id){['home','shop','cart','orders','profile','seller','admin'].forEach(x=>document.getElementById(x).classList.toggle('hidden',x!==id));render()}
-;render();
+render();
 updatePaymentNumber();
 </script>
 </body></html>
