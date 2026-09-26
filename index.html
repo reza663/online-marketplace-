@@ -202,10 +202,16 @@ function renderAdmin(){
 }
 function show(id){['home','shop','cart','orders','profile','seller','admin'].forEach(x=>document.getElementById(x).classList.toggle('hidden',x!==id));render()}
 render();
+  function getProductImage(name){
+  name = name.toLowerCase();
+
+  if(name.includes("শার্ট")) return "https://via.placeholder.com/300x300?text=Shirt";
+  if(name.includes("ফোন")) return "https://via.placeholder.com/300x300?text=Phone";
+  if(name.includes("ল্যাপটপ")) return "https://via.placeholder.com/300x300?text=Laptop";
+  if(name.includes("জুতা")) return "https://via.placeholder.com/300x300?text=Shoe";
+
+  return "https://via.placeholder.com/300x300?text=Product";
+}
 updatePaymentNumber();
-</script>
-  <script>
-  // ক্যাটাগরি অনুযায়ী ছবি পরে এখানে যোগ করব
-  console.log("EkSathe App v3");
 </script>
 </body></html>
