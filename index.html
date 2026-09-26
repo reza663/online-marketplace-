@@ -108,7 +108,9 @@ function add(id){let x=cart.find(a=>a.id===id);x?x.q++:cart.push({id,q:1});save(
 function renderCart(){let b=document.getElementById('cartItems'),t=0;if(!cart.length){b.innerHTML='<div class="card">কার্ট খালি</div>';document.getElementById('total').textContent='৳0';return}b.innerHTML=cart.map(x=>{let p=P.find(a=>a.id===x.id);t+=p.p*x.q;return `<div class="item"><img src="${p.i}"><div>${p.n}<br>৳${p.p} × ${x.q}</div></div>`}).join('');document.getElementById('total').textContent='৳'+t}
 function order(){
   if(!cart.length) return alert('কার্ট খালি');
-
+let name = document.getElementById("customerName").value.trim();
+let phone = document.getElementById("customerPhone").value.trim();
+let address = document.getElementById("customerAddress").value.trim();
   let pay = document.getElementById('payment').value;
   let trx = document.getElementById('trxId').value.trim();
 
