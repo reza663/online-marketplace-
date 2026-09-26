@@ -40,7 +40,7 @@ table{width:100%;border-collapse:collapse;font-size:13px}td,th{padding:8px;borde
 
 <section id="cart" class="hidden"><h2>কার্ট</h2><div id="cartItems"></div>
   <h3>পেমেন্ট মাধ্যম</h3>
-<select id="payment">
+<select id="payment" onchange="updatePaymentNumber()">
   <option>Cash on Delivery</option>
   <option>bKash</option>
   <option>Nagad</option>
