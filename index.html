@@ -178,9 +178,13 @@ function renderAdmin(){
   <small>📞 ${o.phone || 'N/A'}</small><br>
   <small>📍 ${o.address || 'N/A'}</small><br>
   <small>💳 TRX: ${o.trxId || 'N/A'}</small>
-</td> 
-   <button class="secondary" onclick="statusChange('${o.no}')">${o.status}</button>
-      </td>
+</td>
+
+<td>৳${o.total}</td>
+
+<td>
+  <button class="secondary" onclick="statusChange('${o.no}')">${o.status}</button>
+</td>
     </tr>
   `).join('');
 }  function updatePaymentNumber(){
