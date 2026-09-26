@@ -160,7 +160,7 @@ function renderOrders(){
         </div>`).join('')
       : '<div class="card">কোনো অর্ডার নেই</div>';
 }
-function addProduct(){let n=document.getElementById('pn').value.trim(),c=document.getElementById('pc').value,p=Number(document.getElementById('pp').value),i = document.getElementById('pi').value.trim() || 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800';if(!n||!p)return alert('নাম ও দাম দিন');P.push({id:Date.now(),n,c,p,i});save();document.getElementById('pn').value='';document.getElementById('pp').value='';document.getElementById('pi').value='';render();alert('পণ্য যোগ হয়েছে')}
+function addProduct(){let n=document.getElementById('pn').value.trim(),c=document.getElementById('pc').value,p=Number(document.getElementById('pp').value),i = document.getElementById('pi').value.trim() || getProductImage(n);if(!n||!p)return alert('নাম ও দাম দিন');P.push({id:Date.now(),n,c,p,i});save();document.getElementById('pn').value='';document.getElementById('pp').value='';document.getElementById('pi').value='';render();alert('পণ্য যোগ হয়েছে')}
 function renderSeller(){let sellerItems=P.slice(starter.length);
 document.getElementById('sellerProducts').textContent=sellerItems.length; document.getElementById('sellerOrders').textContent=orders.length;document.getElementById('sellerList').innerHTML=P.slice(starter.length).map(x=>`<div class="item"><img src="${x.i}"><div>${x.n}<br>৳${x.p}</div></div>`).join('')||'<span class="muted">আপনার যোগ করা পণ্য নেই</span>'}
  function statusChange(no){let o=orders.find(x=>x.no===no);if(!o)return;let states=['নতুন','গ্রহণ করা হয়েছে','প্রস্তুত হচ্ছে','ডেলিভারিতে','সম্পন্ন'];o.status=states[(states.indexOf(o.status)+1)%states.length];save();renderAdmin();renderOrders()}
