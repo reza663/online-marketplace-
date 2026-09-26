@@ -178,6 +178,7 @@ function renderAdmin(){
   document.getElementById("payNumber").textContent = text;
 }
 function show(id){['home','shop','cart','orders','profile','seller','admin'].forEach(x=>document.getElementById(x).classList.toggle('hidden',x!==id));render()}
-render();
+render();render();
+updatePaymentNumber();
 </script>
 </body></html>
