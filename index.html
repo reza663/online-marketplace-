@@ -146,7 +146,18 @@ function renderOrders(){
 function addProduct(){let n=document.getElementById('pn').value.trim(),c=document.getElementById('pc').value,p=Number(document.getElementById('pp').value),i=document.getElementById('pi').value.trim()||'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=70';if(!n||!p)return alert('নাম ও দাম দিন');P.push({id:Date.now(),n,c,p,i});save();document.getElementById('pn').value='';document.getElementById('pp').value='';document.getElementById('pi').value='';render();alert('পণ্য যোগ হয়েছে')}
 function renderSeller(){let sellerItems=P.slice(starter.length);
 document.getElementById('sellerProducts').textContent=sellerItems.length; document.getElementById('sellerOrders').textContent=orders.length;document.getElementById('sellerList').innerHTML=P.slice(starter.length).map(x=>`<div class="item"><img src="${x.i}"><div>${x.n}<br>৳${x.p}</div></div>`).join('')||'<span class="muted">আপনার যোগ করা পণ্য নেই</span>'}
-function renderAdmin(){let sales=orders.reduce((s,o)=>s+o.total,0);document.getElementById('aProducts').textContent=P.length;document.getElementById('aOrders').textContent=orders.length;document.getElementById('aSales').textContent='৳'+sales;document.getElementById('aCommission').textContent='৳'+Math.round(sales*.05);document.getElementById('adminOrders').innerHTML=orders.map(o=>`<tr><td>#${o.no}</td><td>৳${o.total}</td><td><button class="secondary" onclick="statusChange('${o.no}')">${o.status}</button></td></tr>`).join('')}
+function renderAdmin(){let sales=orders.reduce((s,o)=>s+o.total,0);document.getElementById('aProducts').textContent=P.length;document.getElementById('aOrders').textContent=orders.length;document.getElementById('aSales').textContent='৳'+sales;document.getElementById('aCommission').textContent='৳'+Math.round(sales*.05)document.getElementById('adminOrders').innerHTML = orders.map(o => `
+  <tr>
+    <td>
+      #${o.no}<br>
+      <small>TRX: ${o.trxId || 'N/A'}</small>
+    </td>
+    <td>৳${o.total}</td>
+    <td>
+      <button class="secondary" onclick="statusChange('${o.no}')">${o.status}</button>
+    </td>
+  </tr>
+`).join(''); <button class="secondary" onclick="statusChange('${o.no}')">${o.status}</button></td></tr>`).join('')}
 function statusChange(no){let o=orders.find(x=>x.no===no);if(!o)return;let states=['নতুন','গ্রহণ করা হয়েছে','প্রস্তুত হচ্ছে','ডেলিভারিতে','সম্পন্ন'];o.status=states[(states.indexOf(o.status)+1)%states.length];save();renderAdmin();renderOrders()}
   function updatePaymentNumber(){
   let pay = document.getElementById("payment").value;
