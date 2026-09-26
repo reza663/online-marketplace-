@@ -117,15 +117,24 @@ let address = document.getElementById("customerAddress").value.trim();
 if (pay !== "Cash on Delivery" && !trx) {
   return alert("Transaction ID লিখুন");
 }
+  if(!name || !phone || !address){
+  return alert("নাম, মোবাইল নম্বর ও ঠিকানা লিখুন");
+}
   let t = cart.reduce((s,x)=>s + P.find(p=>p.id===x.id).p * x.q, 0);
 
   orders.unshift({
     no:'EK'+Date.now().toString().slice(-7),
     total:t,
     payment:pay,
+    name:name,
+phone:phone,
+address:address,
     trxId:trx,
     status:'নতুন'
   });
+  name:name,
+phone:phone,
+address:address,
 
   cart = [];
   save();
