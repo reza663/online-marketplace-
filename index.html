@@ -104,7 +104,7 @@ let P=starter.concat(custom),cart=JSON.parse(localStorage.getItem('es_cart')||'[
 function save(){localStorage.setItem('es_products',JSON.stringify(P.slice(starter.length)));localStorage.setItem('es_cart',JSON.stringify(cart));localStorage.setItem('es_orders',JSON.stringify(orders))}
 function card(x){return `<div class="card"><img src="${x.i}"><b>${x.n}</b><div class="muted">${x.c}</div><div class="price">৳${x.p}</div><button onclick="add(${x.id})">কার্টে যোগ</button></div>`}
 function render(){P=starter.concat(JSON.parse(localStorage.getItem('es_products')||'[]'));let q=(document.getElementById('q').value||'').toLowerCase();let a=P.filter(x=>(cat==='সব'||x.c===cat)&&x.n.toLowerCase().includes(q));document.getElementById('products').innerHTML=a.map(card).join('')||'কোনো পণ্য নেই';document.getElementById('homeProducts').innerHTML=P.slice(0,4).map(card).join('');document.getElementById('catLabel').textContent=cat;renderCart();renderOrders();renderSeller();renderAdmin()}
-function add(id){let x=cart.find(a=>a.id===id);x?x.q++:cart.push({id,q:1});save();renderCart();alert('কার্টে যোগ হয়েছে')}
+function add(id){let x=cart.find(a=>a.id===id);x?x.q++:cart.push({id:id, q:1});save();renderCart();alert('কার্টে যোগ হয়েছে')}
 function renderCart(){let b=document.getElementById('cartItems'),t=0;if(!cart.length){b.innerHTML='<div class="card">কার্ট খালি</div>';document.getElementById('total').textContent='৳0';return}b.innerHTML=cart.map(x=>{let p=P.find(a=>a.id===x.id);t+=p.p*x.q;return `<div class="item"><img src="${p.i}"><div>${p.n}<br>৳${p.p} × ${x.q}</div></div>`}).join('');document.getElementById('total').textContent='৳'+t}
 function order(){
   if(!cart.length) return alert('কার্ট খালি');
@@ -132,7 +132,10 @@ address:address,
     trxId:trx,
     status:'নতুন'
   });
-
+document.getElementById("customerName").value = "";
+document.getElementById("customerPhone").value = "";
+document.getElementById("customerAddress").value = "";
+document.getElementById("trxId").value = "";
   cart = [];
   save();
   render();
