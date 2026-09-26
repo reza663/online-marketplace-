@@ -171,12 +171,18 @@ function renderAdmin(){
 
   document.getElementById('adminOrders').innerHTML = orders.map(o => `
     <tr>
-      <td>
-        #${o.no}<br>
-        <small>TRX: ${o.trxId || 'N/A'}</small>
-      </td>
-      <td>৳${o.total}</td>
-      <td>
+      
+       <td>
+  #${o.no}<br>
+  <small>👤 ${o.name || 'N/A'}</small><br>
+  <small>📞 ${o.phone || 'N/A'}</small><br>
+  <small>📍 ${o.address || 'N/A'}</small><br>
+  <small>💳 TRX: ${o.trxId || 'N/A'}</small>
+</td> 
+        
+      
+    
+  
         <button class="secondary" onclick="statusChange('${o.no}')">${o.status}</button>
       </td>
     </tr>
