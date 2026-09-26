@@ -114,6 +114,7 @@ if (pay !== "Cash on Delivery" && !trx) {
     no:'EK'+Date.now().toString().slice(-7),
     total:t,
     payment:pay,
+    trxId:trx,
     status:'নতুন'
   });
 
