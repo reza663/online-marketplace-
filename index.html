@@ -179,11 +179,7 @@ function renderAdmin(){
   <small>📍 ${o.address || 'N/A'}</small><br>
   <small>💳 TRX: ${o.trxId || 'N/A'}</small>
 </td> 
-        
-      
-    
-  
-        <button class="secondary" onclick="statusChange('${o.no}')">${o.status}</button>
+   <button class="secondary" onclick="statusChange('${o.no}')">${o.status}</button>
       </td>
     </tr>
   `).join('');
