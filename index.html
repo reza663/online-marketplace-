@@ -184,7 +184,10 @@ function addProduct(){
     document.getElementById('pi').value='';
     render();
     alert('পণ্য যোগ হয়েছে');
-  };
+    };
+
+  reader.readAsDataURL(file);
+}
 function renderSeller(){
   let sellerItems = P.slice(starter.length);
 
