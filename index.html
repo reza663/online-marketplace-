@@ -184,7 +184,10 @@ function addProduct(){
     document.getElementById('pi').value='';
     render();
     alert('পণ্য যোগ হয়েছে');
-    };
+  }; 
+reader.onerror = function(){
+  alert("ছবি লোড হয়নি");
+  };
 
   reader.readAsDataURL(file);
 }
