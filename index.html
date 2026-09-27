@@ -247,7 +247,9 @@ function renderAdmin(){
 </td>
     </tr>
   `).join('');
-}  function updatePaymentNumber(){
+}  
+  
+  function updatePaymentNumber(){
   let pay = document.getElementById("payment").value;
   let text = "Cash on Delivery নির্বাচিত";
 
@@ -257,8 +259,11 @@ function renderAdmin(){
 
   document.getElementById("payNumber").textContent = text;
 }
-function show(id){['home','shop','cart','orders','profile','seller','admin'].forEach(x=>document.getElementById(x).classList.toggle('hidden',x!==id));render()}
-render();
+function show(id){
+  ['home','shop','cart','orders','profile','seller','admin']
+    .forEach(x => document.getElementById(x).classList.toggle('hidden', x !== id));
+  render();
+}
 function getProductImage(name){
   name = name.toLowerCase();
 
