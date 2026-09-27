@@ -162,35 +162,40 @@ function renderOrders(){
         </div>`).join('')
       : '<div class="card">কোনো অর্ডার নেই</div>';
 }
-function addProduct(){
+  function addProduct(){
   let n = document.getElementById('pn').value.trim();
   let c = document.getElementById('pc').value;
   let p = Number(document.getElementById('pp').value);
-
   let file = document.getElementById('pi').files[0];
-  if(!n || !p || !file) return alert('নাম, দাম ও ছবি দিন');
+
+  if(!n || !p || !file){
+    return alert("নাম, দাম ও ছবি দিন");
+  }
 
   let reader = new FileReader();
-  reader.onload; = function(e){
+
+  reader.onload = function(e){
     P.push({
       id: Date.now(),
-      n, c, p,
+      n: n,
+      c: c,
+      p: p,
       i: e.target.result
     });
 
     save();
-    document.getElementById('pn').value='';
-    document.getElementById('pp').value='';
-    document.getElementById('pi').value='';
     render();
-    alert('পণ্য যোগ হয়েছে');
-  }; 
-reader.onerror = function(){
-  alert("ছবি লোড হয়নি");
+    alert("পণ্য যোগ হয়েছে");
+
+    document.getElementById('pn').value = "";
+    document.getElementById('pp').value = "";
+    document.getElementById('pi').value = "";
   };
 
   reader.readAsDataURL(file);
-}
+};
+  
+
 function renderSeller(){
   let sellerItems = P.slice(starter.length);
 
@@ -203,21 +208,18 @@ function renderSeller(){
         <img src="${x.i}">
         <div>
           ${x.n}<br>
-          ৳${x.p}<br><br>
-          <button class="danger" onclick="deleteProduct(${x.id})">🗑️ ডিলিট</button>
+          ৳${x.p}<br>
+          <button class="danger" onclick="deleteProduct(${x.id})">ডিলিট</button>
         </div>
       </div>
     `).join('') || '<span class="muted">আপনার যোগ করা পণ্য নেই</span>';
-}
-  function deleteProduct(id){
+function deleteProduct(id){
   P = P.filter(x => x.id !== id);
   save();
   render();
   alert("পণ্য ডিলিট হয়েছে");
 }
-  reader.readAsDataURL(file);
-}
-function statusChange(no){let o=orders.find(x=>x.no===no);if(!o)return;let states=['নতুন','গ্রহণ করা হয়েছে','প্রস্তুত হচ্ছে','ডেলিভারিতে','সম্পন্ন'];o.status=states[(states.indexOf(o.status)+1)%states.length];save();renderAdmin();renderOrders()}
+fnction statusChange(no){let o=orders.find(x=>x.no===no);if(!o)return;let states=['নতুন','গ্রহণ করা হয়েছে','প্রস্তুত হচ্ছে','ডেলিভারিতে','সম্পন্ন'];o.status=states[(states.indexOf(o.status)+1)%states.length];save();renderAdmin();renderOrders()}
 function renderAdmin(){
   let sales = orders.reduce((s,o)=>s+o.total,0);
 
