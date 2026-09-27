@@ -124,6 +124,7 @@ if (pay !== "Cash on Delivery" && !trx) {
 
   orders.unshift({
     no:'EK'+Date.now().toString().slice(-7),
+    items: [...cart],
     total:t,
     payment:pay,
     name:name,
