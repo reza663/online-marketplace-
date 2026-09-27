@@ -185,7 +185,12 @@ function addProduct(){
     render();
     alert('পণ্য যোগ হয়েছে');
   };
-
+function deleteProduct(id){
+  P = P.filter(x => x.id !== id);
+  save();
+  render();
+  alert("পণ্য ডিলিট হয়েছে");
+}
   reader.readAsDataURL(file);
 }
 function renderSeller(){let sellerItems=P.slice(starter.length);
