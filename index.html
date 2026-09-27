@@ -135,6 +135,32 @@ const starter=[
 {id:13,n:'স্প্রাইট 250ml',c:'খাবার',p:40,i:'https://images.unsplash.com/photo-1624517452488-04869289c4ca?auto=format&fit=crop&w=500&q=70'},
 
 {id:14,n:'মিনারেল পানি 500ml',c:'খাবার',p:20,i:'https://images.unsplash.com/photo-1564419320461-6870880221ad?auto=format&fit=crop&w=500&q=70'},];
+  const biryani = [
+  { name: "কাচ্চি বিরিয়ানি", price: 260 },
+  { name: "চিকেন বিরিয়ানি", price: 180 },
+  { name: "তেহারি", price: 160 },
+  { name: "খিচুড়ি + চিকেন", price: 170 }
+];
+
+const burger = [
+  { name: "চিকেন বার্গার", price: 160 },
+  { name: "বিফ বার্গার", price: 220 },
+  { name: "চিজ বার্গার", price: 190 }
+];
+
+const pizza = [
+  { name: "চিকেন পিজ্জা (ছোট)", price: 280 },
+  { name: "চিকেন পিজ্জা (মিডিয়াম)", price: 480 },
+  { name: "চিকেন পিজ্জা (লার্জ)", price: 750 }
+];
+
+const softDrinks = [
+  { name: "কোক ২৫০ml", price: 25 },
+  { name: "স্প্রাইট ২৫০ml", price: 25 },
+  { name: "ফান্টা ২৫০ml", price: 25 },
+  { name: "পেপসি ২৫০ml", price: 25 },
+  { name: "মোজো ২৫০ml", price: 25 }
+];
 let custom=JSON.parse(localStorage.getItem('es_products')||'[]');
 let P=starter.concat(custom),cart=JSON.parse(localStorage.getItem('es_cart')||'[]'),orders=JSON.parse(localStorage.getItem('es_orders')||'[]'),cat='সব';
 
