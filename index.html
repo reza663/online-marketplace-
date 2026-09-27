@@ -162,7 +162,14 @@ const softDrinks = [
   { name: "মোজো ২৫০ml", price: 25 }
 ];
 let custom=JSON.parse(localStorage.getItem('es_products')||'[]');
-let P=starter.concat(custom),cart=JSON.parse(localStorage.getItem('es_cart')||'[]'),orders=JSON.parse(localStorage.getItem('es_orders')||'[]'),cat='সব';
+let P = starter
+  .concat(biryani)
+  .concat(burger)
+  .concat(pizza)
+  .concat(softDrinks)
+  .concat(custom),
+cart = JSON.parse(localStorage.getItem('es_cart') || '[]'),
+orders = JSON.parse(localStorage.getItem('es_orders') || '[]');
 
 function save(){localStorage.setItem('es_products',JSON.stringify(P.slice(starter.length)));localStorage.setItem('es_cart',JSON.stringify(cart));localStorage.setItem('es_orders',JSON.stringify(orders))}
 function card(x){return `<div class="card"><img src="${x.i}"><b>${x.n}</b><div class="muted">${x.c}</div><div class="price">৳${x.p}</div><button onclick="add(${x.id})">কার্টে যোগ</button></div>`}
