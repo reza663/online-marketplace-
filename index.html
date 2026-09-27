@@ -213,13 +213,14 @@ function renderSeller(){
         </div>
       </div>
     `).join('') || '<span class="muted">আপনার যোগ করা পণ্য নেই</span>';
+}
 function deleteProduct(id){
   P = P.filter(x => x.id !== id);
   save();
   render();
   alert("পণ্য ডিলিট হয়েছে");
 }
-fnction statusChange(no){let o=orders.find(x=>x.no===no);if(!o)return;let states=['নতুন','গ্রহণ করা হয়েছে','প্রস্তুত হচ্ছে','ডেলিভারিতে','সম্পন্ন'];o.status=states[(states.indexOf(o.status)+1)%states.length];save();renderAdmin();renderOrders()}
+function statusChange(no){let o=orders.find(x=>x.no===no);if(!o)return;let states=['নতুন','গ্রহণ করা হয়েছে','প্রস্তুত হচ্ছে','ডেলিভারিতে','সম্পন্ন'];o.status=states[(states.indexOf(o.status)+1)%states.length];save();renderAdmin();renderOrders()}
 function renderAdmin(){
   let sales = orders.reduce((s,o)=>s+o.total,0);
 
