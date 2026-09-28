@@ -1,345 +1,368 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>একসাথে — Smart Shopping App</title>
 
 <style>
 *{box-sizing:border-box}
+
 body{
   margin:0;
   font-family:Arial,"Noto Sans Bengali",sans-serif;
   background:#f4f7f5;
   color:#17352b;
 }
-button,input,select,textarea{font:inherit}
-button{cursor:pointer}
+
 header{
   position:sticky;
   top:0;
   z-index:50;
   background:#087f5b;
   color:white;
-  padding:12px;
+  padding:12px 14px;
   box-shadow:0 2px 10px #0002;
 }
-.head{
-  max-width:1100px;
-  margin:auto;
+
+.top{
   display:flex;
   align-items:center;
-  gap:10px;
+  justify-content:space-between;
+  gap:8px;
 }
+
 .logo{
   font-size:23px;
-  font-weight:bold;
-  flex:1;
+  font-weight:800;
 }
-.lang{
+
+.header-actions{
+  display:flex;
+  gap:7px;
+  align-items:center;
+}
+
+.hbtn{
   border:0;
   background:white;
   color:#087f5b;
   border-radius:20px;
-  padding:7px 12px;
+  padding:7px 11px;
   font-weight:bold;
 }
-.cartBtn{
-  border:0;
-  background:#075f45;
-  color:white;
-  border-radius:20px;
-  padding:8px 12px;
-}
-.container{
-  max-width:1100px;
-  margin:auto;
-  padding:15px;
-}
+
 .search{
+  margin-top:10px;
+}
+
+.search input{
   width:100%;
-  padding:13px 16px;
-  border:1px solid #d6dfda;
-  border-radius:14px;
+  padding:12px 14px;
+  border:0;
+  border-radius:12px;
   outline:none;
+  font-size:15px;
+}
+
+nav{
+  position:sticky;
+  top:112px;
+  z-index:40;
   background:white;
+  display:flex;
+  overflow:auto;
+  gap:8px;
+  padding:9px;
+  border-bottom:1px solid #ddd;
+}
+
+nav button{
+  border:1px solid #cfe4da;
+  background:#fff;
+  color:#176047;
+  padding:8px 13px;
+  border-radius:20px;
+  white-space:nowrap;
+}
+
+nav button.active{
+  background:#087f5b;
+  color:white;
+}
+
+main{
+  padding:14px;
+  max-width:1000px;
+  margin:auto;
+}
+
+.page-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
   margin-bottom:12px;
 }
-.categories{
-  display:flex;
-  gap:8px;
-  overflow-x:auto;
-  padding-bottom:8px;
+
+.page-title h2{
+  margin:0;
+  font-size:21px;
 }
-.categories button{
-  white-space:nowrap;
-  border:1px solid #cbd9d3;
-  background:white;
-  color:#17664f;
-  border-radius:20px;
-  padding:8px 13px;
-}
-.categories button.active{
-  background:#087f5b;
-  color:white;
-}
-.section{display:none}
-.section.active{display:block}
-.hero{
-  background:linear-gradient(135deg,#087f5b,#12a06f);
-  color:white;
-  border-radius:20px;
-  padding:22px;
-  margin:10px 0 18px;
-}
-.hero h1{margin:0 0 8px;font-size:26px}
-.hero p{margin:0;line-height:1.6}
+
 .grid{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:14px;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
 }
+
 .card{
   background:white;
-  border-radius:18px;
+  border-radius:16px;
   overflow:hidden;
-  box-shadow:0 3px 14px #0000000d;
-  border:1px solid #e5ebe8;
+  box-shadow:0 3px 12px #00000012;
 }
+
 .product-img{
   width:100%;
-  height:190px;
-  object-fit:cover;
+  height:175px;
+  object-fit:contain;
+  background:#f7faf8;
   display:block;
-  background:#eef3f0;
 }
-.cardBody{padding:12px}
+
+.card-body{
+  padding:11px;
+}
+
 .card h3{
-  margin:0 0 6px;
+  margin:0 0 5px;
   font-size:16px;
 }
-.small{
+
+.cat{
   font-size:12px;
-  color:#708079;
+  color:#6b7d76;
+  margin-bottom:6px;
 }
+
 .price{
-  font-size:20px;
-  font-weight:bold;
   color:#087f5b;
-  margin:8px 0;
+  font-size:18px;
+  font-weight:800;
 }
-.add{
-  width:100%;
-  border:0;
+
+.card-actions{
+  display:flex;
+  gap:6px;
+  margin-top:9px;
+}
+
+button{
+  cursor:pointer;
+}
+
+.primary{
   background:#087f5b;
   color:white;
-  padding:10px;
-  border-radius:11px;
+  border:0;
+  border-radius:9px;
+  padding:9px 12px;
   font-weight:bold;
 }
-.panel{
+
+.secondary{
+  background:#e9f5f0;
+  color:#087f5b;
+  border:0;
+  border-radius:9px;
+  padding:9px 12px;
+  font-weight:bold;
+}
+
+.danger{
+  background:#ffe9e9;
+  color:#b42318;
+  border:0;
+  border-radius:9px;
+  padding:8px 11px;
+  font-weight:bold;
+}
+
+.full{
+  width:100%;
+}
+
+.section{
   background:white;
-  border-radius:18px;
-  padding:16px;
-  margin-bottom:15px;
-  box-shadow:0 2px 12px #0000000b;
+  padding:14px;
+  border-radius:15px;
+  margin-bottom:13px;
+  box-shadow:0 2px 10px #0000000d;
 }
-.panel h2,.panel h3{margin-top:0}
-.row{
-  display:flex;
-  gap:8px;
-  align-items:center;
+
+.section h3{
+  margin-top:0;
 }
-.row>*{flex:1}
+
 input,select,textarea{
   width:100%;
-  border:1px solid #ccd8d3;
-  border-radius:10px;
   padding:11px;
-  background:white;
+  border:1px solid #ccd9d3;
+  border-radius:9px;
+  margin:5px 0 9px;
+  font-size:15px;
   outline:none;
 }
-textarea{min-height:85px;resize:vertical}
-.primary{
-  border:0;
-  background:#087f5b;
-  color:white;
-  padding:11px 15px;
-  border-radius:10px;
-  font-weight:bold;
+
+textarea{
+  min-height:80px;
+  resize:vertical;
 }
-.danger{
-  border:0;
-  background:#d94841;
-  color:white;
-  padding:9px 12px;
-  border-radius:9px;
-}
-.muted{
-  border:1px solid #cbd8d2;
-  background:white;
-  color:#17664f;
-  padding:9px 12px;
-  border-radius:9px;
-}
-.cartItem{
-  display:flex;
-  gap:12px;
-  align-items:center;
-  border-bottom:1px solid #e8eeeb;
-  padding:12px 0;
-}
-.cartImg{
-  width:70px;
-  height:70px;
+
+.product-row,
+.order-row{
+  border:1px solid #e0e8e4;
   border-radius:12px;
-  object-fit:cover;
+  padding:11px;
+  margin-bottom:9px;
+  background:#fbfdfc;
 }
-.cartInfo{flex:1}
+
+.row-flex{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+}
+
+.small{
+  font-size:12px;
+  color:#6b7d76;
+}
+
 .qty{
   display:flex;
   align-items:center;
-  gap:8px;
+  gap:9px;
 }
+
 .qty button{
-  width:30px;
-  height:30px;
+  width:32px;
+  height:32px;
   border:0;
-  border-radius:50%;
-  background:#e4eee9;
+  border-radius:8px;
+  background:#e7f4ee;
   color:#087f5b;
+  font-size:18px;
   font-weight:bold;
 }
-.total{
-  font-size:22px;
-  font-weight:bold;
-  color:#087f5b;
+
+.empty{
+  text-align:center;
+  padding:35px 10px;
+  color:#71817b;
 }
-.stats{
+
+.profile-icon{
+  font-size:48px;
+  text-align:center;
+  margin-bottom:5px;
+}
+
+.stat-grid{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:10px;
+  grid-template-columns:repeat(2,1fr);
+  gap:9px;
 }
+
 .stat{
-  background:#eef7f3;
-  border-radius:14px;
+  background:#eaf6f1;
+  border-radius:12px;
   padding:14px;
   text-align:center;
 }
+
 .stat b{
   display:block;
   font-size:22px;
   color:#087f5b;
 }
-.adminProduct{
-  display:flex;
-  gap:10px;
-  align-items:center;
-  padding:10px 0;
-  border-bottom:1px solid #e8eeeb;
-}
-.adminProduct img{
-  width:55px;
-  height:55px;
-  border-radius:10px;
-  object-fit:cover;
-}
-.adminProduct .grow{flex:1}
-.priceEdit{
-  display:flex;
-  gap:5px;
-  align-items:center;
-}
-.priceEdit button{
-  width:32px;
-  height:32px;
-  border:0;
-  border-radius:8px;
-  background:#e6f0ec;
-  color:#087f5b;
-  font-weight:bold;
-}
-.priceEdit input{
-  width:90px;
-  text-align:center;
-  padding:7px;
-}
-.order{
-  border:1px solid #dfe8e4;
-  border-radius:14px;
-  padding:13px;
-  margin-bottom:12px;
-}
-.status{
-  display:inline-block;
-  background:#e7f4ee;
-  color:#087f5b;
-  padding:5px 9px;
-  border-radius:15px;
-  font-size:12px;
-}
-.empty{
-  text-align:center;
-  padding:35px 10px;
-  color:#718078;
-}
+
 .bottom{
   position:fixed;
   left:0;
   right:0;
   bottom:0;
-  z-index:60;
   background:white;
-  border-top:1px solid #dfe7e3;
-  display:flex;
-  justify-content:center;
-  box-shadow:0 -3px 12px #0001;
+  border-top:1px solid #ddd;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  z-index:60;
 }
+
 .bottom button{
-  flex:1;
-  max-width:180px;
   border:0;
   background:white;
-  color:#61736b;
-  padding:9px 3px;
-  font-size:12px;
+  padding:8px 2px;
+  color:#52645d;
+  font-size:11px;
 }
+
 .bottom button.active{
   color:#087f5b;
   font-weight:bold;
 }
-.spacer{height:70px}
-.notice{
-  background:#fff8df;
-  border:1px solid #f1df9a;
+
+.bottom span{
+  display:block;
+  font-size:20px;
+}
+
+footer{
+  padding:20px 10px 90px;
+  text-align:center;
+  color:#71817b;
+  font-size:11px;
+}
+
+.lang{
+  font-size:12px;
+}
+
+.badge{
+  display:inline-block;
+  background:#e8f6f0;
+  color:#087f5b;
+  border-radius:20px;
+  padding:5px 9px;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.payment-box{
+  background:#f1faf6;
+  border:1px solid #cce9dc;
   border-radius:12px;
-  padding:11px;
-  margin-bottom:12px;
-  font-size:13px;
+  padding:12px;
+  margin-top:8px;
 }
-@media(max-width:850px){
-  .grid{grid-template-columns:repeat(3,1fr)}
-  .product-img{height:170px}
-  .stats{grid-template-columns:repeat(2,1fr)}
+
+@media(min-width:700px){
+  .grid{
+    grid-template-columns:repeat(4,1fr);
+  }
+  .product-img{
+    height:190px;
+  }
 }
-@media(max-width:600px){
-  .container{padding:10px}
-  .grid{grid-template-columns:repeat(2,1fr);gap:9px}
-  .product-img{height:150px}
-  .cardBody{padding:9px}
-  .card h3{font-size:14px}
-  .price{font-size:18px}
-  .hero{padding:18px}
-  .adminProduct{
-    flex-wrap:wrap;
+
+@media(max-width:360px){
+  .grid{
+    gap:8px;
   }
-  .adminProduct .grow{
-    min-width:55%;
+  .product-img{
+    height:145px;
   }
-  .priceEdit{
-    width:100%;
-  }
-  .priceEdit input{flex:1}
 }
 </style>
 </head>
@@ -347,1422 +370,1447 @@ textarea{min-height:85px;resize:vertical}
 <body>
 
 <header>
-  <div class="head">
+  <div class="top">
     <div class="logo">🛍️ একসাথে</div>
-    <button class="lang" onclick="toggleLang()" id="langBtn">English</button>
-    <button class="cartBtn" onclick="showPage('cart')">
-      🛒 <span id="cartCount">0</span>
-    </button>
+
+    <div class="header-actions">
+      <button class="hbtn" onclick="toggleLang()" id="langBtn">বাংলা</button>
+      <button class="hbtn" onclick="go('cart')">🛒 <span id="cartCount">0</span></button>
+    </div>
+  </div>
+
+  <div class="search">
+    <input id="searchInput"
+      placeholder="পণ্য খুঁজুন..."
+      oninput="renderHome()">
   </div>
 </header>
 
-<div class="container">
+<nav id="categories"></nav>
 
-  <section id="home" class="section active">
-    <div class="hero">
-      <h1 id="heroTitle">একসাথে — আপনার অনলাইন বাজার</h1>
-      <p id="heroText">পছন্দের পণ্য খুঁজুন, কার্টে যোগ করুন এবং সহজে অর্ডার করুন।</p>
-    </div>
+<main id="app"></main>
 
-    <input id="search" class="search" oninput="renderProducts()" placeholder="পণ্য খুঁজুন...">
+<footer>
+  একসাথে — আপনার সহজ অনলাইন শপিং প্ল্যাটফর্ম<br>
+  Product photo sources: Wikimedia Commons
+</footer>
 
-    <div class="categories" id="categories"></div>
+<div class="bottom">
+  <button id="nav-home" onclick="go('home')">
+    <span>🏠</span>হোম
+  </button>
 
-    <div id="productGrid" class="grid"></div>
-  </section>
+  <button id="nav-shop" onclick="go('shop')">
+    <span>🛍️</span>শপ
+  </button>
 
-  <section id="cart" class="section">
-    <div class="panel">
-      <h2 id="cartTitle">🛒 আমার কার্ট</h2>
-      <div id="cartList"></div>
-      <hr>
-      <div class="row">
-        <div>
-          <div class="small" id="totalText">মোট</div>
-          <div class="total" id="cartTotal">৳0</div>
-        </div>
-      </div>
-    </div>
+  <button id="nav-cart" onclick="go('cart')">
+    <span>🛒</span>কার্ট
+  </button>
 
-    <div class="panel">
-      <h3 id="checkoutTitle">📦 অর্ডার তথ্য</h3>
+  <button id="nav-orders" onclick="go('orders')">
+    <span>📦</span>অর্ডার
+  </button>
 
-      <input id="customerName" placeholder="আপনার নাম">
-      <br><br>
-
-      <input id="customerPhone" placeholder="মোবাইল নম্বর">
-      <br><br>
-
-      <textarea id="customerAddress" placeholder="ডেলিভারি ঠিকানা"></textarea>
-      <br><br>
-
-      <select id="payment" onchange="updatePaymentNumber()"></select>
-      <br><br>
-
-      <div id="paymentNumberBox" class="notice"></div>
-
-      <input id="trx" placeholder="Transaction ID (ডিজিটাল পেমেন্ট হলে)">
-
-      <br><br>
-
-      <button class="primary" style="width:100%" onclick="placeOrder()" id="orderBtn">
-        অর্ডার কনফার্ম করুন
-      </button>
-    </div>
-  </section>
-
-  <section id="orders" class="section">
-    <div class="panel">
-      <h2 id="ordersTitle">📦 আমার অর্ডার</h2>
-      <div id="ordersList"></div>
-    </div>
-  </section>
-
-  <section id="profile" class="section">
-    <div class="panel">
-      <h2 id="profileTitle">👤 প্রোফাইল</h2>
-
-      <label id="nameLabel">নাম</label>
-      <input id="profileName">
-
-      <br><br>
-
-      <label id="phoneLabel">মোবাইল</label>
-      <input id="profilePhone">
-
-      <br><br>
-
-      <label id="addressLabel">ঠিকানা</label>
-      <textarea id="profileAddress"></textarea>
-
-      <br><br>
-
-      <button class="primary" onclick="saveProfile()" id="saveProfileBtn">
-        সংরক্ষণ করুন
-      </button>
-    </div>
-
-    <div class="panel">
-      <h3>🏪 Seller Panel</h3>
-      <button class="primary" onclick="showPage('seller')">Seller Panel খুলুন</button>
-    </div>
-
-    <div class="panel">
-      <h3>⚙️ Admin Panel</h3>
-      <button class="primary" onclick="showPage('admin')">Admin Panel খুলুন</button>
-    </div>
-  </section>
-
-  <section id="seller" class="section">
-    <div class="panel">
-      <h2>🏪 Seller Panel</h2>
-      <div class="notice">
-        এখান থেকে নতুন পণ্য যোগ করতে পারবেন এবং আপনার যোগ করা পণ্যের দাম পরিবর্তন করতে পারবেন।
-      </div>
-
-      <input id="sellerName" placeholder="পণ্যের নাম">
-      <br><br>
-
-      <select id="sellerCategory"></select>
-      <br><br>
-
-      <input id="sellerPrice" type="number" min="0" placeholder="দাম">
-      <br><br>
-
-      <input id="sellerImageUrl" placeholder="ছবির URL (ঐচ্ছিক)">
-      <br><br>
-
-      <input id="sellerImageFile" type="file" accept="image/*">
-      <br><br>
-
-      <button class="primary" onclick="addSellerProduct()">
-        ➕ পণ্য যোগ করুন
-      </button>
-    </div>
-
-    <div class="panel">
-      <h3>আপনার যোগ করা পণ্য</h3>
-      <div id="sellerProducts"></div>
-    </div>
-  </section>
-
-  <section id="admin" class="section">
-
-    <div class="panel">
-      <h2>⚙️ Admin Panel</h2>
-
-      <div class="stats">
-        <div class="stat">
-          <b id="statProducts">0</b>
-          <span>পণ্য</span>
-        </div>
-        <div class="stat">
-          <b id="statOrders">0</b>
-          <span>অর্ডার</span>
-        </div>
-        <div class="stat">
-          <b id="statSales">৳0</b>
-          <span>বিক্রি</span>
-        </div>
-        <div class="stat">
-          <b id="statCommission">৳0</b>
-          <span>৫% কমিশন</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="panel">
-      <h3>💰 পণ্যের দাম পরিবর্তন</h3>
-      <div class="notice">
-        + / − চাপলে দাম বাড়বে বা কমবে। চাইলে মাঝের ঘরে সরাসরি নতুন দাম লিখে Save করতে পারবেন।
-      </div>
-      <div id="adminProducts"></div>
-    </div>
-
-    <div class="panel">
-      <h3>💳 Payment Number</h3>
-
-      <label>bKash</label>
-      <input id="bkashNumber">
-
-      <br><br>
-
-      <label>Nagad</label>
-      <input id="nagadNumber">
-
-      <br><br>
-
-      <label>Rocket</label>
-      <input id="rocketNumber">
-
-      <br><br>
-
-      <button class="primary" onclick="savePaymentSettings()">
-        Payment Number সংরক্ষণ
-      </button>
-    </div>
-
-    <div class="panel">
-      <h3>📦 অর্ডার ম্যানেজমেন্ট</h3>
-      <div id="adminOrders"></div>
-    </div>
-
-  </section>
-
-  <div class="spacer"></div>
+  <button id="nav-profile" onclick="go('profile')">
+    <span>👤</span>প্রোফাইল
+  </button>
 </div>
-
-<nav class="bottom">
-  <button onclick="showPage('home')" id="navHome">🏠<br>হোম</button>
-  <button onclick="showPage('cart')" id="navCart">🛒<br>কার্ট</button>
-  <button onclick="showPage('orders')" id="navOrders">📦<br>অর্ডার</button>
-  <button onclick="showPage('profile')" id="navProfile">👤<br>প্রোফাইল</button>
-</nav>
 
 <script>
 
-/* =========================
-   একসাথে — FINAL APP
-   ========================= */
+/* =====================================================
+   EKSHATHE FINAL VERSION
+   ===================================================== */
 
-const STORE = "ekshathe_final_v1";
+const STORE = "ekshathe_final_v3";
 
-const DEFAULT_PAYMENT = {
+const PAYMENT = {
   bkash:"01758310379",
   nagad:"01758310379",
   rocket:"01850252566"
 };
 
-function escapeHtml(value){
-  return String(value ?? "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
-}
+/* REAL PRODUCT PHOTOS */
 
-function escapeXml(value){
-  return String(value ?? "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&apos;");
-}
-
-/* নিশ্চিত matching drink images */
-function drinkImage(name,type){
-  let bg="#1687d9";
-  let fg="#ffffff";
-
-  if(type==="coke"){
-    bg="#d40000";
-  }
-
-  if(type==="sprite"){
-    bg="#16a34a";
-  }
-
-  if(type==="water"){
-    bg="#1687d9";
-  }
-
-  const svg=`
-  <svg xmlns="http://www.w3.org/2000/svg" width="700" height="700">
-    <rect width="700" height="700" fill="#eef4f1"/>
-    <ellipse cx="350" cy="625" rx="180" ry="28" fill="#0002"/>
-    <rect x="220" y="105" width="260" height="485" rx="65" fill="${bg}"/>
-    <rect x="235" y="160" width="230" height="300" rx="35" fill="${bg}" stroke="#ffffff" stroke-width="5"/>
-    <text x="350" y="300" text-anchor="middle"
-      font-family="Arial" font-size="42" font-weight="bold" fill="${fg}">
-      ${escapeXml(name.split(" ")[0])}
-    </text>
-    <text x="350" y="355" text-anchor="middle"
-      font-family="Arial" font-size="25" fill="${fg}">
-      250ml
-    </text>
-    <circle cx="350" cy="110" r="30" fill="#aaa"/>
-    <rect x="270" y="460" width="160" height="6" fill="#ffffff99"/>
-  </svg>`;
-
-  return "data:image/svg+xml;charset=UTF-8,"+encodeURIComponent(svg);
-}
-
-function autoImage(name,category){
-  const icons={
-    "ফ্যাশন":"👕",
-    "Fashion":"👕",
-    "ইলেকট্রনিক্স":"⌚",
-    "Electronics":"⌚",
-    "হোম":"💡",
-    "Home":"💡",
-    "খাবার":"🍽️",
-    "Food":"🍽️"
-  };
-
-  const icon=icons[category] || "🛍️";
-
-  const svg=`
-  <svg xmlns="http://www.w3.org/2000/svg" width="700" height="700">
-    <rect width="700" height="700" fill="#eaf4ef"/>
-    <circle cx="350" cy="285" r="145" fill="#087f5b"/>
-    <text x="350" y="340" text-anchor="middle"
-      font-family="Arial" font-size="120">${icon}</text>
-    <text x="350" y="515" text-anchor="middle"
-      font-family="Arial" font-size="34" font-weight="bold"
-      fill="#17352b">${escapeXml(name)}</text>
-  </svg>`;
-
-  return "data:image/svg+xml;charset=UTF-8,"+encodeURIComponent(svg);
-}
-
-/* ঠিক ১২টি default product */
-const DEFAULT_PRODUCTS=[
-
-  {
-    id:1,
-    bn:"পুরুষের শার্ট",
-    en:"Men's Shirt",
-    c:"ফ্যাশন",
-    ce:"Fashion",
-    p:850,
-    i:"https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=700&q=85",
-    source:"default"
-  },
-
-  {
-    id:2,
-    bn:"মহিলাদের ড্রেস",
-    en:"Women's Dress",
-    c:"ফ্যাশন",
-    ce:"Fashion",
-    p:1250,
-    i:"https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=700&q=85",
-    source:"default"
-  },
-
-  {
-    id:3,
-    bn:"স্মার্ট ওয়াচ",
-    en:"Smart Watch",
-    c:"ইলেকট্রনিক্স",
-    ce:"Electronics",
-    p:3000,
-    i:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=85",
-    source:"default"
-  },
-
-  {
-    id:4,
-    bn:"ব্যাকপ্যাক",
-    en:"Backpack",
-    c:"ফ্যাশন",
-    ce:"Fashion",
-    p:900,
-    i:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=700&q=85",
-    source:"default"
-  },
-
-  {
-    id:5,
-    bn:"টেবিল ল্যাম্প",
-    en:"Table Lamp",
-    c:"হোম",
-    ce:"Home",
-    p:700,
-    i:"https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=700&q=85",
-    source:"default"
-  },
-
-  {
-    id:6,
-    bn:"স্পোর্টস জুতা",
-    en:"Sports Shoes",
-    c:"ফ্যাশন",
-    ce:"Fashion",
-    p:1300,
-    i:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=85",
-    source:"default"
-  },
-
-  {
-    id:7,
-    bn:"কাচ্চি বিরিয়ানি",
-    en:"Kacchi Biryani",
-    c:"খাবার",
-    ce:"Food",
-    p:300,
-    i:"https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=700&q=85",
-    source:"default"
-  },
-
-  {
-    id:8,
-    bn:"চিকেন বার্গার",
-    en:"Chicken Burger",
-    c:"খাবার",
-    ce:"Food",
-    p:180,
-    i:"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=85",
-    source:"default"
-  },
-
-  {
-    id:9,
-    bn:"পিজ্জা",
-    en:"Pizza",
-    c:"খাবার",
-    ce:"Food",
-    p:280,
-    i:"https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=700&q=85",
-    source:"default"
-  },
-
-  {
-    id:10,
-    bn:"কোকা-কোলা 250ml",
-    en:"Coca-Cola 250ml",
-    c:"খাবার",
-    ce:"Food",
-    p:30,
-    i:drinkImage("Coca-Cola","coke"),
-    source:"default"
-  },
-
-  {
-    id:11,
-    bn:"স্প্রাইট 250ml",
-    en:"Sprite 250ml",
-    c:"খাবার",
-    ce:"Food",
-    p:30,
-    i:drinkImage("Sprite","sprite"),
-    source:"default"
-  },
-
-  {
-    id:12,
-    bn:"মিনারেল পানি 500ml",
-    en:"Mineral Water 500ml",
-    c:"খাবার",
-    ce:"Food",
-    p:20,
-    i:drinkImage("Mineral Water","water"),
-    source:"default"
-  }
-
-];
-
-let lang=localStorage.getItem(STORE+"_lang") || "bn";
-
-let products=JSON.parse(
-  localStorage.getItem(STORE+"_products") || "null"
-);
-
-if(!Array.isArray(products) || products.length===0){
-  products=JSON.parse(JSON.stringify(DEFAULT_PRODUCTS));
-  localStorage.setItem(STORE+"_products",JSON.stringify(products));
-}
-
-let cart=JSON.parse(
-  localStorage.getItem(STORE+"_cart") || "[]"
-);
-
-let orders=JSON.parse(
-  localStorage.getItem(STORE+"_orders") || "[]"
-);
-
-let profile=JSON.parse(
-  localStorage.getItem(STORE+"_profile") || "{}"
-);
-
-let paymentSettings=JSON.parse(
-  localStorage.getItem(STORE+"_payment") || "null"
-);
-
-if(!paymentSettings){
-  paymentSettings={...DEFAULT_PAYMENT};
-}
-
-let currentCategory="সব";
-let searchText="";
-
-const categories=[
-  ["সব","All"],
-  ["ফ্যাশন","Fashion"],
-  ["ইলেকট্রনিক্স","Electronics"],
-  ["হোম","Home"],
-  ["খাবার","Food"]
-];
-
-const T={
-  bn:{
-    search:"পণ্য খুঁজুন...",
-    all:"সব",
-    home:"হোম",
-    cart:"কার্ট",
-    orders:"অর্ডার",
-    profile:"প্রোফাইল",
-    hero:"একসাথে — আপনার অনলাইন বাজার",
-    heroText:"পছন্দের পণ্য খুঁজুন, কার্টে যোগ করুন এবং সহজে অর্ডার করুন।",
-    add:"কার্টে যোগ করুন",
-    total:"মোট",
-    cartTitle:"🛒 আমার কার্ট",
-    checkout:"📦 অর্ডার তথ্য",
-    name:"আপনার নাম",
-    phone:"মোবাইল নম্বর",
-    address:"ডেলিভারি ঠিকানা",
-    order:"অর্ডার কনফার্ম করুন",
-    emptyCart:"আপনার কার্ট খালি।",
-    profile:"👤 প্রোফাইল",
-    save:"সংরক্ষণ করুন",
-    noOrders:"এখনও কোনো অর্ডার নেই।",
-    payment:"পেমেন্ট পদ্ধতি",
-    trx:"Transaction ID (ডিজিটাল পেমেন্ট হলে)"
-  },
-  en:{
-    search:"Search products...",
-    all:"All",
-    home:"Home",
-    cart:"Cart",
-    orders:"Orders",
-    profile:"Profile",
-    hero:"Ekshathe — Your Online Market",
-    heroText:"Find products, add them to your cart and place your order easily.",
-    add:"Add to Cart",
-    total:"Total",
-    cartTitle:"🛒 My Cart",
-    checkout:"📦 Order Information",
-    name:"Your Name",
-    phone:"Mobile Number",
-    address:"Delivery Address",
-    order:"Confirm Order",
-    emptyCart:"Your cart is empty.",
-    profile:"👤 Profile",
-    save:"Save",
-    noOrders:"No orders yet.",
-    payment:"Payment Method",
-    trx:"Transaction ID (for digital payment)"
-  }
+const REAL_IMAGES = {
+  coke:"https://upload.wikimedia.org/wikipedia/commons/8/84/Bengali_Coca-Cola_can.jpg",
+  sprite:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Sprite%20bottle.JPG",
+  water:"https://commons.wikimedia.org/wiki/Special:Redirect/file/A_bottle_of_Aqua_mineral_water.JPG"
 };
 
-function L(key){
-  return T[lang][key] || key;
+/* 12 DEFAULT PRODUCTS */
+
+const starter = [
+
+ {
+  id:1,
+  n:"পুরুষের শার্ট",
+  en:"Men's Shirt",
+  c:"ফ্যাশন",
+  ce:"Fashion",
+  p:850,
+  i:"https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=700&q=80"
+ },
+
+ {
+  id:2,
+  n:"মহিলাদের ড্রেস",
+  en:"Women's Dress",
+  c:"ফ্যাশন",
+  ce:"Fashion",
+  p:1250,
+  i:"https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=700&q=80"
+ },
+
+ {
+  id:3,
+  n:"স্মার্ট ওয়াচ",
+  en:"Smart Watch",
+  c:"ইলেকট্রনিক্স",
+  ce:"Electronics",
+  p:3000,
+  i:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=80"
+ },
+
+ {
+  id:4,
+  n:"ব্যাকপ্যাক",
+  en:"Backpack",
+  c:"ফ্যাশন",
+  ce:"Fashion",
+  p:900,
+  i:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=700&q=80"
+ },
+
+ {
+  id:5,
+  n:"টেবিল ল্যাম্প",
+  en:"Table Lamp",
+  c:"হোম",
+  ce:"Home",
+  p:700,
+  i:"https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=700&q=80"
+ },
+
+ {
+  id:6,
+  n:"স্পোর্টস জুতা",
+  en:"Sports Shoes",
+  c:"ফ্যাশন",
+  ce:"Fashion",
+  p:1300,
+  i:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80"
+ },
+
+ {
+  id:7,
+  n:"কাচ্চি বিরিয়ানি",
+  en:"Kacchi Biryani",
+  c:"খাবার",
+  ce:"Food",
+  p:300,
+  i:"https://images.unsplash.com/photo-1563379091339-03246963d96c?auto=format&fit=crop&w=700&q=80"
+ },
+
+ {
+  id:8,
+  n:"চিকেন বার্গার",
+  en:"Chicken Burger",
+  c:"খাবার",
+  ce:"Food",
+  p:180,
+  i:"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+ },
+
+ {
+  id:9,
+  n:"পিজ্জা",
+  en:"Pizza",
+  c:"খাবার",
+  ce:"Food",
+  p:280,
+  i:"https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=700&q=80"
+ },
+
+ {
+  id:10,
+  n:"Coca-Cola 250ml",
+  en:"Coca-Cola 250ml",
+  c:"সফট ড্রিংকস",
+  ce:"Soft Drinks",
+  p:30,
+  i:REAL_IMAGES.coke
+ },
+
+ {
+  id:11,
+  n:"Sprite 250ml",
+  en:"Sprite 250ml",
+  c:"সফট ড্রিংকস",
+  ce:"Soft Drinks",
+  p:30,
+  i:REAL_IMAGES.sprite
+ },
+
+ {
+  id:12,
+  n:"মিনারেল পানি 500ml",
+  en:"Mineral Water 500ml",
+  c:"পানীয়",
+  ce:"Beverages",
+  p:20,
+  i:REAL_IMAGES.water
+ }
+
+];
+
+/* LOAD DATA */
+
+let P = JSON.parse(localStorage.getItem(STORE+"_products") || "null");
+
+if(!Array.isArray(P) || P.length===0){
+  P = JSON.parse(JSON.stringify(starter));
 }
 
-function productName(p){
-  return lang==="bn" ? p.bn : p.en;
+let CART = JSON.parse(localStorage.getItem(STORE+"_cart") || "{}");
+
+let ORDERS = JSON.parse(localStorage.getItem(STORE+"_orders") || "[]");
+
+let PROFILE = JSON.parse(localStorage.getItem(STORE+"_profile") || "{}");
+
+let currentPage = "home";
+let currentCategory = "সব";
+let lang = localStorage.getItem(STORE+"_lang") || "bn";
+
+/* SAVE */
+
+function saveAll(){
+
+  localStorage.setItem(STORE+"_products",JSON.stringify(P));
+
+  localStorage.setItem(STORE+"_cart",JSON.stringify(CART));
+
+  localStorage.setItem(STORE+"_orders",JSON.stringify(ORDERS));
+
+  localStorage.setItem(STORE+"_profile",JSON.stringify(PROFILE));
+
+  localStorage.setItem(STORE+"_lang",lang);
+
 }
 
-function productCategory(p){
-  return lang==="bn" ? p.c : p.ce;
+/* LANGUAGE */
+
+function toggleLang(){
+
+  lang = lang==="bn" ? "en" : "bn";
+
+  saveAll();
+
+  renderAll();
+
 }
 
-function money(n){
-  return "৳"+Number(n||0).toLocaleString("en-US");
+function T(bn,en){
+  return lang==="bn" ? bn : en;
 }
 
-function saveData(){
-  localStorage.setItem(STORE+"_products",JSON.stringify(products));
-  localStorage.setItem(STORE+"_cart",JSON.stringify(cart));
-  localStorage.setItem(STORE+"_orders",JSON.stringify(orders));
-  localStorage.setItem(STORE+"_profile",JSON.stringify(profile));
-  localStorage.setItem(STORE+"_payment",JSON.stringify(paymentSettings));
+/* NAVIGATION */
+
+function go(page){
+
+  currentPage = page;
+
+  renderAll();
+
+  window.scrollTo({top:0,behavior:"smooth"});
+
 }
 
-function getProduct(id){
-  return products.find(p=>Number(p.id)===Number(id));
-}
+/* CATEGORIES */
 
 function renderCategories(){
 
-  const box=document.getElementById("categories");
+  const cats = [
+    ["সব","All"],
+    ["ফ্যাশন","Fashion"],
+    ["ইলেকট্রনিক্স","Electronics"],
+    ["হোম","Home"],
+    ["খাবার","Food"],
+    ["সফট ড্রিংকস","Soft Drinks"],
+    ["পানীয়","Beverages"]
+  ];
 
-  box.innerHTML=categories.map(c=>`
-    <button
-      class="${currentCategory===c[0]?'active':''}"
-      onclick="setCategory('${c[0]}')">
-      ${lang==="bn"?c[0]:c[1]}
-    </button>
-  `).join("");
+  document.getElementById("categories").innerHTML =
+    cats.map(x=>`
+      <button
+        class="${currentCategory===x[0]?'active':''}"
+        onclick="setCategory('${x[0]}')">
+        ${lang==="bn"?x[0]:x[1]}
+      </button>
+    `).join("");
+
 }
 
 function setCategory(c){
-  currentCategory=c;
-  renderCategories();
-  renderProducts();
+
+  currentCategory = c;
+
+  currentPage = "shop";
+
+  renderAll();
+
 }
 
-function renderProducts(){
+/* PRODUCT NAME */
 
-  searchText=document.getElementById("search").value.toLowerCase();
+function productName(x){
 
-  let list=products.filter(p=>{
+  return lang==="bn" ? x.n : x.en;
 
-    const catOk=currentCategory==="সব" || p.c===currentCategory;
+}
 
-    const text=(p.bn+" "+p.en).toLowerCase();
+/* HOME / SHOP */
 
-    const searchOk=!searchText || text.includes(searchText);
+function renderHome(){
 
-    return catOk && searchOk;
+  const q = (document.getElementById("searchInput")?.value || "")
+    .toLowerCase()
+    .trim();
+
+  let list = P.filter(x=>{
+
+    const matchCat =
+      currentCategory==="সব" ||
+      x.c===currentCategory ||
+      (lang==="en" && x.ce===currentCategory);
+
+    const text =
+      (x.n+" "+x.en+" "+x.c+" "+x.ce).toLowerCase();
+
+    const matchSearch =
+      !q || text.includes(q);
+
+    return matchCat && matchSearch;
+
   });
 
-  const grid=document.getElementById("productGrid");
+  let title =
+    currentPage==="home"
+    ? T("জনপ্রিয় পণ্য","Popular Products")
+    : T("সব পণ্য","All Products");
 
-  if(!list.length){
-    grid.innerHTML=`<div class="empty">কোনো পণ্য পাওয়া যায়নি।</div>`;
-    return;
+  if(currentCategory!=="সব"){
+    title = lang==="bn"
+      ? currentCategory
+      : (list[0]?.ce || currentCategory);
   }
 
-  grid.innerHTML=list.map(p=>`
+  document.getElementById("app").innerHTML = `
+
+    <div class="page-title">
+      <h2>${title}</h2>
+      <span class="badge">${list.length} ${T("টি","items")}</span>
+    </div>
+
+    ${
+      list.length
+      ?
+      `<div class="grid">
+        ${list.map(card).join("")}
+      </div>`
+      :
+      `<div class="empty">
+        😔<br><br>
+        ${T("কোনো পণ্য পাওয়া যায়নি","No products found")}
+      </div>`
+    }
+
+  `;
+
+}
+
+function card(x){
+
+  return `
     <div class="card">
 
       <img
         class="product-img"
-        src="${escapeHtml(p.i)}"
-        onerror="this.src=autoImage('${escapeHtml(productName(p))}','${escapeHtml(productCategory(p))}')"
-        alt="${escapeHtml(productName(p))}">
+        src="${x.i}"
+        alt="${productName(x)}"
+        onerror="this.onerror=null;this.src='https://via.placeholder.com/500x400?text=Product+Image';"
+      >
 
-      <div class="cardBody">
+      <div class="card-body">
 
-        <div class="small">${escapeHtml(productCategory(p))}</div>
+        <h3>${productName(x)}</h3>
 
-        <h3>${escapeHtml(productName(p))}</h3>
+        <div class="cat">
+          ${lang==="bn"?x.c:x.ce}
+        </div>
 
-        <div class="price">${money(p.p)}</div>
+        <div class="price">
+          ৳${Number(x.p).toLocaleString("en-BD")}
+        </div>
 
-        <button class="add" onclick="addToCart(${p.id})">
-          ${L("add")}
-        </button>
+        <div class="card-actions">
+
+          <button
+            class="primary"
+            onclick="addCart(${x.id})">
+            🛒 ${T("কার্টে যোগ","Add")}
+          </button>
+
+          <button
+            class="secondary"
+            onclick="buyNow(${x.id})">
+            ${T("কিনুন","Buy")}
+          </button>
+
+        </div>
 
       </div>
     </div>
-  `).join("");
+  `;
+
 }
 
-function addToCart(id){
+/* CART */
 
-  const item=cart.find(x=>Number(x.id)===Number(id));
+function addCart(id){
 
-  if(item){
-    item.qty++;
-  }else{
-    cart.push({id:Number(id),qty:1});
-  }
+  CART[id] = (CART[id] || 0) + 1;
 
-  saveData();
+  saveAll();
+
   updateCartCount();
 
-  alert(lang==="bn"
-    ?"পণ্যটি কার্টে যোগ হয়েছে।"
-    :"Product added to cart."
-  );
+  alert(T("কার্টে যোগ হয়েছে","Added to cart"));
+
 }
 
-function updateCartCount(){
+function buyNow(id){
 
-  const count=cart.reduce((sum,x)=>sum+Number(x.qty),0);
+  CART[id] = (CART[id] || 0) + 1;
 
-  document.getElementById("cartCount").textContent=count;
+  saveAll();
+
+  go("cart");
+
 }
 
-function renderCart(){
+function cartItems(){
 
-  cart=cart.filter(x=>getProduct(x.id));
+  return Object.keys(CART)
+    .map(id=>{
 
-  const list=document.getElementById("cartList");
+      const p = P.find(x=>x.id==id);
 
-  if(!cart.length){
+      if(!p) return null;
 
-    list.innerHTML=`<div class="empty">${L("emptyCart")}</div>`;
+      return {
+        p:p,
+        q:CART[id]
+      };
 
-    document.getElementById("cartTotal").textContent="৳0";
+    })
+    .filter(Boolean);
 
-    return;
+}
+
+function changeQty(id,n){
+
+  CART[id] = (CART[id] || 0) + n;
+
+  if(CART[id]<=0){
+    delete CART[id];
   }
 
-  let total=0;
+  saveAll();
 
-  list.innerHTML=cart.map(item=>{
-
-    const p=getProduct(item.id);
-
-    const subtotal=Number(p.p)*Number(item.qty);
-
-    total+=subtotal;
-
-    return `
-      <div class="cartItem">
-
-        <img class="cartImg"
-          src="${escapeHtml(p.i)}"
-          onerror="this.src=autoImage('${escapeHtml(productName(p))}','${escapeHtml(productCategory(p))}')">
-
-        <div class="cartInfo">
-          <b>${escapeHtml(productName(p))}</b>
-          <div class="small">${money(p.p)} × ${item.qty}</div>
-          <div class="price">${money(subtotal)}</div>
-        </div>
-
-        <div class="qty">
-          <button onclick="changeQty(${p.id},-1)">−</button>
-          <b>${item.qty}</b>
-          <button onclick="changeQty(${p.id},1)">+</button>
-        </div>
-
-        <button class="danger" onclick="removeCart(${p.id})">×</button>
-
-      </div>
-    `;
-
-  }).join("");
-
-  document.getElementById("cartTotal").textContent=money(total);
-
-  updatePaymentNumber();
-}
-
-function changeQty(id,d){
-
-  const item=cart.find(x=>Number(x.id)===Number(id));
-
-  if(!item)return;
-
-  item.qty+=d;
-
-  if(item.qty<=0){
-    cart=cart.filter(x=>Number(x.id)!==Number(id));
-  }
-
-  saveData();
   renderCart();
+
   updateCartCount();
+
 }
 
 function removeCart(id){
 
-  cart=cart.filter(x=>Number(x.id)!==Number(id));
+  delete CART[id];
 
-  saveData();
+  saveAll();
+
   renderCart();
+
   updateCartCount();
+
 }
 
-function getCartTotal(){
+function cartTotal(){
 
-  return cart.reduce((sum,item)=>{
+  return cartItems().reduce(
+    (s,x)=>s+(Number(x.p.p)||0)*x.q,
+    0
+  );
 
-    const p=getProduct(item.id);
-
-    return sum+(p ? Number(p.p)*Number(item.qty) : 0);
-
-  },0);
 }
 
-function renderPaymentOptions(){
+function renderCart(){
 
-  const select=document.getElementById("payment");
+  const items = cartItems();
 
-  const current=select.value;
+  document.getElementById("app").innerHTML = `
 
-  if(lang==="bn"){
+    <div class="page-title">
+      <h2>🛒 ${T("আমার কার্ট","My Cart")}</h2>
+      <span class="badge">${items.length}</span>
+    </div>
 
-    select.innerHTML=`
-      <option value="cod">Cash on Delivery</option>
-      <option value="bkash">bKash</option>
-      <option value="nagad">Nagad</option>
-      <option value="rocket">Rocket</option>
-    `;
+    ${
+      items.length
+      ?
+      `
+      ${items.map(x=>`
 
-  }else{
+        <div class="product-row">
 
-    select.innerHTML=`
-      <option value="cod">Cash on Delivery</option>
-      <option value="bkash">bKash</option>
-      <option value="nagad">Nagad</option>
-      <option value="rocket">Rocket</option>
-    `;
-  }
+          <div class="row-flex">
 
-  if(current)select.value=current;
+            <div style="display:flex;gap:10px;align-items:center">
 
-  updatePaymentNumber();
+              <img
+                src="${x.p.i}"
+                style="width:65px;height:65px;object-fit:contain;border-radius:8px;background:#f5f8f6"
+                onerror="this.src='https://via.placeholder.com/100x100?text=Image'"
+              >
+
+              <div>
+                <b>${productName(x.p)}</b>
+                <div class="small">
+                  ৳${Number(x.p.p).toLocaleString("en-BD")}
+                </div>
+              </div>
+
+            </div>
+
+            <button
+              class="danger"
+              onclick="removeCart(${x.p.id})">
+              ✕
+            </button>
+
+          </div>
+
+          <div class="row-flex" style="margin-top:10px">
+
+            <div class="qty">
+              <button onclick="changeQty(${x.p.id},-1)">−</button>
+              <b>${x.q}</b>
+              <button onclick="changeQty(${x.p.id},1)">+</button>
+            </div>
+
+            <b>
+              ৳${(x.p.p*x.q).toLocaleString("en-BD")}
+            </b>
+
+          </div>
+
+        </div>
+
+      `).join("")}
+
+      <div class="section">
+
+        <div class="row-flex">
+          <b>${T("মোট","Total")}</b>
+          <b class="price">
+            ৳${cartTotal().toLocaleString("en-BD")}
+          </b>
+        </div>
+
+        <button
+          class="primary full"
+          style="margin-top:12px"
+          onclick="checkout()">
+          ${T("অর্ডার করুন","Place Order")}
+        </button>
+
+      </div>
+      `
+      :
+      `
+      <div class="empty">
+        🛒<br><br>
+        ${T("আপনার কার্ট খালি","Your cart is empty")}
+        <br><br>
+        <button class="primary" onclick="go('shop')">
+          ${T("শপিং শুরু করুন","Start Shopping")}
+        </button>
+      </div>
+      `
+    }
+
+  `;
+
 }
 
-function updatePaymentNumber(){
+/* CHECKOUT */
 
-  const method=document.getElementById("payment").value;
+function checkout(){
 
-  const box=document.getElementById("paymentNumberBox");
+  const items = cartItems();
 
-  if(method==="cod"){
-
-    box.innerHTML=lang==="bn"
-      ? "💵 Cash on Delivery — পণ্য হাতে পাওয়ার সময় টাকা পরিশোধ করুন।"
-      : "💵 Cash on Delivery — Pay when you receive the product.";
-
+  if(!items.length){
+    alert(T("কার্ট খালি","Cart is empty"));
     return;
   }
 
-  let number="";
+  document.getElementById("app").innerHTML = `
 
-  if(method==="bkash")number=paymentSettings.bkash;
-  if(method==="nagad")number=paymentSettings.nagad;
-  if(method==="rocket")number=paymentSettings.rocket;
+    <div class="page-title">
+      <h2>🧾 ${T("অর্ডার তথ্য","Order Information")}</h2>
+    </div>
 
-  const name={
-    bkash:"bKash",
-    nagad:"Nagad",
-    rocket:"Rocket"
-  }[method];
+    <div class="section">
 
-  box.innerHTML=`
-    💳 ${name}<br>
-    <b style="font-size:20px">${escapeHtml(number)}</b>
-    <br>
-    ${lang==="bn"?"এই নম্বরে পেমেন্ট করে Transaction ID দিন।":"Pay to this number and enter the Transaction ID."}
+      <label>${T("নাম","Name")}</label>
+      <input id="cName" value="${PROFILE.name||""}" placeholder="${T("আপনার নাম","Your name")}">
+
+      <label>${T("মোবাইল নম্বর","Mobile Number")}</label>
+      <input id="cPhone" value="${PROFILE.phone||""}" placeholder="01XXXXXXXXX">
+
+      <label>${T("ঠিকানা","Address")}</label>
+      <textarea id="cAddress" placeholder="${T("ডেলিভারি ঠিকানা","Delivery address")}">${PROFILE.address||""}</textarea>
+
+      <label>${T("পেমেন্ট পদ্ধতি","Payment Method")}</label>
+
+      <select id="payment" onchange="showPaymentNumber()">
+        <option value="cod">${T("Cash on Delivery","Cash on Delivery")}</option>
+        <option value="bkash">bKash</option>
+        <option value="nagad">Nagad</option>
+        <option value="rocket">Rocket</option>
+      </select>
+
+      <div id="paymentNumber"></div>
+
+      <label>${T("Transaction ID (যদি থাকে)","Transaction ID (if applicable)")}</label>
+
+      <input
+        id="trx"
+        placeholder="${T("Transaction ID","Transaction ID")}">
+
+      <div class="payment-box">
+        <b>${T("অর্ডার মোট","Order Total")}</b>
+        <div class="price">
+          ৳${cartTotal().toLocaleString("en-BD")}
+        </div>
+      </div>
+
+      <button
+        class="primary full"
+        style="margin-top:12px"
+        onclick="placeOrder()">
+        ✅ ${T("অর্ডার কনফার্ম করুন","Confirm Order")}
+      </button>
+
+    </div>
   `;
+
+  showPaymentNumber();
+
+}
+
+function showPaymentNumber(){
+
+  const method = document.getElementById("payment")?.value;
+
+  const box = document.getElementById("paymentNumber");
+
+  if(!box) return;
+
+  if(method==="bkash"){
+
+    box.innerHTML = `
+      <div class="payment-box">
+        <b>bKash</b><br>
+        ${PAYMENT.bkash}
+      </div>
+    `;
+
+  }
+  else if(method==="nagad"){
+
+    box.innerHTML = `
+      <div class="payment-box">
+        <b>Nagad</b><br>
+        ${PAYMENT.nagad}
+      </div>
+    `;
+
+  }
+  else if(method==="rocket"){
+
+    box.innerHTML = `
+      <div class="payment-box">
+        <b>Rocket</b><br>
+        ${PAYMENT.rocket}
+      </div>
+    `;
+
+  }
+  else{
+
+    box.innerHTML = `
+      <div class="payment-box">
+        ${T("Cash on Delivery — পণ্য হাতে পেয়ে পেমেন্ট করবেন।","Cash on Delivery — Pay when you receive the product.")}
+      </div>
+    `;
+
+  }
+
 }
 
 function placeOrder(){
 
-  if(!cart.length){
-    alert(lang==="bn"?"কার্ট খালি।":"Your cart is empty.");
-    return;
-  }
+  const name =
+    document.getElementById("cName").value.trim();
 
-  const name=document.getElementById("customerName").value.trim();
-  const phone=document.getElementById("customerPhone").value.trim();
-  const address=document.getElementById("customerAddress").value.trim();
-  const payment=document.getElementById("payment").value;
-  const trx=document.getElementById("trx").value.trim();
+  const phone =
+    document.getElementById("cPhone").value.trim();
+
+  const address =
+    document.getElementById("cAddress").value.trim();
+
+  const payment =
+    document.getElementById("payment").value;
+
+  const trx =
+    document.getElementById("trx").value.trim();
 
   if(!name || !phone || !address){
 
-    alert(lang==="bn"
-      ?"নাম, মোবাইল ও ঠিকানা পূরণ করুন।"
-      :"Please enter name, mobile and address."
-    );
+    alert(T(
+      "নাম, মোবাইল ও ঠিকানা দিন।",
+      "Please enter name, mobile and address."
+    ));
 
     return;
   }
 
-  if(payment!=="cod" && !trx){
+  PROFILE = {
+    name:name,
+    phone:phone,
+    address:address
+  };
 
-    alert(lang==="bn"
-      ?"ডিজিটাল পেমেন্টের Transaction ID দিন।"
-      :"Please enter the Transaction ID."
-    );
+  const order = {
 
-    return;
-  }
-
-  const items=cart.map(item=>{
-
-    const p=getProduct(item.id);
-
-    return {
-      id:p.id,
-      name:productName(p),
-      price:Number(p.p),
-      qty:Number(item.qty),
-      subtotal:Number(p.p)*Number(item.qty)
-    };
-
-  });
-
-  const total=items.reduce((s,x)=>s+x.subtotal,0);
-
-  const order={
     id:"ES"+Date.now(),
+
     date:new Date().toLocaleString("bn-BD"),
-    name,
-    phone,
-    address,
-    payment,
-    trx,
-    items,
-    total,
-    status:"নতুন অর্ডার"
+
+    name:name,
+
+    phone:phone,
+
+    address:address,
+
+    payment:payment,
+
+    trx:trx,
+
+    items:cartItems().map(x=>({
+
+      id:x.p.id,
+
+      name:x.p.n,
+
+      en:x.p.en,
+
+      price:x.p.p,
+
+      qty:x.q,
+
+      image:x.p.i
+
+    })),
+
+    total:cartTotal(),
+
+    status:"Pending"
+
   };
 
-  orders.unshift(order);
+  ORDERS.unshift(order);
 
-  profile={
-    name,
-    phone,
-    address
-  };
+  CART = {};
 
-  cart=[];
-
-  saveData();
-
-  document.getElementById("trx").value="";
+  saveAll();
 
   updateCartCount();
 
-  renderCart();
-  renderOrders();
-  renderAdmin();
+  alert(T(
+    "অর্ডার সফল হয়েছে!",
+    "Order placed successfully!"
+  ));
 
-  alert(lang==="bn"
-    ?"অর্ডার সফলভাবে নেওয়া হয়েছে।"
-    :"Order placed successfully."
-  );
+  go("orders");
 
-  showPage("orders");
 }
+
+/* ORDERS */
 
 function renderOrders(){
 
-  const box=document.getElementById("ordersList");
+  document.getElementById("app").innerHTML = `
 
-  if(!orders.length){
+    <div class="page-title">
+      <h2>📦 ${T("আমার অর্ডার","My Orders")}</h2>
+    </div>
 
-    box.innerHTML=`<div class="empty">${L("noOrders")}</div>`;
+    ${
+      ORDERS.length
+      ?
+      ORDERS.map(o=>`
 
-    return;
-  }
+        <div class="order-row">
 
-  box.innerHTML=orders.map(o=>`
+          <div class="row-flex">
+            <b>${o.id}</b>
+            <span class="badge">${o.status}</span>
+          </div>
 
-    <div class="order">
+          <div class="small" style="margin-top:5px">
+            ${o.date}
+          </div>
 
-      <b>Order #${escapeHtml(o.id)}</b>
+          <hr>
 
-      <div class="small">${escapeHtml(o.date)}</div>
+          ${o.items.map(i=>`
 
-      <br>
+            <div class="row-flex" style="margin:7px 0">
 
-      <span class="status">${escapeHtml(o.status)}</span>
+              <span>
+                ${lang==="bn"?i.name:i.en} × ${i.qty}
+              </span>
 
-      <br><br>
+              <b>
+                ৳${(i.price*i.qty).toLocaleString("en-BD")}
+              </b>
 
-      ${o.items.map(i=>`
-        <div>
-          ${escapeHtml(i.name)}
-          × ${i.qty}
-          — ${money(i.subtotal)}
+            </div>
+
+          `).join("")}
+
+          <hr>
+
+          <div class="row-flex">
+            <b>${T("মোট","Total")}</b>
+            <b class="price">
+              ৳${o.total.toLocaleString("en-BD")}
+            </b>
+          </div>
+
+          <div class="small" style="margin-top:7px">
+            ${T("পেমেন্ট","Payment")}: ${o.payment}
+          </div>
+
         </div>
-      `).join("")}
 
-      <hr>
-
-      <b>${L("total")}: ${money(o.total)}</b>
-
-      <div class="small">
-        Payment: ${escapeHtml(o.payment)}
+      `).join("")
+      :
+      `
+      <div class="empty">
+        📦<br><br>
+        ${T("এখনো কোনো অর্ডার নেই","No orders yet")}
       </div>
+      `
+    }
+
+  `;
+
+}
+
+/* PROFILE */
+
+function renderProfile(){
+
+  document.getElementById("app").innerHTML = `
+
+    <div class="page-title">
+      <h2>${T("প্রোফাইল","Profile")}</h2>
+    </div>
+
+    <div class="section">
+
+      <div class="profile-icon">👤</div>
+
+      <input
+        id="profileName"
+        placeholder="${T("আপনার নাম","Your name")}"
+        value="${PROFILE.name||""}">
+
+      <input
+        id="profilePhone"
+        placeholder="${T("মোবাইল নম্বর","Mobile number")}"
+        value="${PROFILE.phone||""}">
+
+      <textarea
+        id="profileAddress"
+        placeholder="${T("ঠিকানা","Address")}">${PROFILE.address||""}</textarea>
+
+      <button
+        class="primary full"
+        onclick="saveProfile()">
+        💾 ${T("প্রোফাইল সেভ করুন","Save Profile")}
+      </button>
 
     </div>
 
-  `).join("");
-}
+    <div class="section">
 
-function loadProfile(){
+      <h3>🏪 ${T("Seller Panel","Seller Panel")}</h3>
 
-  document.getElementById("profileName").value=profile.name||"";
-  document.getElementById("profilePhone").value=profile.phone||"";
-  document.getElementById("profileAddress").value=profile.address||"";
+      <p class="small">
+        ${T(
+          "পণ্য যোগ, দাম পরিবর্তন ও পণ্য ম্যানেজ করতে এখানে যান।",
+          "Add products, change prices and manage products."
+        )}
+      </p>
 
-  document.getElementById("customerName").value=profile.name||"";
-  document.getElementById("customerPhone").value=profile.phone||"";
-  document.getElementById("customerAddress").value=profile.address||"";
+      <button
+        class="secondary full"
+        onclick="go('seller')">
+        ${T("Seller Panel খুলুন","Open Seller Panel")}
+      </button>
+
+    </div>
+
+    <div class="section">
+
+      <h3>⚙️ ${T("Admin Panel","Admin Panel")}</h3>
+
+      <p class="small">
+        ${T(
+          "অর্ডার, পণ্য, দাম ও পেমেন্ট নম্বর ম্যানেজ করুন।",
+          "Manage orders, products, prices and payment numbers."
+        )}
+      </p>
+
+      <button
+        class="primary full"
+        onclick="go('admin')">
+        ${T("Admin Panel খুলুন","Open Admin Panel")}
+      </button>
+
+    </div>
+
+  `;
+
 }
 
 function saveProfile(){
 
-  profile={
+  PROFILE = {
+
     name:document.getElementById("profileName").value.trim(),
+
     phone:document.getElementById("profilePhone").value.trim(),
+
     address:document.getElementById("profileAddress").value.trim()
+
   };
 
-  saveData();
-  loadProfile();
+  saveAll();
 
-  alert(lang==="bn"?"প্রোফাইল সংরক্ষণ হয়েছে।":"Profile saved.");
+  alert(T(
+    "প্রোফাইল সেভ হয়েছে।",
+    "Profile saved."
+  ));
+
 }
 
-function fillSellerCategory(){
-
-  document.getElementById("sellerCategory").innerHTML=categories
-    .filter(x=>x[0]!=="সব")
-    .map(x=>`
-      <option value="${x[0]}">${lang==="bn"?x[0]:x[1]}</option>
-    `).join("");
-}
-
-function addSellerProduct(){
-
-  const name=document.getElementById("sellerName").value.trim();
-  const category=document.getElementById("sellerCategory").value;
-  const price=Number(document.getElementById("sellerPrice").value);
-  const url=document.getElementById("sellerImageUrl").value.trim();
-  const file=document.getElementById("sellerImageFile").files[0];
-
-  if(!name || !price){
-
-    alert(lang==="bn"
-      ?"পণ্যের নাম ও দাম দিন।"
-      :"Enter product name and price."
-    );
-
-    return;
-  }
-
-  const bnName=name;
-  const enName=name;
-
-  function finish(image){
-
-    const newProduct={
-      id:Date.now(),
-      bn:bnName,
-      en:enName,
-      c:category,
-      ce:categories.find(x=>x[0]===category)?.[1] || category,
-      p:price,
-      i:image || autoImage(name,category),
-      source:"seller"
-    };
-
-    products.push(newProduct);
-
-    saveData();
-
-    document.getElementById("sellerName").value="";
-    document.getElementById("sellerPrice").value="";
-    document.getElementById("sellerImageUrl").value="";
-    document.getElementById("sellerImageFile").value="";
-
-    renderProducts();
-    renderSeller();
-    renderAdmin();
-
-    alert(lang==="bn"
-      ?"পণ্য যোগ হয়েছে।"
-      :"Product added."
-    );
-  }
-
-  if(file){
-
-    const reader=new FileReader();
-
-    reader.onload=e=>finish(e.target.result);
-
-    reader.readAsDataURL(file);
-
-  }else{
-
-    finish(url || autoImage(name,category));
-
-  }
-}
+/* SELLER */
 
 function renderSeller(){
 
-  const box=document.getElementById("sellerProducts");
+  document.getElementById("app").innerHTML = `
 
-  const sellerProducts=products.filter(p=>p.source==="seller");
+    <div class="page-title">
+      <h2>🏪 ${T("Seller Panel","Seller Panel")}</h2>
+    </div>
 
-  if(!sellerProducts.length){
+    <div class="section">
 
-    box.innerHTML=`
-      <div class="empty">
-        এখনো কোনো Seller Product যোগ করা হয়নি।
-      </div>
-    `;
+      <h3>${T("নতুন পণ্য যোগ করুন","Add New Product")}</h3>
 
-    return;
-  }
+      <input
+        id="sn"
+        placeholder="${T("পণ্যের নাম","Product name")}">
 
-  box.innerHTML=sellerProducts.map(p=>`
+      <select id="sc">
+        <option>ফ্যাশন</option>
+        <option>ইলেকট্রনিক্স</option>
+        <option>হোম</option>
+        <option>খাবার</option>
+        <option>সফট ড্রিংকস</option>
+        <option>পানীয়</option>
+      </select>
 
-    <div class="adminProduct">
+      <input
+        id="sp"
+        type="number"
+        placeholder="${T("দাম","Price")}">
 
-      <img src="${escapeHtml(p.i)}">
+      <input
+        id="si"
+        placeholder="${T("ছবির URL (ঐচ্ছিক)","Image URL (optional)")}">
 
-      <div class="grow">
-        <b>${escapeHtml(productName(p))}</b>
-        <div class="small">${escapeHtml(productCategory(p))}</div>
-      </div>
-
-      <div class="priceEdit">
-        <button onclick="changePrice(${p.id},-10)">−</button>
-        <input
-          id="price_${p.id}"
-          type="number"
-          value="${p.p}">
-        <button onclick="changePrice(${p.id},10)">+</button>
-      </div>
-
-      <button class="primary" onclick="savePrice(${p.id})">
-        Save
-      </button>
-
-      <button class="danger" onclick="deleteSellerProduct(${p.id})">
-        Delete
+      <button
+        class="primary full"
+        onclick="sellerAdd()">
+        ➕ ${T("পণ্য যোগ করুন","Add Product")}
       </button>
 
     </div>
 
-  `).join("");
+    <div class="section">
+
+      <h3>${T("আমার পণ্য","My Products")}</h3>
+
+      ${P.map(x=>`
+
+        <div class="product-row">
+
+          <div class="row-flex">
+
+            <div>
+              <b>${productName(x)}</b>
+
+              <div class="small">
+                ${x.c}
+              </div>
+
+            </div>
+
+            <b class="price">
+              ৳${x.p}
+            </b>
+
+          </div>
+
+          <div style="display:flex;gap:7px;margin-top:9px">
+
+            <button
+              class="secondary"
+              onclick="changePrice(${x.id},10)">
+              +10
+            </button>
+
+            <button
+              class="secondary"
+              onclick="changePrice(${x.id},-10)">
+              -10
+            </button>
+
+            <button
+              class="danger"
+              onclick="deleteProduct(${x.id})">
+              ${T("ডিলিট","Delete")}
+            </button>
+
+          </div>
+
+        </div>
+
+      `).join("")}
+
+    </div>
+
+  `;
+
 }
 
-function deleteSellerProduct(id){
+function sellerAdd(){
 
-  products=products.filter(p=>Number(p.id)!==Number(id));
+  const n = document.getElementById("sn").value.trim();
 
-  cart=cart.filter(x=>Number(x.id)!==Number(id));
+  const c = document.getElementById("sc").value;
 
-  saveData();
+  const p = Number(document.getElementById("sp").value);
 
-  renderProducts();
-  renderCart();
+  const i = document.getElementById("si").value.trim();
+
+  if(!n || !p){
+
+    alert(T(
+      "পণ্যের নাম ও দাম দিন।",
+      "Enter product name and price."
+    ));
+
+    return;
+  }
+
+  P.push({
+
+    id:Date.now(),
+
+    n:n,
+
+    en:n,
+
+    c:c,
+
+    ce:c,
+
+    p:p,
+
+    i:i || "https://via.placeholder.com/500x400?text=Product"
+
+  });
+
+  saveAll();
+
+  alert(T(
+    "পণ্য যোগ হয়েছে।",
+    "Product added."
+  ));
+
   renderSeller();
-  renderAdmin();
+
+}
+
+function changePrice(id,amount){
+
+  const p = P.find(x=>x.id===id);
+
+  if(!p) return;
+
+  p.p = Math.max(0,Number(p.p)+amount);
+
+  saveAll();
+
+  renderAll();
+
+}
+
+function deleteProduct(id){
+
+  if(!confirm(T(
+    "পণ্যটি মুছে ফেলবেন?",
+    "Delete this product?"
+  ))) return;
+
+  P = P.filter(x=>x.id!==id);
+
+  delete CART[id];
+
+  saveAll();
+
+  renderSeller();
+
   updateCartCount();
+
 }
 
-function changePrice(id,delta){
-
-  const p=getProduct(id);
-
-  if(!p)return;
-
-  p.p=Math.max(0,Number(p.p)+Number(delta));
-
-  saveData();
-
-  renderProducts();
-  renderCart();
-  renderSeller();
-  renderAdmin();
-}
-
-function savePrice(id){
-
-  const input=document.getElementById("price_"+id);
-
-  const p=getProduct(id);
-
-  if(!p || !input)return;
-
-  const value=Number(input.value);
-
-  if(value<0)return;
-
-  p.p=value;
-
-  saveData();
-
-  renderProducts();
-  renderCart();
-  renderSeller();
-  renderAdmin();
-
-  alert(lang==="bn"
-    ?"দাম সংরক্ষণ হয়েছে।"
-    :"Price saved."
-  );
-}
+/* ADMIN */
 
 function renderAdmin(){
 
-  document.getElementById("statProducts").textContent=products.length;
-  document.getElementById("statOrders").textContent=orders.length;
+  const sales =
+    ORDERS.reduce((s,o)=>s+Number(o.total||0),0);
 
-  const sales=orders.reduce((s,o)=>s+Number(o.total||0),0);
+  const commission =
+    Math.round(sales*0.05);
 
-  document.getElementById("statSales").textContent=money(sales);
-  document.getElementById("statCommission").textContent=money(sales*0.05);
+  document.getElementById("app").innerHTML = `
 
-  document.getElementById("bkashNumber").value=paymentSettings.bkash;
-  document.getElementById("nagadNumber").value=paymentSettings.nagad;
-  document.getElementById("rocketNumber").value=paymentSettings.rocket;
+    <div class="page-title">
+      <h2>⚙️ ${T("Admin Panel","Admin Panel")}</h2>
+    </div>
 
-  const productBox=document.getElementById("adminProducts");
+    <div class="stat-grid">
 
-  productBox.innerHTML=products.map(p=>`
-
-    <div class="adminProduct">
-
-      <img
-        src="${escapeHtml(p.i)}"
-        onerror="this.src=autoImage('${escapeHtml(productName(p))}','${escapeHtml(productCategory(p))}')">
-
-      <div class="grow">
-
-        <b>${escapeHtml(productName(p))}</b>
-
-        <div class="small">
-          ${escapeHtml(productCategory(p))}
-        </div>
-
+      <div class="stat">
+        <b>${P.length}</b>
+        ${T("পণ্য","Products")}
       </div>
 
-      <div class="priceEdit">
-
-        <button onclick="changePrice(${p.id},-10)">−</button>
-
-        <input
-          id="price_${p.id}"
-          type="number"
-          value="${p.p}">
-
-        <button onclick="changePrice(${p.id},10)">+</button>
-
+      <div class="stat">
+        <b>${ORDERS.length}</b>
+        ${T("অর্ডার","Orders")}
       </div>
+
+      <div class="stat">
+        <b>৳${sales.toLocaleString("en-BD")}</b>
+        ${T("মোট বিক্রি","Sales")}
+      </div>
+
+      <div class="stat">
+        <b>৳${commission.toLocaleString("en-BD")}</b>
+        ${T("৫% কমিশন","5% Commission")}
+      </div>
+
+    </div>
+
+    <div class="section" style="margin-top:13px">
+
+      <h3>💳 ${T("পেমেন্ট নম্বর","Payment Numbers")}</h3>
+
+      <label>bKash</label>
+      <input id="bk" value="${PAYMENT.bkash}">
+
+      <label>Nagad</label>
+      <input id="ng" value="${PAYMENT.nagad}">
+
+      <label>Rocket</label>
+      <input id="rk" value="${PAYMENT.rocket}">
 
       <button
-        class="primary"
-        onclick="savePrice(${p.id})">
-        Save
+        class="primary full"
+        onclick="savePayment()">
+        💾 ${T("নম্বর সেভ করুন","Save Numbers")}
       </button>
 
     </div>
 
-  `).join("");
+    <div class="section">
 
-  renderAdminOrders();
-}
+      <h3>💰 ${T("পণ্যের দাম","Product Prices")}</h3>
 
-function renderAdminOrders(){
+      ${P.map(x=>`
 
-  const box=document.getElementById("adminOrders");
+        <div class="product-row">
 
-  if(!orders.length){
+          <div class="row-flex">
 
-    box.innerHTML=`<div class="empty">কোনো অর্ডার নেই।</div>`;
+            <div>
+              <b>${productName(x)}</b>
+              <div class="small">${x.c}</div>
+            </div>
 
-    return;
-  }
+            <div style="display:flex;align-items:center;gap:6px">
 
-  const statuses=[
-    "নতুন অর্ডার",
-    "নিশ্চিত",
-    "প্রস্তুত হচ্ছে",
-    "ডেলিভারিতে",
-    "সম্পন্ন",
-    "বাতিল"
-  ];
+              <button
+                class="secondary"
+                onclick="adminPrice(${x.id},-10)">
+                −
+              </button>
 
-  box.innerHTML=orders.map(o=>`
+              <b>৳${x.p}</b>
 
-    <div class="order">
+              <button
+                class="secondary"
+                onclick="adminPrice(${x.id},10)">
+                +
+              </button>
 
-      <b>Order #${escapeHtml(o.id)}</b>
+            </div>
 
-      <div>
-        ${escapeHtml(o.name)}
-        — ${escapeHtml(o.phone)}
-      </div>
+          </div>
 
-      <div class="small">
-        ${escapeHtml(o.address)}
-      </div>
+        </div>
 
-      <br>
-
-      <b>${money(o.total)}</b>
-
-      <br><br>
-
-      <select onchange="changeOrderStatus('${o.id}',this.value)">
-
-        ${statuses.map(s=>`
-          <option
-            ${o.status===s?"selected":""}>
-            ${s}
-          </option>
-        `).join("")}
-
-      </select>
+      `).join("")}
 
     </div>
 
-  `).join("");
+    <div class="section">
+
+      <h3>📦 ${T("অর্ডার ম্যানেজমেন্ট","Order Management")}</h3>
+
+      ${
+        ORDERS.length
+        ?
+        ORDERS.map(o=>`
+
+          <div class="order-row">
+
+            <div class="row-flex">
+
+              <b>${o.id}</b>
+
+              <select
+                onchange="changeOrderStatus('${o.id}',this.value)"
+                style="width:auto;margin:0">
+
+                <option ${o.status==="Pending"?"selected":""}>
+                  Pending
+                </option>
+
+                <option ${o.status==="Confirmed"?"selected":""}>
+                  Confirmed
+                </option>
+
+                <option ${o.status==="Processing"?"selected":""}>
+                  Processing
+                </option>
+
+                <option ${o.status==="Delivered"?"selected":""}>
+                  Delivered
+                </option>
+
+                <option ${o.status==="Cancelled"?"selected":""}>
+                  Cancelled
+                </option>
+
+              </select>
+
+            </div>
+
+            <div class="small">
+              ${o.name} — ${o.phone}
+            </div>
+
+            <div style="margin-top:5px">
+              ৳${o.total.toLocaleString("en-BD")}
+            </div>
+
+          </div>
+
+        `).join("")
+        :
+        `<div class="empty">
+          ${T("কোনো অর্ডার নেই","No orders")}
+        </div>`
+      }
+
+    </div>
+
+  `;
+
+}
+
+function adminPrice(id,amount){
+
+  const p = P.find(x=>x.id===id);
+
+  if(!p) return;
+
+  p.p = Math.max(0,Number(p.p)+amount);
+
+  saveAll();
+
+  renderAdmin();
+
+}
+
+function savePayment(){
+
+  PAYMENT.bkash =
+    document.getElementById("bk").value.trim();
+
+  PAYMENT.nagad =
+    document.getElementById("ng").value.trim();
+
+  PAYMENT.rocket =
+    document.getElementById("rk").value.trim();
+
+  /*
+    Payment values are intentionally stored
+    separately so the numbers remain editable.
+  */
+
+  localStorage.setItem(
+    STORE+"_payment",
+    JSON.stringify(PAYMENT)
+  );
+
+  alert(T(
+    "পেমেন্ট নম্বর সেভ হয়েছে।",
+    "Payment numbers saved."
+  ));
+
 }
 
 function changeOrderStatus(id,status){
 
-  const order=orders.find(o=>o.id===id);
+  const o = ORDERS.find(x=>x.id===id);
 
-  if(!order)return;
+  if(!o) return;
 
-  order.status=status;
+  o.status = status;
 
-  saveData();
+  saveAll();
 
-  renderOrders();
   renderAdmin();
+
 }
 
-function savePaymentSettings(){
+/* LOAD PAYMENT */
 
-  paymentSettings={
-    bkash:document.getElementById("bkashNumber").value.trim(),
-    nagad:document.getElementById("nagadNumber").value.trim(),
-    rocket:document.getElementById("rocketNumber").value.trim()
-  };
+const savedPayment =
+  JSON.parse(localStorage.getItem(STORE+"_payment") || "null");
 
-  saveData();
-  updatePaymentNumber();
+if(savedPayment){
 
-  alert(lang==="bn"
-    ?"Payment Number সংরক্ষণ হয়েছে।"
-    :"Payment numbers saved."
-  );
+  PAYMENT.bkash = savedPayment.bkash || PAYMENT.bkash;
+  PAYMENT.nagad = savedPayment.nagad || PAYMENT.nagad;
+  PAYMENT.rocket = savedPayment.rocket || PAYMENT.rocket;
+
 }
 
-function showPage(page){
+/* CART COUNT */
 
-  document.querySelectorAll(".section")
-    .forEach(x=>x.classList.remove("active"));
+function updateCartCount(){
 
-  document.getElementById(page)
-    .classList.add("active");
+  const count =
+    Object.values(CART).reduce(
+      (a,b)=>a+Number(b),
+      0
+    );
+
+  document.getElementById("cartCount").textContent=count;
+
+}
+
+/* PAGE RENDER */
+
+function renderAll(){
+
+  renderCategories();
+
+  document.getElementById("langBtn").textContent =
+    lang==="bn" ? "বাংলা" : "English";
 
   document.querySelectorAll(".bottom button")
-    .forEach(x=>x.classList.remove("active"));
+    .forEach(b=>b.classList.remove("active"));
 
-  const nav={
-    home:"navHome",
-    cart:"navCart",
-    orders:"navOrders",
-    profile:"navProfile"
-  };
+  const nav =
+    document.getElementById("nav-"+currentPage);
 
-  if(nav[page]){
-    document.getElementById(nav[page]).classList.add("active");
+  if(nav) nav.classList.add("active");
+
+  if(currentPage==="home"){
+    renderHome();
+  }
+  else if(currentPage==="shop"){
+    renderHome();
+  }
+  else if(currentPage==="cart"){
+    renderCart();
+  }
+  else if(currentPage==="orders"){
+    renderOrders();
+  }
+  else if(currentPage==="profile"){
+    renderProfile();
+  }
+  else if(currentPage==="seller"){
+    renderSeller();
+  }
+  else if(currentPage==="admin"){
+    renderAdmin();
   }
 
-  if(page==="home")renderProducts();
-  if(page==="cart")renderCart();
-  if(page==="orders")renderOrders();
-  if(page==="profile")loadProfile();
-  if(page==="seller")renderSeller();
-  if(page==="admin")renderAdmin();
+  updateCartCount();
 
-  window.scrollTo({top:0,behavior:"smooth"});
 }
 
-function applyLanguage(){
+/* START */
 
-  document.getElementById("langBtn").textContent=
-    lang==="bn" ? "English" : "বাংলা";
-
-  document.getElementById("heroTitle").textContent=L("hero");
-  document.getElementById("heroText").textContent=L("heroText");
-
-  document.getElementById("search").placeholder=L("search");
-
-  document.getElementById("cartTitle").textContent=L("cartTitle");
-  document.getElementById("checkoutTitle").textContent=L("checkout");
-  document.getElementById("ordersTitle").textContent=
-    lang==="bn"?"📦 আমার অর্ডার":"📦 My Orders";
-
-  document.getElementById("profileTitle").textContent=L("profile");
-
-  document.getElementById("nameLabel").textContent=
-    lang==="bn"?"নাম":"Name";
-
-  document.getElementById("phoneLabel").textContent=
-    lang==="bn"?"মোবাইল":"Mobile";
-
-  document.getElementById("addressLabel").textContent=
-    lang==="bn"?"ঠিকানা":"Address";
-
-  document.getElementById("saveProfileBtn").textContent=L("save");
-
-  document.getElementById("orderBtn").textContent=L("order");
-
-  document.getElementById("customerName").placeholder=L("name");
-  document.getElementById("customerPhone").placeholder=L("phone");
-  document.getElementById("customerAddress").placeholder=L("address");
-  document.getElementById("trx").placeholder=L("trx");
-
-  document.getElementById("navHome").innerHTML=
-    "🏠<br>"+L("home");
-
-  document.getElementById("navCart").innerHTML=
-    "🛒<br>"+L("cart");
-
-  document.getElementById("navOrders").innerHTML=
-    "📦<br>"+L("orders");
-
-  document.getElementById("navProfile").innerHTML=
-    "👤<br>"+L("profile");
-
-  renderPaymentOptions();
-  fillSellerCategory();
-  renderCategories();
-  renderProducts();
-  renderCart();
-  renderOrders();
-  renderSeller();
-  renderAdmin();
-}
-
-function toggleLang(){
-
-  lang=lang==="bn"?"en":"bn";
-
-  localStorage.setItem(STORE+"_lang",lang);
-
-  applyLanguage();
-}
-
-/* শুরু */
-updateCartCount();
-loadProfile();
-applyLanguage();
-showPage("home");
+renderAll();
 
 </script>
 
