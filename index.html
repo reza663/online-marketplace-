@@ -3,16 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>একসাথে — Seller & Admin MVP</title>
+<title>একসাথে — Seller & Admin</title>
 
 <style>
 *{box-sizing:border-box}
+
 body{
   margin:0;
   font-family:Arial,sans-serif;
   background:#f4f7f5;
   color:#17352b;
 }
+
 header{
   background:#087f5b;
   color:white;
@@ -21,16 +23,19 @@ header{
   top:0;
   z-index:10;
 }
+
 .header-row{
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:10px;
 }
+
 .logo{
   font-size:22px;
   font-weight:bold;
 }
+
 .cart-btn{
   background:white;
   color:#087f5b;
@@ -39,6 +44,7 @@ header{
   padding:8px 14px;
   font-weight:bold;
 }
+
 .search{
   width:100%;
   padding:11px;
@@ -47,6 +53,7 @@ header{
   border-radius:10px;
   font-size:15px;
 }
+
 nav{
   display:flex;
   overflow:auto;
@@ -55,6 +62,7 @@ nav{
   background:white;
   border-bottom:1px solid #ddd;
 }
+
 nav button{
   border:0;
   background:#e8f5ef;
@@ -63,26 +71,31 @@ nav button{
   border-radius:20px;
   white-space:nowrap;
 }
+
 main{
   padding:12px;
   padding-bottom:80px;
 }
+
 .section-title{
   font-size:20px;
   font-weight:bold;
   margin:8px 0 12px;
 }
+
 .grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:12px;
 }
+
 .card{
   background:white;
   border-radius:14px;
   overflow:hidden;
   box-shadow:0 2px 8px #00000012;
 }
+
 .product-img{
   width:100%;
   height:150px;
@@ -90,6 +103,7 @@ main{
   display:block;
   background:#eef3f0;
 }
+
 .fallback-img{
   width:100%;
   height:150px;
@@ -99,26 +113,32 @@ main{
   background:#eaf4ef;
   font-size:55px;
 }
+
 .card-body{
   padding:10px;
 }
+
 .card h3{
   margin:0 0 6px;
   font-size:16px;
 }
+
 .category{
   font-size:12px;
   color:#777;
 }
+
 .price{
   color:#087f5b;
   font-weight:bold;
   font-size:18px;
   margin:7px 0;
 }
+
 button{
   cursor:pointer;
 }
+
 .primary{
   width:100%;
   border:0;
@@ -128,6 +148,7 @@ button{
   border-radius:9px;
   font-weight:bold;
 }
+
 .danger{
   background:#c92a2a;
   color:white;
@@ -135,6 +156,7 @@ button{
   padding:8px 10px;
   border-radius:8px;
 }
+
 .box{
   background:white;
   border-radius:14px;
@@ -142,6 +164,7 @@ button{
   margin-bottom:12px;
   box-shadow:0 2px 8px #00000010;
 }
+
 input,select,textarea{
   width:100%;
   padding:11px;
@@ -150,6 +173,7 @@ input,select,textarea{
   border-radius:9px;
   font-size:15px;
 }
+
 .item{
   display:flex;
   gap:10px;
@@ -157,23 +181,42 @@ input,select,textarea{
   border-bottom:1px solid #eee;
   padding:10px 0;
 }
+
 .item:last-child{
   border-bottom:0;
 }
-.item img{
+
+.item-img{
   width:65px;
   height:65px;
   object-fit:cover;
   border-radius:10px;
+  background:#eaf4ef;
 }
+
+.item-fallback{
+  width:65px;
+  height:65px;
+  border-radius:10px;
+  background:#eaf4ef;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  flex-shrink:0;
+}
+
 .item-info{
   flex:1;
 }
+
 .qty{
   display:flex;
   align-items:center;
   gap:7px;
+  margin-top:6px;
 }
+
 .qty button{
   border:0;
   background:#e8f5ef;
@@ -183,6 +226,7 @@ input,select,textarea{
   border-radius:7px;
   font-weight:bold;
 }
+
 .bottom{
   position:fixed;
   bottom:0;
@@ -195,19 +239,23 @@ input,select,textarea{
   padding:8px;
   z-index:20;
 }
+
 .bottom button{
   border:0;
   background:none;
   color:#555;
   font-size:12px;
 }
+
 .bottom span{
   display:block;
   font-size:20px;
 }
+
 .hidden{
   display:none!important;
 }
+
 .badge{
   display:inline-block;
   padding:5px 9px;
@@ -216,16 +264,19 @@ input,select,textarea{
   color:#087f5b;
   font-size:12px;
 }
+
 .total{
   font-size:20px;
   font-weight:bold;
   color:#087f5b;
 }
+
 .empty{
   text-align:center;
   padding:30px 10px;
   color:#777;
 }
+
 .notice{
   background:#fff3cd;
   color:#664d03;
@@ -234,10 +285,12 @@ input,select,textarea{
   margin-bottom:12px;
   font-size:13px;
 }
+
 @media(min-width:700px){
   .grid{
     grid-template-columns:repeat(4,1fr);
   }
+
   main{
     max-width:1100px;
     margin:auto;
@@ -249,11 +302,17 @@ input,select,textarea{
 <body>
 
 <header>
+
   <div class="header-row">
-    <div class="logo">একসাথে</div>
+
+    <div class="logo">
+      একসাথে
+    </div>
+
     <button class="cart-btn" onclick="show('cart')">
       🛒 কার্ট (<span id="cartCount">0</span>)
     </button>
+
   </div>
 
   <input
@@ -262,128 +321,274 @@ input,select,textarea{
     placeholder="পণ্য খুঁজুন..."
     oninput="render()"
   >
+
 </header>
 
+
 <nav>
-  <button onclick="filterCat('সব')">সব</button>
-  <button onclick="filterCat('ফ্যাশন')">ফ্যাশন</button>
-  <button onclick="filterCat('ইলেকট্রনিক্স')">ইলেকট্রনিক্স</button>
-  <button onclick="filterCat('হোম')">হোম</button>
-  <button onclick="filterCat('খাবার')">খাবার</button>
+
+  <button onclick="filterCat('সব')">
+    সব
+  </button>
+
+  <button onclick="filterCat('ফ্যাশন')">
+    ফ্যাশন
+  </button>
+
+  <button onclick="filterCat('ইলেকট্রনিক্স')">
+    ইলেকট্রনিক্স
+  </button>
+
+  <button onclick="filterCat('হোম')">
+    হোম
+  </button>
+
+  <button onclick="filterCat('খাবার')">
+    খাবার
+  </button>
+
 </nav>
+
 
 <main>
 
   <section id="home">
-    <div class="section-title">জনপ্রিয় পণ্য</div>
+
+    <div class="section-title">
+      জনপ্রিয় পণ্য
+    </div>
+
     <div id="products" class="grid"></div>
+
   </section>
+
 
   <section id="cart" class="hidden">
-    <div class="section-title">🛒 আমার কার্ট</div>
+
+    <div class="section-title">
+      🛒 আমার কার্ট
+    </div>
+
     <div id="cartList"></div>
+
     <div id="cartTotal"></div>
+
   </section>
+
 
   <section id="orders" class="hidden">
-    <div class="section-title">📦 আমার অর্ডার</div>
+
+    <div class="section-title">
+      📦 আমার অর্ডার
+    </div>
+
     <div id="ordersList"></div>
+
   </section>
+
 
   <section id="profile" class="hidden">
-    <div class="section-title">👤 প্রোফাইল</div>
 
-    <div class="box">
-      <h3>আমার তথ্য</h3>
-      <input id="profileName" placeholder="আপনার নাম">
-      <input id="profilePhone" placeholder="মোবাইল নম্বর">
-      <textarea id="profileAddress" placeholder="ঠিকানা"></textarea>
-      <button class="primary" onclick="saveProfile()">সেভ করুন</button>
+    <div class="section-title">
+      👤 প্রোফাইল
     </div>
 
     <div class="box">
-      <h3>একসাথে</h3>
-      <p>অনলাইন কেনাকাটার সহজ প্ল্যাটফর্ম।</p>
+
+      <h3>
+        আমার তথ্য
+      </h3>
+
+      <input
+        id="profileName"
+        placeholder="আপনার নাম"
+      >
+
+      <input
+        id="profilePhone"
+        placeholder="মোবাইল নম্বর"
+      >
+
+      <textarea
+        id="profileAddress"
+        placeholder="ঠিকানা"
+      ></textarea>
+
+      <button
+        class="primary"
+        onclick="saveProfile()"
+      >
+        সেভ করুন
+      </button>
+
     </div>
+
+
+    <div class="box">
+
+      <h3>
+        একসাথে
+      </h3>
+
+      <p>
+        অনলাইন কেনাকাটার সহজ প্ল্যাটফর্ম।
+      </p>
+
+    </div>
+
   </section>
+
 
   <section id="seller" class="hidden">
-    <div class="section-title">🏪 Seller Panel</div>
+
+    <div class="section-title">
+      🏪 Seller Panel
+    </div>
+
 
     <div class="box">
-      <h3>নতুন পণ্য যোগ করুন</h3>
 
-      <input id="pn" placeholder="পণ্যের নাম">
+      <h3>
+        নতুন পণ্য যোগ করুন
+      </h3>
+
+      <input
+        id="pn"
+        placeholder="পণ্যের নাম"
+      >
 
       <select id="pc">
-        <option>ফ্যাশন</option>
-        <option>ইলেকট্রনিক্স</option>
-        <option>হোম</option>
-        <option>খাবার</option>
+
+        <option>
+          ফ্যাশন
+        </option>
+
+        <option>
+          ইলেকট্রনিক্স
+        </option>
+
+        <option>
+          হোম
+        </option>
+
+        <option>
+          খাবার
+        </option>
+
       </select>
 
-      <input id="pp" type="number" placeholder="দাম">
+      <input
+        id="pp"
+        type="number"
+        placeholder="দাম"
+      >
 
-      <input id="pi" placeholder="ছবির URL (ঐচ্ছিক)">
+      <input
+        id="pi"
+        placeholder="ছবির URL (ঐচ্ছিক)"
+      >
 
-      <button class="primary" onclick="addProduct()">
+      <button
+        class="primary"
+        onclick="addProduct()"
+      >
         পণ্য যোগ করুন
       </button>
+
     </div>
+
 
     <div class="box">
-      <h3>আমার পণ্য</h3>
+
+      <h3>
+        আমার পণ্য
+      </h3>
+
       <div id="sellerProducts"></div>
+
     </div>
+
   </section>
 
+
   <section id="admin" class="hidden">
-    <div class="section-title">⚙️ Admin Panel</div>
+
+    <div class="section-title">
+      ⚙️ Admin Panel
+    </div>
 
     <div class="notice">
       এখানে অর্ডার দেখা ও পণ্যের তথ্য পরিচালনা করা যাবে।
     </div>
 
-    <div class="box">
-      <h3>সব অর্ডার</h3>
-      <div id="adminOrders"></div>
-    </div>
 
     <div class="box">
-      <h3>পণ্য তালিকা</h3>
-      <div id="adminProducts"></div>
+
+      <h3>
+        সব অর্ডার
+      </h3>
+
+      <div id="adminOrders"></div>
+
     </div>
+
+
+    <div class="box">
+
+      <h3>
+        পণ্য তালিকা
+      </h3>
+
+      <div id="adminProducts"></div>
+
+    </div>
+
   </section>
 
 </main>
 
+
 <div class="bottom">
+
   <button onclick="show('home')">
-    <span>🏠</span>হোম
+    <span>🏠</span>
+    হোম
   </button>
 
   <button onclick="show('cart')">
-    <span>🛒</span>কার্ট
+    <span>🛒</span>
+    কার্ট
   </button>
 
   <button onclick="show('orders')">
-    <span>📦</span>অর্ডার
+    <span>📦</span>
+    অর্ডার
   </button>
 
   <button onclick="show('profile')">
-    <span>👤</span>প্রোফাইল
+    <span>👤</span>
+    প্রোফাইল
   </button>
 
   <button onclick="show('seller')">
-    <span>🏪</span>Seller
+    <span>🏪</span>
+    Seller
   </button>
 
   <button onclick="show('admin')">
-    <span>⚙️</span>Admin
+    <span>⚙️</span>
+    Admin
   </button>
+
 </div>
 
+
 <script>
+
+
+/* =========================
+   DEFAULT PRODUCTS
+========================= */
 
 const starter = [
 
@@ -392,7 +597,7 @@ const starter = [
     n:'পুরুষের শার্ট',
     c:'ফ্যাশন',
     p:850,
-    i:'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=500&q=70'
+    i:'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=700&q=80'
   },
 
   {
@@ -400,7 +605,7 @@ const starter = [
     n:'মহিলাদের ড্রেস',
     c:'ফ্যাশন',
     p:1250,
-    i:'https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=500&q=70'
+    i:'https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=700&q=80'
   },
 
   {
@@ -408,7 +613,7 @@ const starter = [
     n:'স্মার্ট ওয়াচ',
     c:'ইলেকট্রনিক্স',
     p:3000,
-    i:'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=70'
+    i:'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=80'
   },
 
   {
@@ -416,7 +621,7 @@ const starter = [
     n:'ব্যাকপ্যাক',
     c:'ফ্যাশন',
     p:900,
-    i:'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=500&q=70'
+    i:'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=700&q=80'
   },
 
   {
@@ -424,7 +629,7 @@ const starter = [
     n:'টেবিল ল্যাম্প',
     c:'হোম',
     p:700,
-    i:'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=500&q=70'
+    i:'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=700&q=80'
   },
 
   {
@@ -432,7 +637,7 @@ const starter = [
     n:'স্পোর্টস জুতা',
     c:'ফ্যাশন',
     p:1300,
-    i:'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=70'
+    i:'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80'
   },
 
   {
@@ -440,7 +645,7 @@ const starter = [
     n:'কাচ্চি বিরিয়ানি',
     c:'খাবার',
     p:300,
-    i:'https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=500&q=80'
+    i:'https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=700&q=80'
   },
 
   {
@@ -448,7 +653,7 @@ const starter = [
     n:'চিকেন বার্গার',
     c:'খাবার',
     p:180,
-    i:'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=70'
+    i:'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80'
   },
 
   {
@@ -456,7 +661,7 @@ const starter = [
     n:'পিজ্জা',
     c:'খাবার',
     p:280,
-    i:'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=500&q=70'
+    i:'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=700&q=80'
   },
 
   {
@@ -464,7 +669,7 @@ const starter = [
     n:'চিকেন রোল',
     c:'খাবার',
     p:150,
-    i:'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=500&q=80'
+    i:'https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=700&q=80'
   },
 
   {
@@ -472,7 +677,7 @@ const starter = [
     n:'কোকা-কোলা 250ml',
     c:'খাবার',
     p:30,
-    i:'https://images.pexels.com/photos/2668308/pexels-photo-2668308.jpeg'
+    i:'https://images.unsplash.com/photo-1554866585-cd94860890b7?auto=format&fit=crop&w=700&q=80'
   },
 
   {
@@ -480,7 +685,7 @@ const starter = [
     n:'পেপসি 250ml',
     c:'খাবার',
     p:30,
-    i:'https://images.unsplash.com/photo-1629203851122-3726ecdf080e?auto=format&fit=crop&w=500&q=70'
+    i:'https://images.unsplash.com/photo-1629203851122-3726ecdf080e?auto=format&fit=crop&w=700&q=80'
   },
 
   {
@@ -488,7 +693,7 @@ const starter = [
     n:'স্প্রাইট 250ml',
     c:'খাবার',
     p:30,
-    i:'https://images.pexels.com/photos/2668308/pexels-photo-2668308.jpeg'
+    i:'https://images.unsplash.com/photo-1581006852262-e4307cf6283a?auto=format&fit=crop&w=700&q=80'
   },
 
   {
@@ -496,28 +701,80 @@ const starter = [
     n:'মিনারেল পানি 500ml',
     c:'খাবার',
     p:20,
-    i:'https://images.unsplash.com/photo-1629203851122-3726ecdf080e?auto=format&fit=crop&w=500&q=70'
+    i:'https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=700&q=80'
   }
 
 ];
 
-let P = JSON.parse(localStorage.getItem('es_products') || 'null');
 
-if(!Array.isArray(P) || P.length === 0){
-  P = [...starter];
+/* =========================
+   LOAD DATA
+========================= */
+
+let savedProducts =
+  JSON.parse(
+    localStorage.getItem('es_products') || '[]'
+  );
+
+if(!Array.isArray(savedProducts)){
+  savedProducts = [];
 }
 
-let cart = JSON.parse(localStorage.getItem('es_cart') || '[]');
 
-let orders = JSON.parse(localStorage.getItem('es_orders') || '[]');
+/*
+  পুরোনো ভুল localStorage থাকলেও
+  default products যেন হারিয়ে না যায়।
+*/
+
+let customProducts =
+  savedProducts.filter(x =>
+    !starter.some(s => s.id === x.id)
+  );
+
+
+let P = [
+  ...starter,
+  ...customProducts
+];
+
+
+let cart =
+  JSON.parse(
+    localStorage.getItem('es_cart') || '[]'
+  );
+
+if(!Array.isArray(cart)){
+  cart = [];
+}
+
+
+let orders =
+  JSON.parse(
+    localStorage.getItem('es_orders') || '[]'
+  );
+
+if(!Array.isArray(orders)){
+  orders = [];
+}
+
 
 let currentCat = 'সব';
 
+
+/* =========================
+   SAVE
+========================= */
+
 function save(){
+
+  const custom =
+    P.filter(x =>
+      !starter.some(s => s.id === x.id)
+    );
 
   localStorage.setItem(
     'es_products',
-    JSON.stringify(P.slice(starter.length))
+    JSON.stringify(custom)
   );
 
   localStorage.setItem(
@@ -532,51 +789,97 @@ function save(){
 
 }
 
+
+/* =========================
+   EMOJI
+========================= */
+
 function getEmoji(c){
 
-  if(c === 'ফ্যাশন') return '👕';
+  if(c === 'ফ্যাশন'){
+    return '👕';
+  }
 
-  if(c === 'ইলেকট্রনিক্স') return '⌚';
+  if(c === 'ইলেকট্রনিক্স'){
+    return '⌚';
+  }
 
-  if(c === 'হোম') return '💡';
+  if(c === 'হোম'){
+    return '💡';
+  }
 
-  if(c === 'খাবার') return '🍔';
+  if(c === 'খাবার'){
+    return '🍔';
+  }
 
   return '📦';
 
 }
 
-function card(x){
 
-  const img = x.i && x.i.trim()
-    ? `<img class="product-img"
-         src="${x.i}"
-         onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">`
-    : '';
+/* =========================
+   PRODUCT IMAGE
+========================= */
+
+function productImage(x){
+
+  if(!x.i || !x.i.trim()){
+
+    return `
+      <div class="fallback-img">
+        ${getEmoji(x.c)}
+      </div>
+    `;
+
+  }
+
+  return `
+    <img
+      class="product-img"
+      src="${x.i}"
+      alt="${x.n}"
+      loading="lazy"
+      onerror="
+        this.style.display='none';
+        this.nextElementSibling.style.display='flex';
+      "
+    >
+
+    <div
+      class="fallback-img"
+      style="display:none"
+    >
+      ${getEmoji(x.c)}
+    </div>
+  `;
+
+}
+
+
+/* =========================
+   PRODUCT CARD
+========================= */
+
+function card(x){
 
   return `
 
     <div class="card">
 
-      ${img}
-
-      <div
-        class="fallback-img"
-        style="${img ? 'display:none' : 'display:flex'}"
-      >
-        ${getEmoji(x.c)}
-      </div>
+      ${productImage(x)}
 
       <div class="card-body">
 
-        <h3>${x.n}</h3>
+        <h3>
+          ${x.n}
+        </h3>
 
         <div class="category">
           ${x.c}
         </div>
 
         <div class="price">
-          ৳${x.p}
+          ৳${Number(x.p).toLocaleString('bn-BD')}
         </div>
 
         <button
@@ -594,40 +897,86 @@ function card(x){
 
 }
 
+
+/* =========================
+   RENDER
+========================= */
+
 function render(){
 
   const q =
-    (document.getElementById('search')?.value || '')
-      .trim()
-      .toLowerCase();
+    (
+      document.getElementById('search')?.value || ''
+    )
+    .trim()
+    .toLowerCase();
 
-  const list = P.filter(x => {
 
-    const catOk =
-      currentCat === 'সব' ||
-      x.c === currentCat;
+  const list =
+    P.filter(x => {
 
-    const searchOk =
-      !q ||
-      x.n.toLowerCase().includes(q);
+      const catOk =
+        currentCat === 'সব' ||
+        x.c === currentCat;
 
-    return catOk && searchOk;
 
-  });
+      const searchOk =
+        !q ||
+        String(x.n)
+          .toLowerCase()
+          .includes(q);
 
-  document.getElementById('products').innerHTML =
-    list.length
-      ? list.map(card).join('')
-      : `<div class="empty">কোনো পণ্য পাওয়া যায়নি।</div>`;
+
+      return catOk && searchOk;
+
+    });
+
+
+  const products =
+    document.getElementById('products');
+
+
+  if(products){
+
+    products.innerHTML =
+      list.length
+        ? list.map(card).join('')
+        : `
+          <div class="empty">
+            কোনো পণ্য পাওয়া যায়নি।
+          </div>
+        `;
+
+  }
+
 
   renderCart();
+  renderOrders();
   renderSeller();
   renderAdmin();
 
-  document.getElementById('cartCount').textContent =
-    cart.reduce((sum,x)=>sum + Number(x.qty || 0),0);
+
+  const cartCount =
+    document.getElementById('cartCount');
+
+
+  if(cartCount){
+
+    cartCount.textContent =
+      cart.reduce(
+        (sum,x) =>
+          sum + Number(x.qty || 0),
+        0
+      );
+
+  }
 
 }
+
+
+/* =========================
+   CATEGORY
+========================= */
 
 function filterCat(cat){
 
@@ -637,29 +986,58 @@ function filterCat(cat){
 
 }
 
+
+/* =========================
+   SHOW SECTION
+========================= */
+
 function show(id){
 
   document
     .querySelectorAll('main section')
-    .forEach(s => s.classList.add('hidden'));
+    .forEach(s =>
+      s.classList.add('hidden')
+    );
 
-  const el = document.getElementById(id);
+
+  const el =
+    document.getElementById(id);
+
 
   if(el){
+
     el.classList.remove('hidden');
+
   }
+
 
   render();
 
 }
 
+
+/* =========================
+   ADD CART
+========================= */
+
 function addCart(id){
 
-  const product = P.find(x => x.id === id);
+  const product =
+    P.find(x => x.id === id);
 
-  if(!product) return;
 
-  const found = cart.find(x => x.id === id);
+  if(!product){
+
+    alert('পণ্য পাওয়া যায়নি');
+
+    return;
+
+  }
+
+
+  const found =
+    cart.find(x => x.id === id);
+
 
   if(found){
 
@@ -674,73 +1052,118 @@ function addCart(id){
 
   }
 
+
   save();
+
   render();
 
   alert('পণ্য কার্টে যোগ হয়েছে');
 
 }
 
+
+/* =========================
+   REMOVE CART
+========================= */
+
 function removeCart(id){
 
-  cart = cart.filter(x => x.id !== id);
+  cart =
+    cart.filter(x =>
+      x.id !== id
+    );
 
   save();
+
   render();
 
 }
+
+
+/* =========================
+   CHANGE QTY
+========================= */
 
 function changeQty(id,change){
 
-  const item = cart.find(x => x.id === id);
+  const item =
+    cart.find(x => x.id === id);
+
 
   if(!item) return;
 
+
   item.qty += change;
+
 
   if(item.qty <= 0){
 
-    cart = cart.filter(x => x.id !== id);
+    cart =
+      cart.filter(x =>
+        x.id !== id
+      );
 
   }
 
+
   save();
+
   render();
 
 }
+
+
+/* =========================
+   CART
+========================= */
 
 function renderCart(){
 
   const box =
     document.getElementById('cartList');
 
+
   const totalBox =
     document.getElementById('cartTotal');
 
+
   if(!box || !totalBox) return;
+
 
   let total = 0;
 
   const validCart = [];
 
+
   cart.forEach(c => {
 
-    const p = P.find(x => x.id === c.id);
+    const p =
+      P.find(x => x.id === c.id);
+
 
     if(!p) return;
 
+
     validCart.push(c);
 
-    total += Number(p.p) * Number(c.qty);
+
+    total +=
+      Number(p.p) *
+      Number(c.qty);
 
   });
 
-  if(validCart.length === 0){
 
-    box.innerHTML =
-      `<div class="box empty">
+  cart = validCart;
+
+
+  if(cart.length === 0){
+
+    box.innerHTML = `
+      <div class="box empty">
         আপনার কার্ট খালি।
-      </div>`;
+      </div>
+    `;
 
     totalBox.innerHTML = '';
 
@@ -748,72 +1171,103 @@ function renderCart(){
 
   }
 
-  cart = validCart;
 
-  box.innerHTML = cart.map(c => {
+  box.innerHTML =
+    cart.map(c => {
 
-    const p = P.find(x => x.id === c.id);
+      const p =
+        P.find(x => x.id === c.id);
 
-    return `
 
-      <div class="box">
+      const image =
+        p.i && p.i.trim()
+          ? `
+            <img
+              class="item-img"
+              src="${p.i}"
+              alt="${p.n}"
+              onerror="
+                this.style.display='none';
+                this.nextElementSibling.style.display='flex';
+              "
+            >
+            <div
+              class="item-fallback"
+              style="display:none"
+            >
+              ${getEmoji(p.c)}
+            </div>
+          `
+          : `
+            <div class="item-fallback">
+              ${getEmoji(p.c)}
+            </div>
+          `;
 
-        <div class="item">
 
-          <img
-            src="${p.i || ''}"
-            onerror="this.style.display='none'"
-          >
+      return `
 
-          <div class="item-info">
+        <div class="box">
 
-            <b>${p.n}</b>
+          <div class="item">
 
-            <div>
-              ৳${p.p}
+            ${image}
+
+            <div class="item-info">
+
+              <b>
+                ${p.n}
+              </b>
+
+              <div>
+                ৳${Number(p.p).toLocaleString('bn-BD')}
+              </div>
+
+              <div class="qty">
+
+                <button
+                  onclick="changeQty(${p.id},-1)"
+                >
+                  −
+                </button>
+
+                <b>
+                  ${c.qty}
+                </b>
+
+                <button
+                  onclick="changeQty(${p.id},1)"
+                >
+                  +
+                </button>
+
+              </div>
+
             </div>
 
-            <div class="qty">
 
-              <button
-                onclick="changeQty(${p.id},-1)"
-              >
-                −
-              </button>
-
-              <b>${c.qty}</b>
-
-              <button
-                onclick="changeQty(${p.id},1)"
-              >
-                +
-              </button>
-
-            </div>
+            <button
+              class="danger"
+              onclick="removeCart(${p.id})"
+            >
+              মুছুন
+            </button>
 
           </div>
 
-          <button
-            class="danger"
-            onclick="removeCart(${p.id})"
-          >
-            মুছুন
-          </button>
-
         </div>
 
-      </div>
+      `;
 
-    `;
+    }).join('');
 
-  }).join('');
 
   totalBox.innerHTML = `
 
     <div class="box">
 
       <div class="total">
-        মোট: ৳${total}
+        মোট: ৳${Number(total).toLocaleString('bn-BD')}
       </div>
 
       <button
@@ -829,6 +1283,11 @@ function renderCart(){
 
 }
 
+
+/* =========================
+   CHECKOUT
+========================= */
+
 function checkout(){
 
   if(cart.length === 0){
@@ -839,20 +1298,27 @@ function checkout(){
 
   }
 
+
   const name =
     prompt('আপনার নাম লিখুন');
 
+
   if(!name) return;
+
 
   const phone =
     prompt('মোবাইল নম্বর লিখুন');
 
+
   if(!phone) return;
+
 
   const address =
     prompt('ডেলিভারি ঠিকানা লিখুন');
 
+
   if(!address) return;
+
 
   const payment =
     prompt(
@@ -860,28 +1326,49 @@ function checkout(){
       '1 = Cash on Delivery\n' +
       '2 = বিকাশ\n' +
       '3 = নগদ'
-    ) || 'Cash on Delivery';
+    )
+    || 'Cash on Delivery';
+
 
   let total = 0;
 
-  const items = cart.map(c => {
 
-    const p = P.find(x => x.id === c.id);
+  const items =
+    cart.map(c => {
 
-    total += Number(p.p) * Number(c.qty);
+      const p =
+        P.find(x => x.id === c.id);
 
-    return {
-      id:p.id,
-      n:p.n,
-      p:p.p,
-      qty:c.qty
-    };
 
-  });
+      if(!p) return null;
+
+
+      total +=
+        Number(p.p) *
+        Number(c.qty);
+
+
+      return {
+
+        id:p.id,
+
+        n:p.n,
+
+        p:p.p,
+
+        qty:c.qty
+
+      };
+
+    })
+    .filter(Boolean);
+
 
   const order = {
 
-    id:'ES' + Date.now(),
+    id:
+      'ES' +
+      Date.now(),
 
     name:name,
 
@@ -897,15 +1384,22 @@ function checkout(){
 
     status:'নতুন',
 
-    date:new Date().toLocaleString('bn-BD')
+    date:
+      new Date()
+        .toLocaleString('bn-BD')
 
   };
+
 
   orders.unshift(order);
 
   cart = [];
 
+
   save();
+
+  render();
+
 
   alert(
     'অর্ডার সফল হয়েছে!\n\n' +
@@ -913,110 +1407,149 @@ function checkout(){
     order.id
   );
 
+
   show('orders');
 
 }
+
+
+/* =========================
+   ORDERS
+========================= */
 
 function renderOrders(){
 
   const box =
     document.getElementById('ordersList');
 
+
   if(!box) return;
+
 
   if(orders.length === 0){
 
-    box.innerHTML =
-      `<div class="box empty">
+    box.innerHTML = `
+      <div class="box empty">
         এখনো কোনো অর্ডার নেই।
-      </div>`;
+      </div>
+    `;
 
     return;
 
   }
 
-  box.innerHTML = orders.map(o => `
 
-    <div class="box">
+  box.innerHTML =
+    orders.map(o => `
 
-      <div>
-        <b>অর্ডার: ${o.id}</b>
-      </div>
-
-      <div>
-        তারিখ: ${o.date}
-      </div>
-
-      <div>
-        নাম: ${o.name}
-      </div>
-
-      <div>
-        ফোন: ${o.phone}
-      </div>
-
-      <div>
-        ঠিকানা: ${o.address}
-      </div>
-
-      <div>
-        পেমেন্ট: ${o.payment}
-      </div>
-
-      <hr>
-
-      ${o.items.map(i => `
+      <div class="box">
 
         <div>
-          ${i.n} × ${i.qty}
-          = ৳${i.p * i.qty}
+          <b>
+            অর্ডার: ${o.id}
+          </b>
         </div>
 
-      `).join('')}
+        <div>
+          তারিখ: ${o.date}
+        </div>
 
-      <hr>
+        <div>
+          নাম: ${o.name}
+        </div>
 
-      <div class="total">
-        মোট: ৳${o.total}
+        <div>
+          ফোন: ${o.phone}
+        </div>
+
+        <div>
+          ঠিকানা: ${o.address}
+        </div>
+
+        <div>
+          পেমেন্ট: ${o.payment}
+        </div>
+
+        <hr>
+
+        ${o.items.map(i => `
+
+          <div>
+            ${i.n} × ${i.qty}
+            = ৳${Number(i.p * i.qty).toLocaleString('bn-BD')}
+          </div>
+
+        `).join('')}
+
+        <hr>
+
+        <div class="total">
+          মোট:
+          ৳${Number(o.total).toLocaleString('bn-BD')}
+        </div>
+
+        <p>
+          <span class="badge">
+            ${o.status}
+          </span>
+        </p>
+
       </div>
 
-      <p>
-        <span class="badge">
-          ${o.status}
-        </span>
-      </p>
-
-    </div>
-
-  `).join('');
+    `).join('');
 
 }
+
+
+/* =========================
+   ADD PRODUCT
+========================= */
 
 function addProduct(){
 
   const n =
-    document.getElementById('pn').value.trim();
+    document
+      .getElementById('pn')
+      .value
+      .trim();
+
 
   const c =
-    document.getElementById('pc').value;
+    document
+      .getElementById('pc')
+      .value;
+
 
   const p =
-    Number(document.getElementById('pp').value);
+    Number(
+      document
+        .getElementById('pp')
+        .value
+    );
+
 
   const i =
-    document.getElementById('pi').value.trim();
+    document
+      .getElementById('pi')
+      .value
+      .trim();
+
 
   if(!n || !p){
 
-    alert('পণ্যের নাম ও দাম দিন');
+    alert(
+      'পণ্যের নাম ও দাম দিন'
+    );
 
     return;
 
   }
 
+
   const newProduct = {
 
-    id:Date.now(),
+    id:
+      Date.now(),
 
     n:n,
 
@@ -1028,181 +1561,297 @@ function addProduct(){
 
   };
 
+
   P.push(newProduct);
+
 
   save();
 
-  document.getElementById('pn').value='';
-  document.getElementById('pp').value='';
-  document.getElementById('pi').value='';
+
+  document
+    .getElementById('pn')
+    .value = '';
+
+
+  document
+    .getElementById('pp')
+    .value = '';
+
+
+  document
+    .getElementById('pi')
+    .value = '';
+
 
   render();
 
-  alert('পণ্য যোগ হয়েছে');
+
+  alert(
+    'পণ্য যোগ হয়েছে'
+  );
 
 }
+
+
+/* =========================
+   DELETE PRODUCT
+========================= */
 
 function deleteProduct(id){
 
-  if(!confirm('এই পণ্যটি মুছে ফেলবেন?')) return;
+  if(
+    !confirm(
+      'এই পণ্যটি মুছে ফেলবেন?'
+    )
+  ){
 
-  P = P.filter(x => x.id !== id);
+    return;
 
-  cart = cart.filter(x => x.id !== id);
+  }
+
+
+  P =
+    P.filter(x =>
+      x.id !== id
+    );
+
+
+  cart =
+    cart.filter(x =>
+      x.id !== id
+    );
+
 
   save();
 
   render();
 
 }
+
+
+/* =========================
+   SELLER
+========================= */
 
 function renderSeller(){
 
   const box =
-    document.getElementById('sellerProducts');
+    document.getElementById(
+      'sellerProducts'
+    );
+
 
   if(!box) return;
 
+
   const custom =
-    P.slice(starter.length);
+    P.filter(x =>
+      !starter.some(
+        s => s.id === x.id
+      )
+    );
+
 
   if(custom.length === 0){
 
-    box.innerHTML =
-      `<div class="empty">
+    box.innerHTML = `
+      <div class="empty">
         এখনো কোনো নতুন পণ্য যোগ করা হয়নি।
-      </div>`;
+      </div>
+    `;
 
     return;
 
   }
 
-  box.innerHTML = custom.map(x => `
 
-    <div class="item">
+  box.innerHTML =
+    custom.map(x => `
 
-      <div class="item-info">
+      <div class="item">
 
-        <b>${x.n}</b>
+        <div class="item-info">
 
-        <div>
-          ${x.c}
+          <b>
+            ${x.n}
+          </b>
+
+          <div>
+            ${x.c}
+          </div>
+
+          <div class="price">
+            ৳${Number(x.p).toLocaleString('bn-BD')}
+          </div>
+
         </div>
 
-        <div class="price">
-          ৳${x.p}
-        </div>
+
+        <button
+          class="danger"
+          onclick="deleteProduct(${x.id})"
+        >
+          মুছুন
+        </button>
 
       </div>
 
-      <button
-        class="danger"
-        onclick="deleteProduct(${x.id})"
-      >
-        মুছুন
-      </button>
-
-    </div>
-
-  `).join('');
+    `).join('');
 
 }
+
+
+/* =========================
+   ADMIN
+========================= */
 
 function renderAdmin(){
 
   const productBox =
-    document.getElementById('adminProducts');
+    document.getElementById(
+      'adminProducts'
+    );
+
 
   const orderBox =
-    document.getElementById('adminOrders');
+    document.getElementById(
+      'adminOrders'
+    );
 
-  if(!productBox || !orderBox) return;
 
-  productBox.innerHTML = P.map(x => `
+  if(!productBox || !orderBox){
+    return;
+  }
 
-    <div class="item">
 
-      <div class="item-info">
+  productBox.innerHTML =
+    P.map(x => `
 
-        <b>${x.n}</b>
+      <div class="item">
 
-        <div>${x.c}</div>
+        <div class="item-info">
 
-        <div class="price">
-          ৳${x.p}
+          <b>
+            ${x.n}
+          </b>
+
+          <div>
+            ${x.c}
+          </div>
+
+          <div class="price">
+            ৳${Number(x.p).toLocaleString('bn-BD')}
+          </div>
+
         </div>
 
       </div>
 
-    </div>
+    `).join('');
 
-  `).join('');
 
   if(orders.length === 0){
 
-    orderBox.innerHTML =
-      `<div class="empty">
+    orderBox.innerHTML = `
+      <div class="empty">
         এখনো কোনো অর্ডার নেই।
-      </div>`;
+      </div>
+    `;
 
     return;
 
   }
 
-  orderBox.innerHTML = orders.map(o => `
 
-    <div class="box">
+  orderBox.innerHTML =
+    orders.map(o => `
 
-      <b>${o.id}</b>
+      <div class="box">
 
-      <p>
-        ${o.name} — ${o.phone}
-      </p>
+        <b>
+          ${o.id}
+        </b>
 
-      <p>
-        মোট: <b>৳${o.total}</b>
-      </p>
+        <p>
+          ${o.name} — ${o.phone}
+        </p>
 
-      <select
-        onchange="updateOrderStatus('${o.id}',this.value)"
-      >
+        <p>
+          মোট:
+          <b>
+            ৳${Number(o.total).toLocaleString('bn-BD')}
+          </b>
+        </p>
 
-        <option ${o.status==='নতুন'?'selected':''}>
-          নতুন
-        </option>
 
-        <option ${o.status==='প্রস্তুত হচ্ছে'?'selected':''}>
-          প্রস্তুত হচ্ছে
-        </option>
+        <select
+          onchange="updateOrderStatus('${o.id}',this.value)"
+        >
 
-        <option ${o.status==='ডেলিভারিতে'?'selected':''}>
-          ডেলিভারিতে
-        </option>
+          <option
+            value="নতুন"
+            ${o.status === 'নতুন' ? 'selected' : ''}
+          >
+            নতুন
+          </option>
 
-        <option ${o.status==='সম্পন্ন'?'selected':''}>
-          সম্পন্ন
-        </option>
+          <option
+            value="প্রস্তুত হচ্ছে"
+            ${o.status === 'প্রস্তুত হচ্ছে' ? 'selected' : ''}
+          >
+            প্রস্তুত হচ্ছে
+          </option>
 
-        <option ${o.status==='বাতিল'?'selected':''}>
-          বাতিল
-        </option>
+          <option
+            value="ডেলিভারিতে"
+            ${o.status === 'ডেলিভারিতে' ? 'selected' : ''}
+          >
+            ডেলিভারিতে
+          </option>
 
-      </select>
+          <option
+            value="সম্পন্ন"
+            ${o.status === 'সম্পন্ন' ? 'selected' : ''}
+          >
+            সম্পন্ন
+          </option>
 
-    </div>
+          <option
+            value="বাতিল"
+            ${o.status === 'বাতিল' ? 'selected' : ''}
+          >
+            বাতিল
+          </option>
 
-  `).join('');
+        </select>
+
+      </div>
+
+    `).join('');
 
 }
 
-function updateOrderStatus(id,status){
+
+/* =========================
+   UPDATE ORDER
+========================= */
+
+function updateOrderStatus(
+  id,
+  status
+){
 
   const o =
-    orders.find(x => x.id === id);
+    orders.find(
+      x => x.id === id
+    );
+
 
   if(!o) return;
 
+
   o.status = status;
+
 
   save();
 
@@ -1210,49 +1859,119 @@ function updateOrderStatus(id,status){
 
 }
 
+
+/* =========================
+   PROFILE
+========================= */
+
 function saveProfile(){
 
   const name =
-    document.getElementById('profileName').value.trim();
+    document
+      .getElementById(
+        'profileName'
+      )
+      .value
+      .trim();
+
 
   const phone =
-    document.getElementById('profilePhone').value.trim();
+    document
+      .getElementById(
+        'profilePhone'
+      )
+      .value
+      .trim();
+
 
   const address =
-    document.getElementById('profileAddress').value.trim();
+    document
+      .getElementById(
+        'profileAddress'
+      )
+      .value
+      .trim();
+
 
   localStorage.setItem(
     'es_profile',
     JSON.stringify({
+
       name:name,
+
       phone:phone,
+
       address:address
+
     })
   );
 
-  alert('প্রোফাইল সেভ হয়েছে');
+
+  alert(
+    'প্রোফাইল সেভ হয়েছে'
+  );
 
 }
+
+
+/* =========================
+   LOAD PROFILE
+========================= */
 
 function loadProfile(){
 
   const p =
     JSON.parse(
-      localStorage.getItem('es_profile') || 'null'
+      localStorage.getItem(
+        'es_profile'
+      ) || 'null'
     );
+
 
   if(!p) return;
 
-  document.getElementById('profileName').value =
-    p.name || '';
 
-  document.getElementById('profilePhone').value =
-    p.phone || '';
+  const name =
+    document.getElementById(
+      'profileName'
+    );
 
-  document.getElementById('profileAddress').value =
-    p.address || '';
+
+  const phone =
+    document.getElementById(
+      'profilePhone'
+    );
+
+
+  const address =
+    document.getElementById(
+      'profileAddress'
+    );
+
+
+  if(name){
+    name.value =
+      p.name || '';
+  }
+
+
+  if(phone){
+    phone.value =
+      p.phone || '';
+  }
+
+
+  if(address){
+    address.value =
+      p.address || '';
+  }
 
 }
+
+
+/* =========================
+   START APP
+========================= */
 
 function load(){
 
@@ -1260,14 +1979,14 @@ function load(){
 
   render();
 
-  renderOrders();
-
 }
+
 
 document.addEventListener(
   'DOMContentLoaded',
   load
 );
+
 
 </script>
 
