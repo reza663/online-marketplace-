@@ -158,12 +158,7 @@ const pizza = [
 
 const softDrinks = [];
 let custom=JSON.parse(localStorage.getItem('es_products')||'[]');
-let P = starter
-  .concat(biryani)
-  .concat(burger)
-  .concat(pizza)
-  .concat(softDrinks)
-  .concat(custom),
+let P = starter.concat(custom),
 cart = JSON.parse(localStorage.getItem('es_cart') || '[]'),
 orders = JSON.parse(localStorage.getItem('es_orders') || '[]');
 
