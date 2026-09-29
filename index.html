@@ -325,10 +325,6 @@ footer{
   font-size:11px;
 }
 
-.lang{
-  font-size:12px;
-}
-
 .badge{
   display:inline-block;
   background:#e8f6f0;
@@ -351,6 +347,7 @@ footer{
   .grid{
     grid-template-columns:repeat(4,1fr);
   }
+
   .product-img{
     height:190px;
   }
@@ -360,6 +357,7 @@ footer{
   .grid{
     gap:8px;
   }
+
   .product-img{
     height:145px;
   }
@@ -370,20 +368,37 @@ footer{
 <body>
 
 <header>
+
   <div class="top">
+
     <div class="logo">🛍️ একসাথে</div>
 
     <div class="header-actions">
-      <button class="hbtn" onclick="toggleLang()" id="langBtn">বাংলা</button>
-      <button class="hbtn" onclick="go('cart')">🛒 <span id="cartCount">0</span></button>
+
+      <button class="hbtn"
+        onclick="toggleLang()"
+        id="langBtn">
+        বাংলা
+      </button>
+
+      <button class="hbtn"
+        onclick="go('cart')">
+        🛒 <span id="cartCount">0</span>
+      </button>
+
     </div>
+
   </div>
 
   <div class="search">
-    <input id="searchInput"
+
+    <input
+      id="searchInput"
       placeholder="পণ্য খুঁজুন..."
       oninput="renderHome()">
+
   </div>
+
 </header>
 
 <nav id="categories"></nav>
@@ -391,1424 +406,2412 @@ footer{
 <main id="app"></main>
 
 <footer>
-  একসাথে — আপনার সহজ অনলাইন শপিং প্ল্যাটফর্ম<br>
-  Product photo sources: Wikimedia Commons
+একসাথে — আপনার সহজ অনলাইন শপিং প্ল্যাটফর্ম
 </footer>
 
 <div class="bottom">
-  <button id="nav-home" onclick="go('home')">
-    <span>🏠</span>হোম
-  </button>
 
-  <button id="nav-shop" onclick="go('shop')">
-    <span>🛍️</span>শপ
-  </button>
+<button id="nav-home" onclick="go('home')">
+<span>🏠</span>হোম
+</button>
 
-  <button id="nav-cart" onclick="go('cart')">
-    <span>🛒</span>কার্ট
-  </button>
+<button id="nav-shop" onclick="go('shop')">
+<span>🛍️</span>শপ
+</button>
 
-  <button id="nav-orders" onclick="go('orders')">
-    <span>📦</span>অর্ডার
-  </button>
+<button id="nav-cart" onclick="go('cart')">
+<span>🛒</span>কার্ট
+</button>
 
-  <button id="nav-profile" onclick="go('profile')">
-    <span>👤</span>প্রোফাইল
-  </button>
+<button id="nav-orders" onclick="go('orders')">
+<span>📦</span>অর্ডার
+</button>
+
+<button id="nav-profile" onclick="go('profile')">
+<span>👤</span>প্রোফাইল
+</button>
+
 </div>
 
 <script>
 
 /* =====================================================
-   EKSHATHE FINAL VERSION
+   EKSHATHE UPDATED VERSION
    ===================================================== */
 
-const STORE = "ekshathe_final_v3";
+/* নতুন STORE VERSION
+   যাতে আগের ভুল LocalStorage data না আসে
+*/
+
+const STORE = "ekshathe_final_v4";
+
 
 const PAYMENT = {
+
   bkash:"01758310379",
+
   nagad:"01758310379",
+
   rocket:"01850252566"
+
 };
 
-/* REAL PRODUCT PHOTOS */
+
+/* =====================================================
+   VERIFIED IMAGE SOURCES
+   ===================================================== */
 
 const REAL_IMAGES = {
-  coke:"https://upload.wikimedia.org/wikipedia/commons/8/84/Bengali_Coca-Cola_can.jpg",
-  sprite:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Sprite%20bottle.JPG",
-  water:"https://commons.wikimedia.org/wiki/Special:Redirect/file/A_bottle_of_Aqua_mineral_water.JPG"
+
+  coke:
+  "https://upload.wikimedia.org/wikipedia/commons/8/84/Bengali_Coca-Cola_can.jpg",
+
+  sprite:
+  "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sprite%20bottle.JPG",
+
+  water:
+  "https://commons.wikimedia.org/wiki/Special:Redirect/file/A_bottle_of_Aqua_mineral_water.JPG",
+
+  pepsi:
+  "https://commons.wikimedia.org/wiki/Special:Redirect/file/Pepsi_Bottle.jpg",
+
+  kacchi:
+  "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kacchi_Biryani.jpg"
+
 };
 
-/* 12 DEFAULT PRODUCTS */
+
+/* =====================================================
+   DEFAULT PRODUCTS
+   ===================================================== */
 
 const starter = [
 
- {
-  id:1,
-  n:"পুরুষের শার্ট",
-  en:"Men's Shirt",
-  c:"ফ্যাশন",
-  ce:"Fashion",
-  p:850,
-  i:"https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=700&q=80"
- },
+{
+ id:1,
+ n:"পুরুষের শার্ট",
+ en:"Men's Shirt",
+ c:"ফ্যাশন",
+ ce:"Fashion",
+ p:850,
+ i:"https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=700&q=80"
+},
 
- {
-  id:2,
-  n:"মহিলাদের ড্রেস",
-  en:"Women's Dress",
-  c:"ফ্যাশন",
-  ce:"Fashion",
-  p:1250,
-  i:"https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=700&q=80"
- },
+{
+ id:2,
+ n:"মহিলাদের ড্রেস",
+ en:"Women's Dress",
+ c:"ফ্যাশন",
+ ce:"Fashion",
+ p:1250,
+ i:"https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=700&q=80"
+},
 
- {
-  id:3,
-  n:"স্মার্ট ওয়াচ",
-  en:"Smart Watch",
-  c:"ইলেকট্রনিক্স",
-  ce:"Electronics",
-  p:3000,
-  i:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=80"
- },
+{
+ id:3,
+ n:"স্মার্ট ওয়াচ",
+ en:"Smart Watch",
+ c:"ইলেকট্রনিক্স",
+ ce:"Electronics",
+ p:3000,
+ i:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=80"
+},
 
- {
-  id:4,
-  n:"ব্যাকপ্যাক",
-  en:"Backpack",
-  c:"ফ্যাশন",
-  ce:"Fashion",
-  p:900,
-  i:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=700&q=80"
- },
+{
+ id:4,
+ n:"ব্যাকপ্যাক",
+ en:"Backpack",
+ c:"ফ্যাশন",
+ ce:"Fashion",
+ p:900,
+ i:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=700&q=80"
+},
 
- {
-  id:5,
-  n:"টেবিল ল্যাম্প",
-  en:"Table Lamp",
-  c:"হোম",
-  ce:"Home",
-  p:700,
-  i:"https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=700&q=80"
- },
+{
+ id:5,
+ n:"টেবিল ল্যাম্প",
+ en:"Table Lamp",
+ c:"হোম",
+ ce:"Home",
+ p:700,
+ i:"https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=700&q=80"
+},
 
- {
-  id:6,
-  n:"স্পোর্টস জুতা",
-  en:"Sports Shoes",
-  c:"ফ্যাশন",
-  ce:"Fashion",
-  p:1300,
-  i:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80"
- },
+{
+ id:6,
+ n:"স্পোর্টস জুতা",
+ en:"Sports Shoes",
+ c:"ফ্যাশন",
+ ce:"Fashion",
+ p:1300,
+ i:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80"
+},
 
- {
-  id:7,
-  n:"কাচ্চি বিরিয়ানি",
-  en:"Kacchi Biryani",
-  c:"খাবার",
-  ce:"Food",
-  p:300,
-  i:"https://images.unsplash.com/photo-1563379091339-03246963d96c?auto=format&fit=crop&w=700&q=80"
- },
+/* ================= FOOD ================= */
 
- {
-  id:8,
-  n:"চিকেন বার্গার",
-  en:"Chicken Burger",
-  c:"খাবার",
-  ce:"Food",
-  p:180,
-  i:"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
- },
+{
+ id:7,
+ n:"কাচ্চি বিরিয়ানি",
+ en:"Kacchi Biryani",
+ c:"খাবার",
+ ce:"Food",
+ p:300,
+ i:REAL_IMAGES.kacchi
+},
 
- {
-  id:9,
-  n:"পিজ্জা",
-  en:"Pizza",
-  c:"খাবার",
-  ce:"Food",
-  p:280,
-  i:"https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=700&q=80"
- },
+{
+ id:8,
+ n:"চিকেন বার্গার",
+ en:"Chicken Burger",
+ c:"খাবার",
+ ce:"Food",
+ p:180,
+ i:"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+},
 
- {
-  id:10,
-  n:"Coca-Cola 250ml",
-  en:"Coca-Cola 250ml",
-  c:"সফট ড্রিংকস",
-  ce:"Soft Drinks",
-  p:30,
-  i:REAL_IMAGES.coke
- },
+{
+ id:9,
+ n:"পিজ্জা",
+ en:"Pizza",
+ c:"খাবার",
+ ce:"Food",
+ p:280,
+ i:"https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=700&q=80"
+},
 
- {
-  id:11,
-  n:"Sprite 250ml",
-  en:"Sprite 250ml",
-  c:"সফট ড্রিংকস",
-  ce:"Soft Drinks",
-  p:30,
-  i:REAL_IMAGES.sprite
- },
+/* ================= SOFT DRINKS ================= */
 
- {
-  id:12,
-  n:"মিনারেল পানি 500ml",
-  en:"Mineral Water 500ml",
-  c:"পানীয়",
-  ce:"Beverages",
-  p:20,
-  i:REAL_IMAGES.water
- }
+{
+ id:10,
+ n:"Coca-Cola 250ml",
+ en:"Coca-Cola 250ml",
+ c:"সফট ড্রিংকস",
+ ce:"Soft Drinks",
+ p:30,
+ i:REAL_IMAGES.coke
+},
+
+{
+ id:11,
+ n:"Sprite 250ml",
+ en:"Sprite 250ml",
+ c:"সফট ড্রিংকস",
+ ce:"Soft Drinks",
+ p:30,
+ i:REAL_IMAGES.sprite
+},
+
+{
+ id:12,
+ n:"Pepsi 250ml",
+ en:"Pepsi 250ml",
+ c:"সফট ড্রিংকস",
+ ce:"Soft Drinks",
+ p:30,
+ i:REAL_IMAGES.pepsi
+},
+
+/* ================= BEVERAGES ================= */
+
+{
+ id:13,
+ n:"মিনারেল পানি 500ml",
+ en:"Mineral Water 500ml",
+ c:"পানীয়",
+ ce:"Beverages",
+ p:20,
+ i:REAL_IMAGES.water
+}
 
 ];
 
-/* LOAD DATA */
 
-let P = JSON.parse(localStorage.getItem(STORE+"_products") || "null");
+/* =====================================================
+   LOAD DATA
+   ===================================================== */
+
+let P =
+JSON.parse(
+localStorage.getItem(STORE+"_products") || "null"
+);
 
 if(!Array.isArray(P) || P.length===0){
-  P = JSON.parse(JSON.stringify(starter));
+
+ P =
+ JSON.parse(
+ JSON.stringify(starter)
+ );
+
 }
 
-let CART = JSON.parse(localStorage.getItem(STORE+"_cart") || "{}");
 
-let ORDERS = JSON.parse(localStorage.getItem(STORE+"_orders") || "[]");
+/* =====================================================
+   EXTRA SAFETY:
+   পুরোনো ভুল category থাকলেও ঠিক করে দেবে
+   ===================================================== */
 
-let PROFILE = JSON.parse(localStorage.getItem(STORE+"_profile") || "{}");
+P.forEach(x=>{
 
-let currentPage = "home";
-let currentCategory = "সব";
-let lang = localStorage.getItem(STORE+"_lang") || "bn";
+ const name =
+ String(x.n||"").toLowerCase();
+
+ const en =
+ String(x.en||"").toLowerCase();
+
+
+ if(
+   name.includes("coca") ||
+   name.includes("কোকা") ||
+   en.includes("coca")
+ ){
+
+   x.c="সফট ড্রিংকস";
+   x.ce="Soft Drinks";
+
+ }
+
+
+ if(
+   name.includes("sprite") ||
+   en.includes("sprite")
+ ){
+
+   x.c="সফট ড্রিংকস";
+   x.ce="Soft Drinks";
+
+ }
+
+
+ if(
+   name.includes("pepsi") ||
+   en.includes("pepsi")
+ ){
+
+   x.c="সফট ড্রিংকস";
+   x.ce="Soft Drinks";
+
+ }
+
+
+ if(
+   name.includes("water") ||
+   name.includes("পানি") ||
+   name.includes("পানীয়") ||
+   en.includes("water")
+ ){
+
+   x.c="পানীয়";
+   x.ce="Beverages";
+
+ }
+
+
+ if(
+   name.includes("কাচ্চি") ||
+   en.includes("kacchi")
+ ){
+
+   x.c="খাবার";
+   x.ce="Food";
+
+   if(
+     !x.i ||
+     x.i.includes("placeholder")
+   ){
+
+     x.i=REAL_IMAGES.kacchi;
+
+   }
+
+ }
+
+});
+
+
+let CART =
+JSON.parse(
+localStorage.getItem(STORE+"_cart") || "{}"
+);
+
+
+let ORDERS =
+JSON.parse(
+localStorage.getItem(STORE+"_orders") || "[]"
+);
+
+
+let PROFILE =
+JSON.parse(
+localStorage.getItem(STORE+"_profile") || "{}"
+);
+
+
+let currentPage="home";
+
+let currentCategory="সব";
+
+let lang =
+localStorage.getItem(STORE+"_lang") || "bn";
+
 
 /* SAVE */
 
 function saveAll(){
 
-  localStorage.setItem(STORE+"_products",JSON.stringify(P));
+ localStorage.setItem(
+   STORE+"_products",
+   JSON.stringify(P)
+ );
 
-  localStorage.setItem(STORE+"_cart",JSON.stringify(CART));
+ localStorage.setItem(
+   STORE+"_cart",
+   JSON.stringify(CART)
+ );
 
-  localStorage.setItem(STORE+"_orders",JSON.stringify(ORDERS));
+ localStorage.setItem(
+   STORE+"_orders",
+   JSON.stringify(ORDERS)
+ );
 
-  localStorage.setItem(STORE+"_profile",JSON.stringify(PROFILE));
+ localStorage.setItem(
+   STORE+"_profile",
+   JSON.stringify(PROFILE)
+ );
 
-  localStorage.setItem(STORE+"_lang",lang);
+ localStorage.setItem(
+   STORE+"_lang",
+   lang
+ );
 
 }
+
 
 /* LANGUAGE */
 
 function toggleLang(){
 
-  lang = lang==="bn" ? "en" : "bn";
+ lang =
+ lang==="bn"
+ ? "en"
+ : "bn";
 
-  saveAll();
+ saveAll();
 
-  renderAll();
+ renderAll();
 
 }
+
 
 function T(bn,en){
-  return lang==="bn" ? bn : en;
+
+ return lang==="bn"
+ ? bn
+ : en;
+
 }
+
 
 /* NAVIGATION */
 
 function go(page){
 
-  currentPage = page;
+ currentPage=page;
 
-  renderAll();
+ renderAll();
 
-  window.scrollTo({top:0,behavior:"smooth"});
+ window.scrollTo({
+   top:0,
+   behavior:"smooth"
+ });
 
 }
 
-/* CATEGORIES */
+
+/* =====================================================
+   CATEGORIES
+   ===================================================== */
 
 function renderCategories(){
 
-  const cats = [
-    ["সব","All"],
-    ["ফ্যাশন","Fashion"],
-    ["ইলেকট্রনিক্স","Electronics"],
-    ["হোম","Home"],
-    ["খাবার","Food"],
-    ["সফট ড্রিংকস","Soft Drinks"],
-    ["পানীয়","Beverages"]
-  ];
+ const cats=[
 
-  document.getElementById("categories").innerHTML =
-    cats.map(x=>`
-      <button
-        class="${currentCategory===x[0]?'active':''}"
-        onclick="setCategory('${x[0]}')">
-        ${lang==="bn"?x[0]:x[1]}
-      </button>
-    `).join("");
+   ["সব","All"],
+
+   ["ফ্যাশন","Fashion"],
+
+   ["ইলেকট্রনিক্স","Electronics"],
+
+   ["হোম","Home"],
+
+   ["খাবার","Food"],
+
+   ["সফট ড্রিংকস","Soft Drinks"],
+
+   ["পানীয়","Beverages"]
+
+ ];
+
+
+ document.getElementById("categories").innerHTML=
+
+ cats.map(x=>`
+
+ <button
+ class="${currentCategory===x[0]?'active':''}"
+ onclick="setCategory('${x[0]}')">
+
+ ${lang==="bn"?x[0]:x[1]}
+
+ </button>
+
+ `).join("");
 
 }
+
 
 function setCategory(c){
 
-  currentCategory = c;
+ currentCategory=c;
 
-  currentPage = "shop";
+ currentPage="shop";
 
-  renderAll();
+ renderAll();
 
 }
+
 
 /* PRODUCT NAME */
 
 function productName(x){
 
-  return lang==="bn" ? x.n : x.en;
+ return lang==="bn"
+ ? x.n
+ : x.en;
 
 }
 
-/* HOME / SHOP */
+
+/* =====================================================
+   HOME / SHOP
+   ===================================================== */
 
 function renderHome(){
 
-  const q = (document.getElementById("searchInput")?.value || "")
-    .toLowerCase()
-    .trim();
+ const q=
+ (
+  document.getElementById("searchInput")?.value
+  || ""
+ )
+ .toLowerCase()
+ .trim();
 
-  let list = P.filter(x=>{
 
-    const matchCat =
-      currentCategory==="সব" ||
-      x.c===currentCategory ||
-      (lang==="en" && x.ce===currentCategory);
+ let list=P.filter(x=>{
 
-    const text =
-      (x.n+" "+x.en+" "+x.c+" "+x.ce).toLowerCase();
+   const matchCat=
 
-    const matchSearch =
-      !q || text.includes(q);
+   currentCategory==="সব"
+   ||
+   x.c===currentCategory
+   ||
+   (
+     lang==="en"
+     &&
+     x.ce===currentCategory
+   );
 
-    return matchCat && matchSearch;
 
-  });
+   const text=
+   (
+    x.n+" "+
+    x.en+" "+
+    x.c+" "+
+    x.ce
+   ).toLowerCase();
 
-  let title =
-    currentPage==="home"
-    ? T("জনপ্রিয় পণ্য","Popular Products")
-    : T("সব পণ্য","All Products");
 
-  if(currentCategory!=="সব"){
-    title = lang==="bn"
-      ? currentCategory
-      : (list[0]?.ce || currentCategory);
-  }
+   const matchSearch=
+   !q ||
+   text.includes(q);
 
-  document.getElementById("app").innerHTML = `
 
-    <div class="page-title">
-      <h2>${title}</h2>
-      <span class="badge">${list.length} ${T("টি","items")}</span>
-    </div>
+   return matchCat && matchSearch;
 
-    ${
-      list.length
-      ?
-      `<div class="grid">
-        ${list.map(card).join("")}
-      </div>`
-      :
-      `<div class="empty">
-        😔<br><br>
-        ${T("কোনো পণ্য পাওয়া যায়নি","No products found")}
-      </div>`
-    }
+ });
 
-  `;
+
+ let title=
+
+ currentPage==="home"
+
+ ? T(
+   "জনপ্রিয় পণ্য",
+   "Popular Products"
+ )
+
+ : T(
+   "সব পণ্য",
+   "All Products"
+ );
+
+
+ if(currentCategory!=="সব"){
+
+   title=
+
+   lang==="bn"
+
+   ? currentCategory
+
+   : (
+     list[0]?.ce
+     ||
+     currentCategory
+   );
+
+ }
+
+
+ document.getElementById("app").innerHTML=`
+
+ <div class="page-title">
+
+   <h2>${title}</h2>
+
+   <span class="badge">
+   ${list.length} ${T("টি","items")}
+   </span>
+
+ </div>
+
+
+ ${
+ list.length
+
+ ?
+
+ `<div class="grid">
+
+ ${list.map(card).join("")}
+
+ </div>`
+
+ :
+
+ `<div class="empty">
+
+ 😔<br><br>
+
+ ${T(
+ "কোনো পণ্য পাওয়া যায়নি",
+ "No products found"
+ )}
+
+ </div>`
+ }
+
+ `;
 
 }
+
+
+/* =====================================================
+   PRODUCT CARD
+   ===================================================== */
 
 function card(x){
 
-  return `
-    <div class="card">
+ return `
 
-      <img
-        class="product-img"
-        src="${x.i}"
-        alt="${productName(x)}"
-        onerror="this.onerror=null;this.src='https://via.placeholder.com/500x400?text=Product+Image';"
-      >
+ <div class="card">
 
-      <div class="card-body">
+ <img
+ class="product-img"
+ src="${x.i}"
+ alt="${productName(x)}"
+ onerror="
+ this.onerror=null;
+ this.src='data:image/svg+xml;charset=UTF-8,
+ <svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22500%22 height=%22400%22>
+ <rect width=%22100%%22 height=%22100%%22 fill=%22%23f1f5f3%22/>
+ <text x=%2250%%22 y=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2224%22 fill=%22%23087f5b%22>Image unavailable</text>
+ </svg>';
+ ">
 
-        <h3>${productName(x)}</h3>
+ <div class="card-body">
 
-        <div class="cat">
-          ${lang==="bn"?x.c:x.ce}
-        </div>
+ <h3>
+ ${productName(x)}
+ </h3>
 
-        <div class="price">
-          ৳${Number(x.p).toLocaleString("en-BD")}
-        </div>
+ <div class="cat">
+ ${lang==="bn"?x.c:x.ce}
+ </div>
 
-        <div class="card-actions">
+ <div class="price">
+ ৳${Number(x.p).toLocaleString("en-BD")}
+ </div>
 
-          <button
-            class="primary"
-            onclick="addCart(${x.id})">
-            🛒 ${T("কার্টে যোগ","Add")}
-          </button>
+ <div class="card-actions">
 
-          <button
-            class="secondary"
-            onclick="buyNow(${x.id})">
-            ${T("কিনুন","Buy")}
-          </button>
+ <button
+ class="primary"
+ onclick="addCart(${x.id})">
 
-        </div>
+ 🛒 ${T(
+ "কার্টে যোগ",
+ "Add"
+ )}
 
-      </div>
-    </div>
-  `;
+ </button>
+
+ <button
+ class="secondary"
+ onclick="buyNow(${x.id})">
+
+ ${T(
+ "কিনুন",
+ "Buy"
+ )}
+
+ </button>
+
+ </div>
+
+ </div>
+
+ </div>
+
+ `;
 
 }
 
-/* CART */
+
+/* =====================================================
+   CART
+   ===================================================== */
 
 function addCart(id){
 
-  CART[id] = (CART[id] || 0) + 1;
+ CART[id]=(CART[id]||0)+1;
 
-  saveAll();
+ saveAll();
 
-  updateCartCount();
+ updateCartCount();
 
-  alert(T("কার্টে যোগ হয়েছে","Added to cart"));
+ alert(
+ T(
+ "কার্টে যোগ হয়েছে",
+ "Added to cart"
+ )
+ );
 
 }
+
 
 function buyNow(id){
 
-  CART[id] = (CART[id] || 0) + 1;
+ CART[id]=(CART[id]||0)+1;
 
-  saveAll();
+ saveAll();
 
-  go("cart");
+ go("cart");
 
 }
+
 
 function cartItems(){
 
-  return Object.keys(CART)
-    .map(id=>{
+ return Object.keys(CART)
+ .map(id=>{
 
-      const p = P.find(x=>x.id==id);
+   const p=
+   P.find(x=>x.id==id);
 
-      if(!p) return null;
+   if(!p) return null;
 
-      return {
-        p:p,
-        q:CART[id]
-      };
+   return {
+     p:p,
+     q:CART[id]
+   };
 
-    })
-    .filter(Boolean);
+ })
+ .filter(Boolean);
 
 }
+
 
 function changeQty(id,n){
 
-  CART[id] = (CART[id] || 0) + n;
+ CART[id]=(CART[id]||0)+n;
 
-  if(CART[id]<=0){
-    delete CART[id];
-  }
+ if(CART[id]<=0){
 
-  saveAll();
+   delete CART[id];
 
-  renderCart();
+ }
 
-  updateCartCount();
+ saveAll();
+
+ renderCart();
+
+ updateCartCount();
 
 }
+
 
 function removeCart(id){
 
-  delete CART[id];
+ delete CART[id];
 
-  saveAll();
+ saveAll();
 
-  renderCart();
+ renderCart();
 
-  updateCartCount();
+ updateCartCount();
 
 }
+
 
 function cartTotal(){
 
-  return cartItems().reduce(
-    (s,x)=>s+(Number(x.p.p)||0)*x.q,
-    0
-  );
+ return cartItems().reduce(
+   (s,x)=>
+   s+
+   (Number(x.p.p)||0)*x.q,
+   0
+ );
 
 }
+
 
 function renderCart(){
 
-  const items = cartItems();
+ const items=cartItems();
 
-  document.getElementById("app").innerHTML = `
+ document.getElementById("app").innerHTML=`
 
-    <div class="page-title">
-      <h2>🛒 ${T("আমার কার্ট","My Cart")}</h2>
-      <span class="badge">${items.length}</span>
-    </div>
+ <div class="page-title">
 
-    ${
-      items.length
-      ?
-      `
-      ${items.map(x=>`
+ <h2>
+ 🛒 ${T(
+ "আমার কার্ট",
+ "My Cart"
+ )}
+ </h2>
 
-        <div class="product-row">
+ <span class="badge">
+ ${items.length}
+ </span>
 
-          <div class="row-flex">
+ </div>
 
-            <div style="display:flex;gap:10px;align-items:center">
 
-              <img
-                src="${x.p.i}"
-                style="width:65px;height:65px;object-fit:contain;border-radius:8px;background:#f5f8f6"
-                onerror="this.src='https://via.placeholder.com/100x100?text=Image'"
-              >
+ ${
+ items.length
 
-              <div>
-                <b>${productName(x.p)}</b>
-                <div class="small">
-                  ৳${Number(x.p.p).toLocaleString("en-BD")}
-                </div>
-              </div>
+ ?
 
-            </div>
+ `
+ ${items.map(x=>`
 
-            <button
-              class="danger"
-              onclick="removeCart(${x.p.id})">
-              ✕
-            </button>
+ <div class="product-row">
 
-          </div>
+ <div class="row-flex">
 
-          <div class="row-flex" style="margin-top:10px">
+ <div
+ style="
+ display:flex;
+ gap:10px;
+ align-items:center
+ ">
 
-            <div class="qty">
-              <button onclick="changeQty(${x.p.id},-1)">−</button>
-              <b>${x.q}</b>
-              <button onclick="changeQty(${x.p.id},1)">+</button>
-            </div>
+ <img
+ src="${x.p.i}"
+ style="
+ width:65px;
+ height:65px;
+ object-fit:contain;
+ border-radius:8px;
+ background:#f5f8f6
+ "
+ onerror="this.style.display='none'">
 
-            <b>
-              ৳${(x.p.p*x.q).toLocaleString("en-BD")}
-            </b>
+ <div>
 
-          </div>
+ <b>
+ ${productName(x.p)}
+ </b>
 
-        </div>
+ <div class="small">
+ ৳${Number(x.p.p)
+ .toLocaleString("en-BD")}
+ </div>
 
-      `).join("")}
+ </div>
 
-      <div class="section">
+ </div>
 
-        <div class="row-flex">
-          <b>${T("মোট","Total")}</b>
-          <b class="price">
-            ৳${cartTotal().toLocaleString("en-BD")}
-          </b>
-        </div>
 
-        <button
-          class="primary full"
-          style="margin-top:12px"
-          onclick="checkout()">
-          ${T("অর্ডার করুন","Place Order")}
-        </button>
+ <button
+ class="danger"
+ onclick="removeCart(${x.p.id})">
 
-      </div>
-      `
-      :
-      `
-      <div class="empty">
-        🛒<br><br>
-        ${T("আপনার কার্ট খালি","Your cart is empty")}
-        <br><br>
-        <button class="primary" onclick="go('shop')">
-          ${T("শপিং শুরু করুন","Start Shopping")}
-        </button>
-      </div>
-      `
-    }
+ ✕
 
-  `;
+ </button>
+
+ </div>
+
+
+ <div
+ class="row-flex"
+ style="margin-top:10px">
+
+ <div class="qty">
+
+ <button
+ onclick="changeQty(${x.p.id},-1)">
+ −
+ </button>
+
+ <b>${x.q}</b>
+
+ <button
+ onclick="changeQty(${x.p.id},1)">
+ +
+ </button>
+
+ </div>
+
+
+ <b>
+ ৳${(x.p.p*x.q)
+ .toLocaleString("en-BD")}
+ </b>
+
+ </div>
+
+ </div>
+
+ `).join("")}
+
+
+ <div class="section">
+
+ <div class="row-flex">
+
+ <b>
+ ${T("মোট","Total")}
+ </b>
+
+ <b class="price">
+ ৳${cartTotal()
+ .toLocaleString("en-BD")}
+ </b>
+
+ </div>
+
+
+ <button
+ class="primary full"
+ style="margin-top:12px"
+ onclick="checkout()">
+
+ ${T(
+ "অর্ডার করুন",
+ "Place Order"
+ )}
+
+ </button>
+
+ </div>
+
+ `
+
+ :
+
+ `
+ <div class="empty">
+
+ 🛒<br><br>
+
+ ${T(
+ "আপনার কার্ট খালি",
+ "Your cart is empty"
+ )}
+
+ <br><br>
+
+ <button
+ class="primary"
+ onclick="go('shop')">
+
+ ${T(
+ "শপিং শুরু করুন",
+ "Start Shopping"
+ )}
+
+ </button>
+
+ </div>
+ `
+
+ }
+
+ `;
 
 }
 
-/* CHECKOUT */
+
+/* =====================================================
+   CHECKOUT
+   ===================================================== */
 
 function checkout(){
 
-  const items = cartItems();
+ const items=cartItems();
 
-  if(!items.length){
-    alert(T("কার্ট খালি","Cart is empty"));
-    return;
-  }
+ if(!items.length){
 
-  document.getElementById("app").innerHTML = `
+   alert(
+    T(
+     "কার্ট খালি",
+     "Cart is empty"
+    )
+   );
 
-    <div class="page-title">
-      <h2>🧾 ${T("অর্ডার তথ্য","Order Information")}</h2>
-    </div>
+   return;
 
-    <div class="section">
+ }
 
-      <label>${T("নাম","Name")}</label>
-      <input id="cName" value="${PROFILE.name||""}" placeholder="${T("আপনার নাম","Your name")}">
 
-      <label>${T("মোবাইল নম্বর","Mobile Number")}</label>
-      <input id="cPhone" value="${PROFILE.phone||""}" placeholder="01XXXXXXXXX">
+ document.getElementById("app").innerHTML=`
 
-      <label>${T("ঠিকানা","Address")}</label>
-      <textarea id="cAddress" placeholder="${T("ডেলিভারি ঠিকানা","Delivery address")}">${PROFILE.address||""}</textarea>
+ <div class="page-title">
 
-      <label>${T("পেমেন্ট পদ্ধতি","Payment Method")}</label>
+ <h2>
+ 🧾 ${T(
+ "অর্ডার তথ্য",
+ "Order Information"
+ )}
+ </h2>
 
-      <select id="payment" onchange="showPaymentNumber()">
-        <option value="cod">${T("Cash on Delivery","Cash on Delivery")}</option>
-        <option value="bkash">bKash</option>
-        <option value="nagad">Nagad</option>
-        <option value="rocket">Rocket</option>
-      </select>
+ </div>
 
-      <div id="paymentNumber"></div>
 
-      <label>${T("Transaction ID (যদি থাকে)","Transaction ID (if applicable)")}</label>
+ <div class="section">
 
-      <input
-        id="trx"
-        placeholder="${T("Transaction ID","Transaction ID")}">
+ <label>
+ ${T("নাম","Name")}
+ </label>
 
-      <div class="payment-box">
-        <b>${T("অর্ডার মোট","Order Total")}</b>
-        <div class="price">
-          ৳${cartTotal().toLocaleString("en-BD")}
-        </div>
-      </div>
+ <input
+ id="cName"
+ value="${PROFILE.name||""}"
+ placeholder="${T(
+ "আপনার নাম",
+ "Your name"
+ )}">
 
-      <button
-        class="primary full"
-        style="margin-top:12px"
-        onclick="placeOrder()">
-        ✅ ${T("অর্ডার কনফার্ম করুন","Confirm Order")}
-      </button>
 
-    </div>
-  `;
+ <label>
+ ${T(
+ "মোবাইল নম্বর",
+ "Mobile Number"
+ )}
+ </label>
 
-  showPaymentNumber();
+ <input
+ id="cPhone"
+ value="${PROFILE.phone||""}"
+ placeholder="01XXXXXXXXX">
+
+
+ <label>
+ ${T(
+ "ঠিকানা",
+ "Address"
+ )}
+ </label>
+
+ <textarea
+ id="cAddress"
+ placeholder="${T(
+ "ডেলিভারি ঠিকানা",
+ "Delivery address"
+ )}">${PROFILE.address||""}</textarea>
+
+
+ <label>
+ ${T(
+ "পেমেন্ট পদ্ধতি",
+ "Payment Method"
+ )}
+ </label>
+
+
+ <select
+ id="payment"
+ onchange="showPaymentNumber()">
+
+ <option value="cod">
+ Cash on Delivery
+ </option>
+
+ <option value="bkash">
+ bKash
+ </option>
+
+ <option value="nagad">
+ Nagad
+ </option>
+
+ <option value="rocket">
+ Rocket
+ </option>
+
+ </select>
+
+
+ <div id="paymentNumber"></div>
+
+
+ <label>
+ ${T(
+ "Transaction ID (যদি থাকে)",
+ "Transaction ID (if applicable)"
+ )}
+ </label>
+
+
+ <input
+ id="trx"
+ placeholder="${T(
+ "Transaction ID",
+ "Transaction ID"
+ )}">
+
+
+ <div class="payment-box">
+
+ <b>
+ ${T(
+ "অর্ডার মোট",
+ "Order Total"
+ )}
+ </b>
+
+ <div class="price">
+ ৳${cartTotal()
+ .toLocaleString("en-BD")}
+ </div>
+
+ </div>
+
+
+ <button
+ class="primary full"
+ style="margin-top:12px"
+ onclick="placeOrder()">
+
+ ✅ ${T(
+ "অর্ডার কনফার্ম করুন",
+ "Confirm Order"
+ )}
+
+ </button>
+
+ </div>
+
+ `;
+
+
+ showPaymentNumber();
 
 }
+
 
 function showPaymentNumber(){
 
-  const method = document.getElementById("payment")?.value;
+ const method=
+ document.getElementById("payment")?.value;
 
-  const box = document.getElementById("paymentNumber");
+ const box=
+ document.getElementById("paymentNumber");
 
-  if(!box) return;
+ if(!box) return;
 
-  if(method==="bkash"){
 
-    box.innerHTML = `
-      <div class="payment-box">
-        <b>bKash</b><br>
-        ${PAYMENT.bkash}
-      </div>
-    `;
+ if(method==="bkash"){
 
-  }
-  else if(method==="nagad"){
+   box.innerHTML=`
 
-    box.innerHTML = `
-      <div class="payment-box">
-        <b>Nagad</b><br>
-        ${PAYMENT.nagad}
-      </div>
-    `;
+   <div class="payment-box">
 
-  }
-  else if(method==="rocket"){
+   <b>bKash</b><br>
 
-    box.innerHTML = `
-      <div class="payment-box">
-        <b>Rocket</b><br>
-        ${PAYMENT.rocket}
-      </div>
-    `;
+   ${PAYMENT.bkash}
 
-  }
-  else{
+   </div>
 
-    box.innerHTML = `
-      <div class="payment-box">
-        ${T("Cash on Delivery — পণ্য হাতে পেয়ে পেমেন্ট করবেন।","Cash on Delivery — Pay when you receive the product.")}
-      </div>
-    `;
+   `;
 
-  }
+ }
+
+ else if(method==="nagad"){
+
+   box.innerHTML=`
+
+   <div class="payment-box">
+
+   <b>Nagad</b><br>
+
+   ${PAYMENT.nagad}
+
+   </div>
+
+   `;
+
+ }
+
+ else if(method==="rocket"){
+
+   box.innerHTML=`
+
+   <div class="payment-box">
+
+   <b>Rocket</b><br>
+
+   ${PAYMENT.rocket}
+
+   </div>
+
+   `;
+
+ }
+
+ else{
+
+   box.innerHTML=`
+
+   <div class="payment-box">
+
+   ${T(
+   "Cash on Delivery — পণ্য হাতে পেয়ে পেমেন্ট করবেন।",
+   "Cash on Delivery — Pay when you receive the product."
+   )}
+
+   </div>
+
+   `;
+
+ }
 
 }
+
+
+/* =====================================================
+   PLACE ORDER
+   ===================================================== */
 
 function placeOrder(){
 
-  const name =
-    document.getElementById("cName").value.trim();
+ const name=
+ document.getElementById("cName")
+ .value.trim();
 
-  const phone =
-    document.getElementById("cPhone").value.trim();
+ const phone=
+ document.getElementById("cPhone")
+ .value.trim();
 
-  const address =
-    document.getElementById("cAddress").value.trim();
+ const address=
+ document.getElementById("cAddress")
+ .value.trim();
 
-  const payment =
-    document.getElementById("payment").value;
+ const payment=
+ document.getElementById("payment")
+ .value;
 
-  const trx =
-    document.getElementById("trx").value.trim();
+ const trx=
+ document.getElementById("trx")
+ .value.trim();
 
-  if(!name || !phone || !address){
 
-    alert(T(
-      "নাম, মোবাইল ও ঠিকানা দিন।",
-      "Please enter name, mobile and address."
-    ));
+ if(!name||!phone||!address){
 
-    return;
-  }
+   alert(
+    T(
+     "নাম, মোবাইল ও ঠিকানা দিন।",
+     "Please enter name, mobile and address."
+    )
+   );
 
-  PROFILE = {
-    name:name,
-    phone:phone,
-    address:address
-  };
+   return;
 
-  const order = {
+ }
 
-    id:"ES"+Date.now(),
 
-    date:new Date().toLocaleString("bn-BD"),
+ PROFILE={
+   name:name,
+   phone:phone,
+   address:address
+ };
 
-    name:name,
 
-    phone:phone,
+ const order={
 
-    address:address,
+   id:"ES"+Date.now(),
 
-    payment:payment,
+   date:new Date()
+   .toLocaleString("bn-BD"),
 
-    trx:trx,
+   name:name,
 
-    items:cartItems().map(x=>({
+   phone:phone,
 
-      id:x.p.id,
+   address:address,
 
-      name:x.p.n,
+   payment:payment,
 
-      en:x.p.en,
+   trx:trx,
 
-      price:x.p.p,
+   items:
+   cartItems().map(x=>({
 
-      qty:x.q,
+     id:x.p.id,
 
-      image:x.p.i
+     name:x.p.n,
 
-    })),
+     en:x.p.en,
 
-    total:cartTotal(),
+     price:x.p.p,
 
-    status:"Pending"
+     qty:x.q,
 
-  };
+     image:x.p.i
 
-  ORDERS.unshift(order);
+   })),
 
-  CART = {};
+   total:cartTotal(),
 
-  saveAll();
+   status:"Pending"
 
-  updateCartCount();
+ };
 
-  alert(T(
-    "অর্ডার সফল হয়েছে!",
-    "Order placed successfully!"
-  ));
 
-  go("orders");
+ ORDERS.unshift(order);
+
+ CART={};
+
+ saveAll();
+
+ updateCartCount();
+
+
+ alert(
+  T(
+   "অর্ডার সফল হয়েছে!",
+   "Order placed successfully!"
+  )
+ );
+
+
+ go("orders");
 
 }
 
-/* ORDERS */
+
+/* =====================================================
+   ORDERS
+   ===================================================== */
 
 function renderOrders(){
 
-  document.getElementById("app").innerHTML = `
+ document.getElementById("app").innerHTML=`
 
-    <div class="page-title">
-      <h2>📦 ${T("আমার অর্ডার","My Orders")}</h2>
-    </div>
+ <div class="page-title">
 
-    ${
-      ORDERS.length
-      ?
-      ORDERS.map(o=>`
+ <h2>
+ 📦 ${T(
+ "আমার অর্ডার",
+ "My Orders"
+ )}
+ </h2>
 
-        <div class="order-row">
+ </div>
 
-          <div class="row-flex">
-            <b>${o.id}</b>
-            <span class="badge">${o.status}</span>
-          </div>
 
-          <div class="small" style="margin-top:5px">
-            ${o.date}
-          </div>
+ ${
+ ORDERS.length
 
-          <hr>
+ ?
 
-          ${o.items.map(i=>`
+ ORDERS.map(o=>`
 
-            <div class="row-flex" style="margin:7px 0">
+ <div class="order-row">
 
-              <span>
-                ${lang==="bn"?i.name:i.en} × ${i.qty}
-              </span>
+ <div class="row-flex">
 
-              <b>
-                ৳${(i.price*i.qty).toLocaleString("en-BD")}
-              </b>
+ <b>${o.id}</b>
 
-            </div>
+ <span class="badge">
+ ${o.status}
+ </span>
 
-          `).join("")}
+ </div>
 
-          <hr>
 
-          <div class="row-flex">
-            <b>${T("মোট","Total")}</b>
-            <b class="price">
-              ৳${o.total.toLocaleString("en-BD")}
-            </b>
-          </div>
+ <div
+ class="small"
+ style="margin-top:5px">
 
-          <div class="small" style="margin-top:7px">
-            ${T("পেমেন্ট","Payment")}: ${o.payment}
-          </div>
+ ${o.date}
 
-        </div>
+ </div>
 
-      `).join("")
-      :
-      `
-      <div class="empty">
-        📦<br><br>
-        ${T("এখনো কোনো অর্ডার নেই","No orders yet")}
-      </div>
-      `
-    }
 
-  `;
+ <hr>
+
+
+ ${o.items.map(i=>`
+
+ <div
+ class="row-flex"
+ style="margin:7px 0">
+
+ <span>
+
+ ${lang==="bn"
+ ?i.name
+ :i.en}
+
+ × ${i.qty}
+
+ </span>
+
+ <b>
+ ৳${(i.price*i.qty)
+ .toLocaleString("en-BD")}
+ </b>
+
+ </div>
+
+ `).join("")}
+
+
+ <hr>
+
+
+ <div class="row-flex">
+
+ <b>
+ ${T("মোট","Total")}
+ </b>
+
+ <b class="price">
+ ৳${o.total
+ .toLocaleString("en-BD")}
+ </b>
+
+ </div>
+
+
+ <div
+ class="small"
+ style="margin-top:7px">
+
+ ${T(
+ "পেমেন্ট",
+ "Payment"
+ )}: ${o.payment}
+
+ </div>
+
+ </div>
+
+ `).join("")
+
+ :
+
+ `
+ <div class="empty">
+
+ 📦<br><br>
+
+ ${T(
+ "এখনো কোনো অর্ডার নেই",
+ "No orders yet"
+ )}
+
+ </div>
+ `
+
+ }
+
+ `;
 
 }
 
-/* PROFILE */
+
+/* =====================================================
+   PROFILE
+   ===================================================== */
 
 function renderProfile(){
 
-  document.getElementById("app").innerHTML = `
+ document.getElementById("app").innerHTML=`
 
-    <div class="page-title">
-      <h2>${T("প্রোফাইল","Profile")}</h2>
-    </div>
+ <div class="page-title">
 
-    <div class="section">
+ <h2>
+ ${T(
+ "প্রোফাইল",
+ "Profile"
+ )}
+ </h2>
 
-      <div class="profile-icon">👤</div>
+ </div>
 
-      <input
-        id="profileName"
-        placeholder="${T("আপনার নাম","Your name")}"
-        value="${PROFILE.name||""}">
 
-      <input
-        id="profilePhone"
-        placeholder="${T("মোবাইল নম্বর","Mobile number")}"
-        value="${PROFILE.phone||""}">
+ <div class="section">
 
-      <textarea
-        id="profileAddress"
-        placeholder="${T("ঠিকানা","Address")}">${PROFILE.address||""}</textarea>
+ <div class="profile-icon">
+ 👤
+ </div>
 
-      <button
-        class="primary full"
-        onclick="saveProfile()">
-        💾 ${T("প্রোফাইল সেভ করুন","Save Profile")}
-      </button>
 
-    </div>
+ <input
+ id="profileName"
+ placeholder="${T(
+ "আপনার নাম",
+ "Your name"
+ )}"
+ value="${PROFILE.name||""}">
 
-    <div class="section">
 
-      <h3>🏪 ${T("Seller Panel","Seller Panel")}</h3>
+ <input
+ id="profilePhone"
+ placeholder="${T(
+ "মোবাইল নম্বর",
+ "Mobile number"
+ )}"
+ value="${PROFILE.phone||""}">
 
-      <p class="small">
-        ${T(
-          "পণ্য যোগ, দাম পরিবর্তন ও পণ্য ম্যানেজ করতে এখানে যান।",
-          "Add products, change prices and manage products."
-        )}
-      </p>
 
-      <button
-        class="secondary full"
-        onclick="go('seller')">
-        ${T("Seller Panel খুলুন","Open Seller Panel")}
-      </button>
+ <textarea
+ id="profileAddress"
+ placeholder="${T(
+ "ঠিকানা",
+ "Address"
+ )}">${PROFILE.address||""}</textarea>
 
-    </div>
 
-    <div class="section">
+ <button
+ class="primary full"
+ onclick="saveProfile()">
 
-      <h3>⚙️ ${T("Admin Panel","Admin Panel")}</h3>
+ 💾 ${T(
+ "প্রোফাইল সেভ করুন",
+ "Save Profile"
+ )}
 
-      <p class="small">
-        ${T(
-          "অর্ডার, পণ্য, দাম ও পেমেন্ট নম্বর ম্যানেজ করুন।",
-          "Manage orders, products, prices and payment numbers."
-        )}
-      </p>
+ </button>
 
-      <button
-        class="primary full"
-        onclick="go('admin')">
-        ${T("Admin Panel খুলুন","Open Admin Panel")}
-      </button>
+ </div>
 
-    </div>
 
-  `;
+ <div class="section">
+
+ <h3>
+ 🏪 ${T(
+ "Seller Panel",
+ "Seller Panel"
+ )}
+ </h3>
+
+
+ <button
+ class="secondary full"
+ onclick="go('seller')">
+
+ ${T(
+ "Seller Panel খুলুন",
+ "Open Seller Panel"
+ )}
+
+ </button>
+
+ </div>
+
+
+ <div class="section">
+
+ <h3>
+ ⚙️ ${T(
+ "Admin Panel",
+ "Admin Panel"
+ )}
+ </h3>
+
+
+ <button
+ class="primary full"
+ onclick="go('admin')">
+
+ ${T(
+ "Admin Panel খুলুন",
+ "Open Admin Panel"
+ )}
+
+ </button>
+
+ </div>
+
+ `;
 
 }
+
 
 function saveProfile(){
 
-  PROFILE = {
+ PROFILE={
 
-    name:document.getElementById("profileName").value.trim(),
+   name:
+   document.getElementById(
+   "profileName"
+   ).value.trim(),
 
-    phone:document.getElementById("profilePhone").value.trim(),
+   phone:
+   document.getElementById(
+   "profilePhone"
+   ).value.trim(),
 
-    address:document.getElementById("profileAddress").value.trim()
+   address:
+   document.getElementById(
+   "profileAddress"
+   ).value.trim()
 
-  };
+ };
 
-  saveAll();
 
-  alert(T(
-    "প্রোফাইল সেভ হয়েছে।",
-    "Profile saved."
-  ));
+ saveAll();
+
+
+ alert(
+  T(
+   "প্রোফাইল সেভ হয়েছে।",
+   "Profile saved."
+  )
+ );
 
 }
 
-/* SELLER */
+
+/* =====================================================
+   SELLER
+   ===================================================== */
 
 function renderSeller(){
 
-  document.getElementById("app").innerHTML = `
+ document.getElementById("app").innerHTML=`
 
-    <div class="page-title">
-      <h2>🏪 ${T("Seller Panel","Seller Panel")}</h2>
-    </div>
+ <div class="page-title">
 
-    <div class="section">
+ <h2>
+ 🏪 ${T(
+ "Seller Panel",
+ "Seller Panel"
+ )}
+ </h2>
 
-      <h3>${T("নতুন পণ্য যোগ করুন","Add New Product")}</h3>
+ </div>
 
-      <input
-        id="sn"
-        placeholder="${T("পণ্যের নাম","Product name")}">
 
-      <select id="sc">
-        <option>ফ্যাশন</option>
-        <option>ইলেকট্রনিক্স</option>
-        <option>হোম</option>
-        <option>খাবার</option>
-        <option>সফট ড্রিংকস</option>
-        <option>পানীয়</option>
-      </select>
+ <div class="section">
 
-      <input
-        id="sp"
-        type="number"
-        placeholder="${T("দাম","Price")}">
+ <h3>
+ ${T(
+ "নতুন পণ্য যোগ করুন",
+ "Add New Product"
+ )}
+ </h3>
 
-      <input
-        id="si"
-        placeholder="${T("ছবির URL (ঐচ্ছিক)","Image URL (optional)")}">
 
-      <button
-        class="primary full"
-        onclick="sellerAdd()">
-        ➕ ${T("পণ্য যোগ করুন","Add Product")}
-      </button>
+ <input
+ id="sn"
+ placeholder="${T(
+ "পণ্যের নাম",
+ "Product name"
+ )}">
 
-    </div>
 
-    <div class="section">
+ <select id="sc">
 
-      <h3>${T("আমার পণ্য","My Products")}</h3>
+ <option>ফ্যাশন</option>
 
-      ${P.map(x=>`
+ <option>ইলেকট্রনিক্স</option>
 
-        <div class="product-row">
+ <option>হোম</option>
 
-          <div class="row-flex">
+ <option>খাবার</option>
 
-            <div>
-              <b>${productName(x)}</b>
+ <option>সফট ড্রিংকস</option>
 
-              <div class="small">
-                ${x.c}
-              </div>
+ <option>পানীয়</option>
 
-            </div>
+ </select>
 
-            <b class="price">
-              ৳${x.p}
-            </b>
 
-          </div>
+ <input
+ id="sp"
+ type="number"
+ placeholder="${T(
+ "দাম",
+ "Price"
+ )}">
 
-          <div style="display:flex;gap:7px;margin-top:9px">
 
-            <button
-              class="secondary"
-              onclick="changePrice(${x.id},10)">
-              +10
-            </button>
+ <input
+ id="si"
+ placeholder="${T(
+ "ছবির URL (ঐচ্ছিক)",
+ "Image URL (optional)"
+ )}">
 
-            <button
-              class="secondary"
-              onclick="changePrice(${x.id},-10)">
-              -10
-            </button>
 
-            <button
-              class="danger"
-              onclick="deleteProduct(${x.id})">
-              ${T("ডিলিট","Delete")}
-            </button>
+ <button
+ class="primary full"
+ onclick="sellerAdd()">
 
-          </div>
+ ➕ ${T(
+ "পণ্য যোগ করুন",
+ "Add Product"
+ )}
 
-        </div>
+ </button>
 
-      `).join("")}
+ </div>
 
-    </div>
 
-  `;
+ <div class="section">
+
+ <h3>
+ ${T(
+ "আমার পণ্য",
+ "My Products"
+ )}
+ </h3>
+
+
+ ${P.map(x=>`
+
+ <div class="product-row">
+
+ <div class="row-flex">
+
+ <div>
+
+ <b>
+ ${productName(x)}
+ </b>
+
+ <div class="small">
+ ${x.c}
+ </div>
+
+ </div>
+
+
+ <b class="price">
+ ৳${x.p}
+ </b>
+
+ </div>
+
+
+ <div
+ style="
+ display:flex;
+ gap:7px;
+ margin-top:9px
+ ">
+
+ <button
+ class="secondary"
+ onclick="changePrice(${x.id},10)">
+ +10
+ </button>
+
+
+ <button
+ class="secondary"
+ onclick="changePrice(${x.id},-10)">
+ -10
+ </button>
+
+
+ <button
+ class="danger"
+ onclick="deleteProduct(${x.id})">
+
+ ${T(
+ "ডিলিট",
+ "Delete"
+ )}
+
+ </button>
+
+ </div>
+
+ </div>
+
+ `).join("")}
+
+ </div>
+
+ `;
 
 }
+
 
 function sellerAdd(){
 
-  const n = document.getElementById("sn").value.trim();
+ const n=
+ document.getElementById("sn")
+ .value.trim();
 
-  const c = document.getElementById("sc").value;
+ const c=
+ document.getElementById("sc")
+ .value;
 
-  const p = Number(document.getElementById("sp").value);
+ const p=
+ Number(
+ document.getElementById("sp")
+ .value
+ );
 
-  const i = document.getElementById("si").value.trim();
+ const i=
+ document.getElementById("si")
+ .value.trim();
 
-  if(!n || !p){
 
-    alert(T(
-      "পণ্যের নাম ও দাম দিন।",
-      "Enter product name and price."
-    ));
+ if(!n||!p){
 
-    return;
-  }
+   alert(
+    T(
+     "পণ্যের নাম ও দাম দিন।",
+     "Enter product name and price."
+    )
+   );
 
-  P.push({
+   return;
 
-    id:Date.now(),
+ }
 
-    n:n,
 
-    en:n,
+ P.push({
 
-    c:c,
+   id:Date.now(),
 
-    ce:c,
+   n:n,
 
-    p:p,
+   en:n,
 
-    i:i || "https://via.placeholder.com/500x400?text=Product"
+   c:c,
 
-  });
+   ce:c,
 
-  saveAll();
+   p:p,
 
-  alert(T(
-    "পণ্য যোগ হয়েছে।",
-    "Product added."
-  ));
+   i:
+   i ||
+   "https://via.placeholder.com/500x400?text=Product"
 
-  renderSeller();
+ });
+
+
+ saveAll();
+
+
+ alert(
+  T(
+   "পণ্য যোগ হয়েছে।",
+   "Product added."
+  )
+ );
+
+
+ renderSeller();
 
 }
+
 
 function changePrice(id,amount){
 
-  const p = P.find(x=>x.id===id);
+ const p=
+ P.find(x=>x.id===id);
 
-  if(!p) return;
+ if(!p) return;
 
-  p.p = Math.max(0,Number(p.p)+amount);
 
-  saveAll();
+ p.p=
+ Math.max(
+   0,
+   Number(p.p)+amount
+ );
 
-  renderAll();
+
+ saveAll();
+
+ renderAll();
 
 }
+
 
 function deleteProduct(id){
 
-  if(!confirm(T(
-    "পণ্যটি মুছে ফেলবেন?",
-    "Delete this product?"
-  ))) return;
+ if(
+ !confirm(
+  T(
+   "পণ্যটি মুছে ফেলবেন?",
+   "Delete this product?"
+  )
+ )
+ ) return;
 
-  P = P.filter(x=>x.id!==id);
 
-  delete CART[id];
+ P=P.filter(
+  x=>x.id!==id
+ );
 
-  saveAll();
 
-  renderSeller();
+ delete CART[id];
 
-  updateCartCount();
+ saveAll();
+
+ renderSeller();
+
+ updateCartCount();
 
 }
 
-/* ADMIN */
+
+/* =====================================================
+   ADMIN
+   ===================================================== */
 
 function renderAdmin(){
 
-  const sales =
-    ORDERS.reduce((s,o)=>s+Number(o.total||0),0);
+ const sales=
+ ORDERS.reduce(
+  (s,o)=>s+Number(o.total||0),
+  0
+ );
 
-  const commission =
-    Math.round(sales*0.05);
 
-  document.getElementById("app").innerHTML = `
+ const commission=
+ Math.round(
+  sales*0.05
+ );
 
-    <div class="page-title">
-      <h2>⚙️ ${T("Admin Panel","Admin Panel")}</h2>
-    </div>
 
-    <div class="stat-grid">
+ document.getElementById("app").innerHTML=`
 
-      <div class="stat">
-        <b>${P.length}</b>
-        ${T("পণ্য","Products")}
-      </div>
+ <div class="page-title">
 
-      <div class="stat">
-        <b>${ORDERS.length}</b>
-        ${T("অর্ডার","Orders")}
-      </div>
+ <h2>
+ ⚙️ ${T(
+ "Admin Panel",
+ "Admin Panel"
+ )}
+ </h2>
 
-      <div class="stat">
-        <b>৳${sales.toLocaleString("en-BD")}</b>
-        ${T("মোট বিক্রি","Sales")}
-      </div>
+ </div>
 
-      <div class="stat">
-        <b>৳${commission.toLocaleString("en-BD")}</b>
-        ${T("৫% কমিশন","5% Commission")}
-      </div>
 
-    </div>
+ <div class="stat-grid">
 
-    <div class="section" style="margin-top:13px">
+ <div class="stat">
 
-      <h3>💳 ${T("পেমেন্ট নম্বর","Payment Numbers")}</h3>
+ <b>${P.length}</b>
 
-      <label>bKash</label>
-      <input id="bk" value="${PAYMENT.bkash}">
+ ${T(
+ "পণ্য",
+ "Products"
+ )}
 
-      <label>Nagad</label>
-      <input id="ng" value="${PAYMENT.nagad}">
+ </div>
 
-      <label>Rocket</label>
-      <input id="rk" value="${PAYMENT.rocket}">
 
-      <button
-        class="primary full"
-        onclick="savePayment()">
-        💾 ${T("নম্বর সেভ করুন","Save Numbers")}
-      </button>
+ <div class="stat">
 
-    </div>
+ <b>${ORDERS.length}</b>
 
-    <div class="section">
+ ${T(
+ "অর্ডার",
+ "Orders"
+ )}
 
-      <h3>💰 ${T("পণ্যের দাম","Product Prices")}</h3>
+ </div>
 
-      ${P.map(x=>`
 
-        <div class="product-row">
+ <div class="stat">
 
-          <div class="row-flex">
+ <b>
+ ৳${sales.toLocaleString("en-BD")}
+ </b>
 
-            <div>
-              <b>${productName(x)}</b>
-              <div class="small">${x.c}</div>
-            </div>
+ ${T(
+ "মোট বিক্রি",
+ "Sales"
+ )}
 
-            <div style="display:flex;align-items:center;gap:6px">
+ </div>
 
-              <button
-                class="secondary"
-                onclick="adminPrice(${x.id},-10)">
-                −
-              </button>
 
-              <b>৳${x.p}</b>
+ <div class="stat">
 
-              <button
-                class="secondary"
-                onclick="adminPrice(${x.id},10)">
-                +
-              </button>
+ <b>
+ ৳${commission.toLocaleString("en-BD")}
+ </b>
 
-            </div>
+ ${T(
+ "৫% কমিশন",
+ "5% Commission"
+ )}
 
-          </div>
+ </div>
 
-        </div>
+ </div>
 
-      `).join("")}
 
-    </div>
+ <div
+ class="section"
+ style="margin-top:13px">
 
-    <div class="section">
+ <h3>
+ 💳 ${T(
+ "পেমেন্ট নম্বর",
+ "Payment Numbers"
+ )}
+ </h3>
 
-      <h3>📦 ${T("অর্ডার ম্যানেজমেন্ট","Order Management")}</h3>
 
-      ${
-        ORDERS.length
-        ?
-        ORDERS.map(o=>`
+ <label>bKash</label>
 
-          <div class="order-row">
+ <input
+ id="bk"
+ value="${PAYMENT.bkash}">
 
-            <div class="row-flex">
 
-              <b>${o.id}</b>
+ <label>Nagad</label>
 
-              <select
-                onchange="changeOrderStatus('${o.id}',this.value)"
-                style="width:auto;margin:0">
+ <input
+ id="ng"
+ value="${PAYMENT.nagad}">
 
-                <option ${o.status==="Pending"?"selected":""}>
-                  Pending
-                </option>
 
-                <option ${o.status==="Confirmed"?"selected":""}>
-                  Confirmed
-                </option>
+ <label>Rocket</label>
 
-                <option ${o.status==="Processing"?"selected":""}>
-                  Processing
-                </option>
+ <input
+ id="rk"
+ value="${PAYMENT.rocket}">
 
-                <option ${o.status==="Delivered"?"selected":""}>
-                  Delivered
-                </option>
 
-                <option ${o.status==="Cancelled"?"selected":""}>
-                  Cancelled
-                </option>
+ <button
+ class="primary full"
+ onclick="savePayment()">
 
-              </select>
+ 💾 ${T(
+ "নম্বর সেভ করুন",
+ "Save Numbers"
+ )}
 
-            </div>
+ </button>
 
-            <div class="small">
-              ${o.name} — ${o.phone}
-            </div>
+ </div>
 
-            <div style="margin-top:5px">
-              ৳${o.total.toLocaleString("en-BD")}
-            </div>
 
-          </div>
+ <div class="section">
 
-        `).join("")
-        :
-        `<div class="empty">
-          ${T("কোনো অর্ডার নেই","No orders")}
-        </div>`
-      }
+ <h3>
+ 💰 ${T(
+ "পণ্যের দাম",
+ "Product Prices"
+ )}
+ </h3>
 
-    </div>
 
-  `;
+ ${P.map(x=>`
+
+ <div class="product-row">
+
+ <div class="row-flex">
+
+ <div>
+
+ <b>
+ ${productName(x)}
+ </b>
+
+ <div class="small">
+ ${x.c}
+ </div>
+
+ </div>
+
+
+ <div
+ style="
+ display:flex;
+ align-items:center;
+ gap:6px
+ ">
+
+ <button
+ class="secondary"
+ onclick="adminPrice(${x.id},-10)">
+ −
+ </button>
+
+
+ <b>
+ ৳${x.p}
+ </b>
+
+
+ <button
+ class="secondary"
+ onclick="adminPrice(${x.id},10)">
+ +
+ </button>
+
+ </div>
+
+ </div>
+
+ </div>
+
+ `).join("")}
+
+ </div>
+
+
+ <div class="section">
+
+ <h3>
+ 📦 ${T(
+ "অর্ডার ম্যানেজমেন্ট",
+ "Order Management"
+ )}
+ </h3>
+
+
+ ${
+ ORDERS.length
+
+ ?
+
+ ORDERS.map(o=>`
+
+ <div class="order-row">
+
+ <div class="row-flex">
+
+ <b>
+ ${o.id}
+ </b>
+
+
+ <select
+ onchange="changeOrderStatus('${o.id}',this.value)"
+ style="
+ width:auto;
+ margin:0
+ ">
+
+ <option
+ ${o.status==="Pending"?"selected":""}>
+ Pending
+ </option>
+
+ <option
+ ${o.status==="Confirmed"?"selected":""}>
+ Confirmed
+ </option>
+
+ <option
+ ${o.status==="Processing"?"selected":""}>
+ Processing
+ </option>
+
+ <option
+ ${o.status==="Delivered"?"selected":""}>
+ Delivered
+ </option>
+
+ <option
+ ${o.status==="Cancelled"?"selected":""}>
+ Cancelled
+ </option>
+
+ </select>
+
+ </div>
+
+
+ <div class="small">
+
+ ${o.name} —
+ ${o.phone}
+
+ </div>
+
+
+ <div style="margin-top:5px">
+
+ ৳${o.total
+ .toLocaleString("en-BD")}
+
+ </div>
+
+ </div>
+
+ `).join("")
+
+ :
+
+ `<div class="empty">
+
+ ${T(
+ "কোনো অর্ডার নেই",
+ "No orders"
+ )}
+
+ </div>`
+
+ }
+
+ </div>
+
+ `;
 
 }
+
 
 function adminPrice(id,amount){
 
-  const p = P.find(x=>x.id===id);
+ const p=
+ P.find(x=>x.id===id);
 
-  if(!p) return;
+ if(!p) return;
 
-  p.p = Math.max(0,Number(p.p)+amount);
 
-  saveAll();
+ p.p=
+ Math.max(
+  0,
+  Number(p.p)+amount
+ );
 
-  renderAdmin();
+
+ saveAll();
+
+ renderAdmin();
 
 }
+
 
 function savePayment(){
 
-  PAYMENT.bkash =
-    document.getElementById("bk").value.trim();
+ PAYMENT.bkash=
+ document.getElementById("bk")
+ .value.trim();
 
-  PAYMENT.nagad =
-    document.getElementById("ng").value.trim();
 
-  PAYMENT.rocket =
-    document.getElementById("rk").value.trim();
+ PAYMENT.nagad=
+ document.getElementById("ng")
+ .value.trim();
 
-  /*
-    Payment values are intentionally stored
-    separately so the numbers remain editable.
-  */
 
-  localStorage.setItem(
-    STORE+"_payment",
-    JSON.stringify(PAYMENT)
-  );
+ PAYMENT.rocket=
+ document.getElementById("rk")
+ .value.trim();
 
-  alert(T(
-    "পেমেন্ট নম্বর সেভ হয়েছে।",
-    "Payment numbers saved."
-  ));
+
+ localStorage.setItem(
+  STORE+"_payment",
+  JSON.stringify(PAYMENT)
+ );
+
+
+ alert(
+  T(
+   "পেমেন্ট নম্বর সেভ হয়েছে।",
+   "Payment numbers saved."
+  )
+ );
 
 }
+
+
+/* =====================================================
+   ORDER STATUS
+   ===================================================== */
 
 function changeOrderStatus(id,status){
 
-  const o = ORDERS.find(x=>x.id===id);
+ const o=
+ ORDERS.find(x=>x.id===id);
 
-  if(!o) return;
+ if(!o) return;
 
-  o.status = status;
+ o.status=status;
 
-  saveAll();
+ saveAll();
 
-  renderAdmin();
+ renderAdmin();
 
 }
 
-/* LOAD PAYMENT */
 
-const savedPayment =
-  JSON.parse(localStorage.getItem(STORE+"_payment") || "null");
+/* =====================================================
+   LOAD PAYMENT
+   ===================================================== */
+
+const savedPayment=
+JSON.parse(
+localStorage.getItem(
+STORE+"_payment"
+)||"null"
+);
+
 
 if(savedPayment){
 
-  PAYMENT.bkash = savedPayment.bkash || PAYMENT.bkash;
-  PAYMENT.nagad = savedPayment.nagad || PAYMENT.nagad;
-  PAYMENT.rocket = savedPayment.rocket || PAYMENT.rocket;
+ PAYMENT.bkash=
+ savedPayment.bkash||
+ PAYMENT.bkash;
+
+ PAYMENT.nagad=
+ savedPayment.nagad||
+ PAYMENT.nagad;
+
+ PAYMENT.rocket=
+ savedPayment.rocket||
+ PAYMENT.rocket;
 
 }
 
-/* CART COUNT */
+
+/* =====================================================
+   CART COUNT
+   ===================================================== */
 
 function updateCartCount(){
 
-  const count =
-    Object.values(CART).reduce(
-      (a,b)=>a+Number(b),
-      0
-    );
+ const count=
+ Object.values(CART)
+ .reduce(
+  (a,b)=>a+Number(b),
+  0
+ );
 
-  document.getElementById("cartCount").textContent=count;
+
+ document.getElementById(
+ "cartCount"
+ ).textContent=count;
 
 }
 
-/* PAGE RENDER */
+
+/* =====================================================
+   PAGE RENDER
+   ===================================================== */
 
 function renderAll(){
 
-  renderCategories();
+ renderCategories();
 
-  document.getElementById("langBtn").textContent =
-    lang==="bn" ? "বাংলা" : "English";
 
-  document.querySelectorAll(".bottom button")
-    .forEach(b=>b.classList.remove("active"));
+ document.getElementById(
+ "langBtn"
+ ).textContent=
+ lang==="bn"
+ ? "বাংলা"
+ : "English";
 
-  const nav =
-    document.getElementById("nav-"+currentPage);
 
-  if(nav) nav.classList.add("active");
+ document
+ .querySelectorAll(".bottom button")
+ .forEach(
+  b=>b.classList.remove("active")
+ );
 
-  if(currentPage==="home"){
-    renderHome();
-  }
-  else if(currentPage==="shop"){
-    renderHome();
-  }
-  else if(currentPage==="cart"){
-    renderCart();
-  }
-  else if(currentPage==="orders"){
-    renderOrders();
-  }
-  else if(currentPage==="profile"){
-    renderProfile();
-  }
-  else if(currentPage==="seller"){
-    renderSeller();
-  }
-  else if(currentPage==="admin"){
-    renderAdmin();
-  }
 
-  updateCartCount();
+ const nav=
+ document.getElementById(
+ "nav-"+currentPage
+ );
+
+
+ if(nav){
+
+   nav.classList.add("active");
+
+ }
+
+
+ if(
+ currentPage==="home" ||
+ currentPage==="shop"
+ ){
+
+   renderHome();
+
+ }
+
+ else if(currentPage==="cart"){
+
+   renderCart();
+
+ }
+
+ else if(currentPage==="orders"){
+
+   renderOrders();
+
+ }
+
+ else if(currentPage==="profile"){
+
+   renderProfile();
+
+ }
+
+ else if(currentPage==="seller"){
+
+   renderSeller();
+
+ }
+
+ else if(currentPage==="admin"){
+
+   renderAdmin();
+
+ }
+
+
+ updateCartCount();
 
 }
 
-/* START */
+
+/* =====================================================
+   START
+   ===================================================== */
+
+saveAll();
 
 renderAll();
 
