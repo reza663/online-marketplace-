@@ -7,463 +7,292 @@
 
 <style>
 *{box-sizing:border-box}
-
 body{
-  margin:0;
-  font-family:Arial,"Noto Sans Bengali",sans-serif;
-  background:#f4f7f5;
-  color:#17352b;
-  padding-bottom:72px
+ margin:0;
+ font-family:Arial,"Noto Sans Bengali",sans-serif;
+ background:#f4f7f5;
+ color:#17352b;
+ padding-bottom:75px
 }
-
 header{
-  position:sticky;
-  top:0;
-  z-index:50;
-  background:#087f5b;
-  color:#fff;
-  padding:12px 14px;
-  box-shadow:0 2px 10px #0002
+ position:sticky;top:0;z-index:50;
+ background:#087f5b;color:#fff;
+ padding:12px 14px;
+ box-shadow:0 2px 10px #0002
 }
-
 .top{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:8px
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:8px
 }
-
-.logo{
-  font-size:23px;
-  font-weight:800
-}
-
-.header-actions{
-  display:flex;
-  gap:7px
-}
-
+.logo{font-size:23px;font-weight:800}
 .hbtn{
-  border:0;
-  background:#fff;
-  color:#087f5b;
-  border-radius:20px;
-  padding:7px 11px;
-  font-weight:bold
+ border:0;background:#fff;color:#087f5b;
+ border-radius:20px;padding:8px 12px;font-weight:bold
 }
-
-.search{
-  margin-top:10px
-}
-
+.search{margin-top:10px}
 .search input{
-  width:100%;
-  padding:12px 14px;
-  border:0;
-  border-radius:12px;
-  outline:0;
-  font-size:15px
+ width:100%;padding:12px 14px;
+ border:0;border-radius:12px;
+ outline:0;font-size:15px
 }
-
 nav{
-  position:sticky;
-  top:111px;
-  z-index:40;
-  background:#fff;
-  display:flex;
-  overflow:auto;
-  gap:8px;
-  padding:9px;
-  border-bottom:1px solid #ddd
+ position:sticky;top:108px;z-index:40;
+ background:#fff;display:flex;overflow:auto;
+ gap:8px;padding:9px;
+ border-bottom:1px solid #ddd
 }
-
 nav button{
-  border:1px solid #cfe4da;
-  background:#fff;
-  color:#176047;
-  padding:8px 13px;
-  border-radius:20px;
-  white-space:nowrap
+ border:1px solid #cfe4da;
+ background:#fff;color:#176047;
+ padding:8px 13px;border-radius:20px;
+ white-space:nowrap
 }
+nav button.active{background:#087f5b;color:#fff}
 
-nav button.active{
-  background:#087f5b;
-  color:#fff
-}
-
-main{
-  padding:14px;
-  max-width:1100px;
-  margin:auto
-}
+main{padding:14px;max-width:1100px;margin:auto}
 
 .page-title{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:12px
+ display:flex;justify-content:space-between;
+ align-items:center;margin-bottom:12px
 }
-
-.page-title h2{
-  margin:0;
-  font-size:21px
-}
+.page-title h2{margin:0;font-size:21px}
 
 .grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:12px
 }
-
 .card{
-  background:#fff;
-  border-radius:16px;
-  overflow:hidden;
-  box-shadow:0 3px 12px #00000012
+ background:#fff;border-radius:16px;
+ overflow:hidden;
+ box-shadow:0 3px 12px #00000012
 }
-
 .product-img{
-  width:100%;
-  height:180px;
-  object-fit:contain;
-  display:block;
-  background:#f7faf8;
-  padding:8px
+ width:100%;height:180px;
+ object-fit:contain;
+ display:block;
+ background:#fff;
+ padding:8px
 }
-
-.card-body{
-  padding:11px
-}
-
-.card h3{
-  margin:0 0 5px;
-  font-size:16px
-}
-
+.card-body{padding:11px}
+.card h3{margin:0 0 5px;font-size:16px}
 .cat,.small{
-  font-size:12px;
-  color:#6b7d76
+ font-size:12px;color:#6b7d76
 }
-
-.cat{
-  margin-bottom:6px
-}
-
+.cat{margin-bottom:6px}
 .price{
-  color:#087f5b;
-  font-size:18px;
-  font-weight:800
+ color:#087f5b;
+ font-size:18px;
+ font-weight:800
 }
-
 .card-actions{
-  display:flex;
-  gap:6px;
-  margin-top:9px
+ display:flex;gap:6px;margin-top:9px
 }
-
-button{
-  cursor:pointer
-}
-
+button{cursor:pointer}
 .primary{
-  background:#087f5b;
-  color:#fff;
-  border:0;
-  border-radius:9px;
-  padding:9px 12px;
-  font-weight:bold
+ background:#087f5b;color:#fff;
+ border:0;border-radius:9px;
+ padding:9px 12px;font-weight:bold
 }
-
 .secondary{
-  background:#e9f5f0;
-  color:#087f5b;
-  border:0;
-  border-radius:9px;
-  padding:9px 12px;
-  font-weight:bold
+ background:#e9f5f0;color:#087f5b;
+ border:0;border-radius:9px;
+ padding:9px 12px;font-weight:bold
 }
-
-.danger{
-  background:#ffe9e9;
-  color:#b42318;
-  border:0;
-  border-radius:9px;
-  padding:8px 11px;
-  font-weight:bold
-}
-
-.full{
-  width:100%
-}
+.full{width:100%}
 
 .section{
-  background:#fff;
-  padding:14px;
-  border-radius:15px;
-  margin-bottom:13px;
-  box-shadow:0 2px 10px #0000000d
+ background:#fff;
+ padding:14px;
+ border-radius:15px;
+ margin-bottom:13px;
+ box-shadow:0 2px 10px #0000000d
 }
-
-.section h3{
-  margin-top:0
-}
+.section h3{margin-top:0}
 
 input,select,textarea{
-  width:100%;
-  padding:11px;
-  border:1px solid #ccd9d3;
-  border-radius:9px;
-  margin:5px 0 9px;
-  font-size:15px;
-  outline:0
+ width:100%;
+ padding:11px;
+ border:1px solid #ccd9d3;
+ border-radius:9px;
+ margin:5px 0 9px;
+ font-size:15px;
+ outline:0
 }
+textarea{min-height:80px;resize:vertical}
 
-textarea{
-  min-height:80px;
-  resize:vertical
+.product-row,.order-row{
+ border:1px solid #e0e8e4;
+ border-radius:12px;
+ padding:11px;
+ margin-bottom:9px;
+ background:#fbfdfc
 }
-
-.product-row,
-.order-row{
-  border:1px solid #e0e8e4;
-  border-radius:12px;
-  padding:11px;
-  margin-bottom:9px;
-  background:#fbfdfc
-}
-
 .row-flex{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:8px
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:8px
 }
-
 .qty{
-  display:flex;
-  align-items:center;
-  gap:9px
+ display:flex;
+ align-items:center;
+ gap:9px
 }
-
 .qty button{
-  width:32px;
-  height:32px;
-  border:0;
-  border-radius:8px;
-  background:#e7f4ee;
-  color:#087f5b;
-  font-size:18px;
-  font-weight:bold
+ width:32px;height:32px;
+ border:0;border-radius:8px;
+ background:#e7f4ee;
+ color:#087f5b;
+ font-size:18px;
+ font-weight:bold
 }
-
 .empty{
-  text-align:center;
-  padding:35px 10px;
-  color:#71817b
+ text-align:center;
+ padding:35px 10px;
+ color:#71817b
 }
-
 .profile-icon{
-  font-size:48px;
-  text-align:center
+ font-size:48px;
+ text-align:center
 }
-
 .stat-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:9px
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:9px
 }
-
 .stat{
-  background:#eaf6f1;
-  border-radius:12px;
-  padding:14px;
-  text-align:center
+ background:#eaf6f1;
+ border-radius:12px;
+ padding:14px;
+ text-align:center
 }
-
 .stat b{
-  display:block;
-  font-size:22px;
-  color:#087f5b
+ display:block;
+ font-size:22px;
+ color:#087f5b
 }
-
 .bottom{
-  position:fixed;
-  left:0;
-  right:0;
-  bottom:0;
-  background:#fff;
-  border-top:1px solid #ddd;
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  z-index:60
+ position:fixed;
+ left:0;right:0;bottom:0;
+ background:#fff;
+ border-top:1px solid #ddd;
+ display:grid;
+ grid-template-columns:repeat(5,1fr);
+ z-index:60
 }
-
 .bottom button{
-  border:0;
-  background:#fff;
-  padding:8px 2px;
-  color:#52645d;
-  font-size:11px
+ border:0;background:#fff;
+ padding:8px 2px;
+ color:#52645d;
+ font-size:11px
 }
-
 .bottom button.active{
-  color:#087f5b;
-  font-weight:bold
+ color:#087f5b;font-weight:bold
 }
-
 .bottom span{
-  display:block;
-  font-size:20px
+ display:block;font-size:20px
 }
-
 footer{
-  padding:20px 10px;
-  text-align:center;
-  color:#71817b;
-  font-size:11px
+ padding:20px 10px;
+ text-align:center;
+ color:#71817b;
+ font-size:11px
 }
-
 .badge{
-  display:inline-block;
-  background:#e8f6f0;
-  color:#087f5b;
-  border-radius:20px;
-  padding:5px 9px;
-  font-size:12px;
-  font-weight:bold
+ display:inline-block;
+ background:#e8f6f0;
+ color:#087f5b;
+ border-radius:20px;
+ padding:5px 9px;
+ font-size:12px;
+ font-weight:bold
 }
-
 .payment-box{
-  background:#f1faf6;
-  border:1px solid #cce9dc;
-  border-radius:12px;
-  padding:12px;
-  margin-top:8px
+ background:#f1faf6;
+ border:1px solid #cce9dc;
+ border-radius:12px;
+ padding:12px;
+ margin-top:8px
 }
-
-.chips{
-  display:flex;
-  gap:7px;
-  flex-wrap:wrap;
-  margin:6px 0 10px
-}
-
-.chip{
-  border:1px solid #cfe4da;
-  background:#fff;
-  color:#176047;
-  border-radius:20px;
-  padding:7px 10px
-}
-
-.chip.active{
-  background:#087f5b;
-  color:#fff
-}
-
 .modal{
-  position:fixed;
-  inset:0;
-  background:#0008;
-  z-index:100;
-  display:none;
-  align-items:flex-end
+ position:fixed;
+ inset:0;
+ background:#0008;
+ z-index:100;
+ display:none;
+ align-items:flex-end
 }
-
-.modal.show{
-  display:flex
-}
-
+.modal.show{display:flex}
 .sheet{
-  background:#fff;
-  width:100%;
-  max-height:92vh;
-  overflow:auto;
-  border-radius:20px 20px 0 0;
-  padding:16px
+ background:#fff;
+ width:100%;
+ max-height:92vh;
+ overflow:auto;
+ border-radius:20px 20px 0 0;
+ padding:16px
 }
-
 .sheet img{
-  width:100%;
-  height:230px;
-  object-fit:contain;
-  background:#f6faf8;
-  border-radius:14px
+ width:100%;
+ height:230px;
+ object-fit:contain;
+ background:#fff;
+ border-radius:14px
 }
-
-.variant-title{
-  font-weight:bold;
-  margin:10px 0 5px
-}
-
 .variant{
-  border:1px solid #d5e2dc;
-  background:#fff;
-  border-radius:10px;
-  padding:10px;
-  margin:7px 0;
-  display:flex;
-  justify-content:space-between;
-  gap:8px
+ width:100%;
+ border:1px solid #d5e2dc;
+ background:#fff;
+ border-radius:10px;
+ padding:10px;
+ margin:7px 0;
+ display:flex;
+ justify-content:space-between;
+ gap:8px
 }
-
 .variant.selected{
-  border:2px solid #087f5b;
-  background:#edf9f4
+ border:2px solid #087f5b;
+ background:#edf9f4
 }
-
 .close{
-  background:#eee;
-  border:0;
-  border-radius:50%;
-  width:35px;
-  height:35px;
-  font-size:18px
+ background:#eee;
+ border:0;
+ border-radius:50%;
+ width:35px;height:35px;
+ font-size:18px
 }
-
 .notice{
-  padding:11px;
-  border-radius:10px;
-  background:#fff8df;
-  border:1px solid #f0df9c;
-  margin-bottom:10px;
-  font-size:13px
+ padding:11px;
+ border-radius:10px;
+ background:#fff8df;
+ border:1px solid #f0df9c;
+ margin-bottom:10px;
+ font-size:13px
 }
-
 .status{
-  display:inline-block;
-  padding:5px 9px;
-  border-radius:15px;
-  background:#e8f6f0;
-  color:#087f5b;
-  font-size:12px;
-  font-weight:bold
+ display:inline-block;
+ padding:5px 9px;
+ border-radius:15px;
+ background:#e8f6f0;
+ color:#087f5b;
+ font-size:12px;
+ font-weight:bold
 }
 
 @media(min-width:700px){
-  .grid{
-    grid-template-columns:repeat(4,1fr)
-  }
-
-  .product-img{
-    height:190px
-  }
-
-  .sheet{
-    max-width:650px;
-    margin:auto;
-    border-radius:20px 20px 0 0
-  }
+ .grid{grid-template-columns:repeat(4,1fr)}
+ .product-img{height:190px}
+ .sheet{
+  max-width:650px;
+  margin:auto;
+  border-radius:20px 20px 0 0
+ }
 }
-
 @media(max-width:360px){
-  .grid{
-    gap:8px
-  }
-
-  .product-img{
-    height:150px
-  }
+ .grid{gap:8px}
+ .product-img{height:150px}
 }
 </style>
 </head>
@@ -471,26 +300,24 @@ footer{
 <body>
 
 <header>
+ <div class="top">
+  <div class="logo">🛍️ একসাথে</div>
 
-  <div class="top">
-    <div class="logo">🛍️ একসাথে</div>
-
-    <div class="header-actions">
-      <button class="hbtn" onclick="toggleLanguage()">বাংলা/EN</button>
-      <button class="hbtn" onclick="showPage('cart')">
-        🛒 <span id="cartCount">0</span>
-      </button>
-    </div>
+  <div>
+   <button class="hbtn" onclick="toggleLanguage()">বাংলা/EN</button>
+   <button class="hbtn" onclick="showPage('cart')">
+    🛒 <span id="cartCount">0</span>
+   </button>
   </div>
+ </div>
 
-  <div class="search">
-    <input
-      id="searchInput"
-      type="search"
-      placeholder="পণ্য খুঁজুন..."
-      oninput="renderProducts()">
-  </div>
-
+ <div class="search">
+  <input
+   id="searchInput"
+   type="search"
+   placeholder="পণ্য খুঁজুন..."
+   oninput="renderProducts()">
+ </div>
 </header>
 
 <nav id="categoryNav"></nav>
@@ -498,270 +325,119 @@ footer{
 <main id="app"></main>
 
 <div class="modal" id="modal">
-  <div class="sheet" id="modalSheet"></div>
+ <div class="sheet" id="modalSheet"></div>
 </div>
 
 <div class="bottom">
-
-  <button id="navHome" onclick="showPage('home')">
-    <span>🏠</span>হোম
-  </button>
-
-  <button id="navShop" onclick="showPage('shop')">
-    <span>🛍️</span>শপ
-  </button>
-
-  <button id="navCart" onclick="showPage('cart')">
-    <span>🛒</span>কার্ট
-  </button>
-
-  <button id="navOrders" onclick="showPage('orders')">
-    <span>📦</span>অর্ডার
-  </button>
-
-  <button id="navProfile" onclick="showPage('profile')">
-    <span>👤</span>প্রোফাইল
-  </button>
-
+ <button id="navHome" onclick="showPage('home')">
+  <span>🏠</span>হোম
+ </button>
+ <button id="navShop" onclick="showPage('shop')">
+  <span>🛍️</span>শপ
+ </button>
+ <button id="navCart" onclick="showPage('cart')">
+  <span>🛒</span>কার্ট
+ </button>
+ <button id="navOrders" onclick="showPage('orders')">
+  <span>📦</span>অর্ডার
+ </button>
+ <button id="navProfile" onclick="showPage('profile')">
+  <span>👤</span>প্রোফাইল
+ </button>
 </div>
 
 <script>
 
 /* =========================================================
-   একসাথে — COMPLETE SMART SHOPPING APP
-   ১৮টি পণ্য
-   ========================================================= */
+   PAYMENT
+========================================================= */
 
-const PAYMENT = {
-  bkash:"01XXXXXXXXX",
-  nagad:"01XXXXXXXXX",
-  rocket:"01XXXXXXXXX"
+const PAYMENT={
+ bkash:"01XXXXXXXXX",
+ nagad:"01XXXXXXXXX",
+ rocket:"01XXXXXXXXX"
 };
 
-let language = "bn";
-let currentPage = "home";
-let currentCategory = "সব";
-let selectedProduct = null;
-let selectedVariant = 0;
-
-let cart = JSON.parse(localStorage.getItem("ekshathe_cart") || "[]");
-let orders = JSON.parse(localStorage.getItem("ekshathe_orders") || "[]");
 
 /* =========================================================
-   PRODUCT IMAGE SYSTEM
-   কোনো মানুষের ছবি নয়।
-   প্রতিটি পণ্যের জন্য আলাদা SVG product illustration।
-   ========================================================= */
+   REAL PRODUCT IMAGES
+   কোনো illustration নেই
+========================================================= */
 
-function svgData(type,title,sub){
+const REAL_IMAGES={
 
-  let art = "";
+ "পুরুষের শার্ট":
+ "https://commons.wikimedia.org/wiki/Special:Redirect/file/Men%27s_shirt_formal_Slovaks.jpg",
 
-  if(type==="shirt"){
-    art=`
-    <path d="M210 130 L285 90 L350 125 L415 90 L490 130 L455 220 L405 190 L405 400 L295 400 L295 190 L245 220 Z"
-    fill="#4f81bd" stroke="#183b61" stroke-width="7"/>
-    <path d="M285 90 Q350 150 415 90" fill="none" stroke="#183b61" stroke-width="7"/>
-    <path d="M295 190 L350 225 L405 190" fill="none" stroke="#183b61" stroke-width="7"/>
-    `;
-  }
+ "পুরুষদের প্যান্ট":
+ "https://commons.wikimedia.org/wiki/Special:Redirect/file/Men%27s_trousers_inside_out.jpg",
 
-  else if(type==="pants"){
-    art=`
-    <path d="M250 80 L450 80 L425 190 L410 420 L350 420 L330 240 L310 420 L250 420 L235 190 Z"
-    fill="#263b63" stroke="#17243d" stroke-width="8"/>
-    <path d="M250 80 L450 80" stroke="#17243d" stroke-width="12"/>
-    <path d="M330 95 L330 235" stroke="#17243d" stroke-width="7"/>
-    `;
-  }
+ "মহিলাদের ড্রেস":
+ "https://commons.wikimedia.org/wiki/Special:Redirect/file/Women_dress.jpg",
 
-  else if(type==="dress"){
-    art=`
-    <path d="M305 80 Q350 115 395 80 L410 145 L475 430 L225 430 L290 145 Z"
-    fill="#d85b76" stroke="#812b43" stroke-width="7"/>
-    <path d="M305 80 Q350 125 395 80" fill="none" stroke="#812b43" stroke-width="7"/>
-    <path d="M275 210 Q350 245 425 210" fill="none" stroke="#f7b7c5" stroke-width="8"/>
-    `;
-  }
+ "পাঞ্জাবি":
+ "https://commons.wikimedia.org/wiki/Special:Redirect/file/Pajama_Panjabi_of_Zaynul_Abedin.jpg",
 
-  else if(type==="panjabi"){
-    art=`
-    <path d="M285 75 L350 105 L415 75 L455 120 L425 205 L400 185 L400 425 L300 425 L300 185 L275 205 L245 120 Z"
-    fill="#e9e1ce" stroke="#766d5a" stroke-width="7"/>
-    <path d="M350 105 L350 205" stroke="#766d5a" stroke-width="6"/>
-    <circle cx="350" cy="150" r="5" fill="#766d5a"/>
-    <circle cx="350" cy="175" r="5" fill="#766d5a"/>
-    <path d="M315 120 L350 150 L385 120" fill="none" stroke="#766d5a" stroke-width="5"/>
-    `;
-  }
+ "মহিলাদের কুর্তি":
+ "https://commons.wikimedia.org/wiki/Special:Redirect/file/Black_women%27s_kurta_%28top%29.jpg",
 
-  else if(type==="kurti"){
-    art=`
-    <path d="M300 75 L350 105 L400 75 L435 125 L410 220 L395 420 L305 420 L290 220 L265 125 Z"
-    fill="#8b63b7" stroke="#553a72" stroke-width="7"/>
-    <path d="M300 75 Q350 120 400 75" fill="none" stroke="#553a72" stroke-width="7"/>
-    <path d="M310 165 L390 165 M305 205 L395 205 M310 245 L390 245"
-    stroke="#d7bde9" stroke-width="7"/>
-    `;
-  }
+ "পুরুষদের জুতা":
+ "https://commons.wikimedia.org/wiki/Special:Redirect/file/Pair_of_Men%27s_Shoes_from_the_William_B._Sappington_Family.jpg",
 
-  else if(type==="menShoes"){
-    art=`
-    <path d="M170 320 Q240 300 290 245 L350 285 L425 335 Q465 360 520 360 L540 420 L155 420 Q120 400 170 320Z"
-    fill="#343434" stroke="#111" stroke-width="8"/>
-    <path d="M275 270 L420 355" stroke="#aaa" stroke-width="8"/>
-    <path d="M315 290 L450 365" stroke="#aaa" stroke-width="8"/>
-    `;
-  }
+ "মহিলাদের স্যান্ডেল":
+ "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sets_of_Sandals.jpg",
 
-  else if(type==="sandals"){
-    art=`
-    <path d="M250 70 Q350 60 405 120 L430 405 Q350 440 270 405 L245 150 Q235 105 250 70Z"
-    fill="#c58b45" stroke="#70491f" stroke-width="7"/>
-    <path d="M260 130 Q350 180 420 130" fill="none" stroke="#70491f" stroke-width="15"/>
-    <path d="M270 210 Q350 260 420 210" fill="none" stroke="#70491f" stroke-width="15"/>
-    `;
-  }
+ "বাচ্চাদের জুতা":
+ "https://commons.wikimedia.org/wiki/Special:Redirect/file/Pair_of_kids_shoes.jpg",
 
-  else if(type==="kidsShoes"){
-    art=`
-    <path d="M155 325 Q230 305 275 245 L330 290 L400 340 Q445 365 500 360 L525 420 L145 420 Q120 395 155 325Z"
-    fill="#4d8fd8" stroke="#244b79" stroke-width="8"/>
-    <circle cx="280" cy="330" r="9" fill="white"/>
-    <circle cx="315" cy="345" r="9" fill="white"/>
-    `;
-  }
+ "বাচ্চাদের টি-শার্ট":
+ "https://commons.wikimedia.org/wiki/Special:Redirect/file/T-shirt2.jpg",
 
-  else if(type==="tee"){
-    art=`
-    <path d="M215 130 L285 85 L350 125 L415 85 L485 130 L445 220 L405 190 L405 410 L295 410 L295 190 L255 220 Z"
-    fill="#35a86b" stroke="#216b48" stroke-width="7"/>
-    <path d="M285 85 Q350 145 415 85" fill="none" stroke="#216b48" stroke-width="7"/>
-    <circle cx="350" cy="260" r="38" fill="#f8d45c"/>
-    <path d="M330 260 L370 260 M350 240 L350 280" stroke="#216b48" stroke-width="7"/>
-    `;
-  }
+ "বড়দের টি-শার্ট":
+ "https://commons.wikimedia.org/wiki/Special:Redirect/file/T-shirt2.jpg",
 
-  else if(type==="coke"){
-    art=`
-    <rect x="275" y="65" width="150" height="365" rx="30" fill="#202020" stroke="#111" stroke-width="8"/>
-    <rect x="292" y="185" width="116" height="115" rx="10" fill="#c91424"/>
-    <text x="350" y="245" text-anchor="middle" font-size="25" font-weight="bold" fill="white">Coca-Cola</text>
-    <rect x="300" y="55" width="100" height="20" rx="8" fill="#aaa"/>
-    `;
-  }
+ "Coca-Cola":
+ "https://commons.wikimedia.org/wiki/Special:Redirect/file/Coca-Cola_Bottle.jpg",
 
-  else if(type==="sprite"){
-    art=`
-    <path d="M290 55 L410 55 L425 95 L420 415 Q350 445 280 415 L275 95Z"
-    fill="#78c84a" stroke="#3e7726" stroke-width="7"/>
-    <rect x="285" y="175" width="130" height="115" rx="10" fill="#e9f3df"/>
-    <text x="350" y="245" text-anchor="middle" font-size="42" font-weight="bold" fill="#18863a">Sprite</text>
-    <circle cx="310" cy="150" r="14" fill="#fff"/>
-    <circle cx="390" cy="140" r="12" fill="#fff"/>
-    `;
-  }
+ "Sprite":
+ "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sprite_bottle.JPG",
 
-  else if(type==="pepsi"){
-    art=`
-    <path d="M290 55 L410 55 L425 95 L420 415 Q350 445 280 415 L275 95Z"
-    fill="#1556a8" stroke="#123c76" stroke-width="7"/>
-    <rect x="282" y="170" width="136" height="125" rx="12" fill="#fff"/>
-    <circle cx="350" cy="230" r="42" fill="#e92335"/>
-    <path d="M310 230 Q350 200 390 230 Q350 260 310 230Z" fill="#fff"/>
-    <text x="350" y="285" text-anchor="middle" font-size="25" font-weight="bold" fill="#174f99">PEPSI</text>
-    `;
-  }
+ "Pepsi":
+ "https://commons.wikimedia.org/wiki/Special:Redirect/file/A_bottle_of_Pepsi_2024-11-29.jpg",
 
-  else if(type==="water"){
-    art=`
-    <path d="M300 55 L400 55 L410 100 L420 415 Q350 440 280 415 L290 100Z"
-    fill="#d9f1ff" stroke="#4b9bc5" stroke-width="7"/>
-    <rect x="288" y="185" width="124" height="105" rx="12" fill="#3e9ed0"/>
-    <text x="350" y="232" text-anchor="middle" font-size="23" font-weight="bold" fill="white">MINERAL</text>
-    <text x="350" y="260" text-anchor="middle" font-size="21" fill="white">WATER</text>
-    <rect x="315" y="45" width="70" height="18" rx="6" fill="#4b9bc5"/>
-    `;
-  }
+ "মিনারেল ওয়াটার":
+ "https://commons.wikimedia.org/wiki/Special:Redirect/file/Mineral_water_bottle.jpg",
 
-  else if(type==="kacchi"){
-    art=`
-    <ellipse cx="350" cy="330" rx="220" ry="80" fill="#ddd"/>
-    <ellipse cx="350" cy="300" rx="190" ry="100" fill="#f0d17a" stroke="#9c7527" stroke-width="8"/>
-    <ellipse cx="350" cy="290" rx="150" ry="75" fill="#d9a83c"/>
-    <circle cx="300" cy="275" r="35" fill="#b56d35"/>
-    <circle cx="390" cy="305" r="37" fill="#b56d35"/>
-    <circle cx="355" cy="255" r="30" fill="#fff1ce"/>
-    <path d="M245 270 Q350 215 455 270" fill="none" stroke="#f6e3a5" stroke-width="12"/>
-    `;
-  }
+ "কাচ্চি বিরিয়ানি":
+ "https://commons.wikimedia.org/wiki/Special:Redirect/file/Biriyani_of_Bangladesh.jpg",
 
-  else if(type==="burger"){
-    art=`
-    <path d="M190 230 Q350 110 510 230 Z" fill="#d89a4b" stroke="#8b5c26" stroke-width="8"/>
-    <rect x="200" y="230" width="300" height="35" rx="12" fill="#f1cf54"/>
-    <rect x="205" y="265" width="290" height="45" rx="8" fill="#7d3e22"/>
-    <rect x="200" y="310" width="300" height="35" rx="8" fill="#45a64f"/>
-    <path d="M200 345 Q350 375 500 345 L480 390 Q350 430 220 390Z" fill="#d89a4b" stroke="#8b5c26" stroke-width="8"/>
-    `;
-  }
+ "চিজ বার্গার":
+ "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cheeseburger.jpg",
 
-  else if(type==="chickenBurger"){
-    art=`
-    <path d="M190 230 Q350 110 510 230 Z" fill="#d99d54" stroke="#8b5c26" stroke-width="8"/>
-    <rect x="200" y="230" width="300" height="35" rx="12" fill="#f2d56a"/>
-    <rect x="205" y="265" width="290" height="55" rx="10" fill="#e7e0c4"/>
-    <rect x="200" y="320" width="300" height="32" rx="8" fill="#49a84f"/>
-    <path d="M200 352 Q350 380 500 352 L480 395 Q350 430 220 395Z" fill="#d99d54" stroke="#8b5c26" stroke-width="8"/>
-    `;
-  }
+ "চিকেন বার্গার":
+ "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cheesey_chicken_burger.jpg",
 
-  else if(type==="roll"){
-    art=`
-    <path d="M210 130 Q350 75 490 130 L445 390 Q350 430 255 390Z"
-    fill="#e6c07b" stroke="#8f672f" stroke-width="8"/>
-    <path d="M245 180 Q350 230 455 180 M235 240 Q350 290 465 240 M230 300 Q350 350 470 300"
-    fill="none" stroke="#c48739" stroke-width="14"/>
-    <circle cx="310" cy="205" r="15" fill="#7c492b"/>
-    <circle cx="390" cy="275" r="15" fill="#7c492b"/>
-    `;
-  }
+ "চিকেন রোল":
+ "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cheesy_bbq_chicken_roll.jpg"
+};
 
-  return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
-  <svg xmlns="http://www.w3.org/2000/svg" width="700" height="520" viewBox="0 0 700 520">
-    <rect width="700" height="520" fill="#f7faf8"/>
-    <rect x="20" y="20" width="660" height="480" rx="30" fill="#ffffff"/>
-    ${art}
-    <text x="350" y="475" text-anchor="middle"
-      font-family="Arial,sans-serif"
-      font-size="27"
-      font-weight="bold"
-      fill="#17352b">${title}</text>
-    <text x="350" y="500" text-anchor="middle"
-      font-family="Arial,sans-serif"
-      font-size="15"
-      fill="#6b7d76">${sub}</text>
-  </svg>
-  `)}`
-}
 
 /* =========================================================
-   PRODUCTS
-   ========================================================= */
+   PRODUCT DATA
+========================================================= */
 
-const products = [
+const products=[
 
 {
  id:1,
  name:"পুরুষের শার্ট",
  en:"Men's Shirt",
  cat:"ফ্যাশন",
- type:"shirt",
  variants:[
-  ["M • কালো • ফুলহাতা • কলার",850],
-  ["L • নীল • ফুলহাতা • কলার",850],
-  ["XL • সাদা • ফুলহাতা • কলার",900],
-  ["XXL • চেক • ফুলহাতা • কলার",950]
+  ["M • কালো • ফুলহাতা",850],
+  ["L • নীল • ফুলহাতা",850],
+  ["XL • সাদা • ফুলহাতা",900],
+  ["XXL • চেক • ফুলহাতা",950]
  ]
 },
 
@@ -770,7 +446,6 @@ const products = [
  name:"পুরুষদের প্যান্ট",
  en:"Men's Pants",
  cat:"ফ্যাশন",
- type:"pants",
  variants:[
   ["30 • কালো",1100],
   ["32 • নেভি",1100],
@@ -784,11 +459,10 @@ const products = [
  name:"মহিলাদের ড্রেস",
  en:"Women's Dress",
  cat:"ফ্যাশন",
- type:"dress",
  variants:[
-  ["S • লাল • ফুল ডিজাইন",1250],
+  ["S • লাল • ডিজাইন",1250],
   ["M • নীল • প্রিন্ট",1250],
-  ["L • সবুজ • এমব্রয়ডারি",1350],
+  ["L • সবুজ • ডিজাইন",1350],
   ["XL • কালো • প্রিন্ট",1450],
   ["XXL • মেরুন • ডিজাইন",1550]
  ]
@@ -799,12 +473,11 @@ const products = [
  name:"পাঞ্জাবি",
  en:"Panjabi",
  cat:"ফ্যাশন",
- type:"panjabi",
  variants:[
   ["M • সাদা • এমব্রয়ডারি",1450],
-  ["L • কালো • সাদামাটা",1450],
+  ["L • কালো",1450],
   ["XL • নেভি • ডিজাইন",1550],
-  ["XXL • মেরুন • এমব্রয়ডারি",1650]
+  ["XXL • মেরুন",1650]
  ]
 },
 
@@ -813,12 +486,11 @@ const products = [
  name:"মহিলাদের কুর্তি",
  en:"Women's Kurti",
  cat:"ফ্যাশন",
- type:"kurti",
  variants:[
-  ["S • নীল • প্রিন্ট",950],
+  ["S • কালো • প্রিন্ট",950],
   ["M • লাল • প্রিন্ট",950],
   ["L • সবুজ • ডিজাইন",1050],
-  ["XL • কালো • এমব্রয়ডারি",1150]
+  ["XL • নীল • এমব্রয়ডারি",1150]
  ]
 },
 
@@ -827,7 +499,6 @@ const products = [
  name:"পুরুষদের জুতা",
  en:"Men's Shoes",
  cat:"ফ্যাশন",
- type:"menShoes",
  variants:[
   ["39 • কালো",1800],
   ["40 • বাদামি",1800],
@@ -842,7 +513,6 @@ const products = [
  name:"মহিলাদের স্যান্ডেল",
  en:"Women's Sandals",
  cat:"ফ্যাশন",
- type:"sandals",
  variants:[
   ["36 • কালো",950],
   ["37 • গোল্ড",950],
@@ -857,7 +527,6 @@ const products = [
  name:"বাচ্চাদের জুতা",
  en:"Kids Shoes",
  cat:"ফ্যাশন",
- type:"kidsShoes",
  variants:[
   ["28 • নীল",750],
   ["29 • লাল",750],
@@ -872,7 +541,6 @@ const products = [
  name:"বাচ্চাদের টি-শার্ট",
  en:"Kids T-Shirt",
  cat:"ফ্যাশন",
- type:"tee",
  variants:[
   ["2Y • নীল • প্রিন্ট",450],
   ["4Y • লাল • প্রিন্ট",450],
@@ -886,13 +554,12 @@ const products = [
  name:"বড়দের টি-শার্ট",
  en:"Adult T-Shirt",
  cat:"ফ্যাশন",
- type:"tee",
  variants:[
-  ["S • কালো • কলার ছাড়া • সাদামাটা",650],
-  ["M • সাদা • কলার ছাড়া • প্রিন্ট",650],
-  ["L • নীল • কলারসহ • সাদামাটা",750],
-  ["XL • সবুজ • কলারসহ • ডিজাইন",800],
-  ["XXL • মেরুন • কলার ছাড়া • ডিজাইন",850]
+  ["S • কালো • কলার ছাড়া",650],
+  ["M • সাদা • কলার ছাড়া",650],
+  ["L • নীল • কলারসহ",750],
+  ["XL • সবুজ • কলারসহ",800],
+  ["XXL • মেরুন • ডিজাইন",850]
  ]
 },
 
@@ -901,7 +568,6 @@ const products = [
  name:"Coca-Cola",
  en:"Coca-Cola",
  cat:"সফট ড্রিঙ্কস",
- type:"coke",
  variants:[
   ["250 ml",30],
   ["500 ml",45],
@@ -915,7 +581,6 @@ const products = [
  name:"Sprite",
  en:"Sprite",
  cat:"সফট ড্রিঙ্কস",
- type:"sprite",
  variants:[
   ["250 ml",30],
   ["500 ml",45],
@@ -929,7 +594,6 @@ const products = [
  name:"Pepsi",
  en:"Pepsi",
  cat:"সফট ড্রিঙ্কস",
- type:"pepsi",
  variants:[
   ["250 ml",30],
   ["500 ml",45],
@@ -943,7 +607,6 @@ const products = [
  name:"মিনারেল ওয়াটার",
  en:"Mineral Water",
  cat:"পানীয়",
- type:"water",
  variants:[
   ["500 ml",20],
   ["1 L",30],
@@ -957,7 +620,6 @@ const products = [
  name:"কাচ্চি বিরিয়ানি",
  en:"Kacchi Biryani",
  cat:"খাবার",
- type:"kacchi",
  variants:[
   ["১ প্লেট",300],
   ["২ প্লেট",590],
@@ -970,7 +632,6 @@ const products = [
  name:"চিজ বার্গার",
  en:"Cheese Burger",
  cat:"খাবার",
- type:"burger",
  variants:[
   ["১ পিস",220],
   ["২ পিস",420]
@@ -982,7 +643,6 @@ const products = [
  name:"চিকেন বার্গার",
  en:"Chicken Burger",
  cat:"খাবার",
- type:"chickenBurger",
  variants:[
   ["১ পিস",180],
   ["২ পিস",350]
@@ -994,1240 +654,202 @@ const products = [
  name:"চিকেন রোল",
  en:"Chicken Roll",
  cat:"খাবার",
- type:"roll",
  variants:[
   ["১ পিস",120],
   ["২ পিস",230],
   ["৪ পিস",450]
  ]
 }
-
 ];
+
+
+/* =========================================================
+   APP STATE
+========================================================= */
+
+let language="bn";
+let currentPage="home";
+let currentCategory="সব";
+let selectedProduct=null;
+let selectedVariant=0;
+
+let cart=
+ JSON.parse(localStorage.getItem("ekshathe_cart")||"[]");
+
+let orders=
+ JSON.parse(localStorage.getItem("ekshathe_orders")||"[]");
+
 
 /* =========================================================
    IMAGE
-   ========================================================= */
+========================================================= */
 
 function productImage(p){
 
-  let sub="শুধু পণ্যের ছবি";
+ const url=REAL_IMAGES[p.name];
 
-  if(p.cat==="ফ্যাশন") sub="মানুষ ছাড়া পণ্যের ছবি";
-  if(p.cat==="সফট ড্রিঙ্কস") sub="পরিষ্কার বোতল/ক্যান";
-  if(p.cat==="পানীয়") sub="পরিষ্কার মিনারেল ওয়াটার বোতল";
-  if(p.cat==="খাবার") sub="পরিষ্কার খাবারের ছবি";
+ if(!url){
+  return "";
+ }
 
-  return svgData(p.type,p.name,sub);
+ return url;
 }
+
+
+/* =========================================================
+   IMAGE ERROR
+   ভুল অন্য ছবি নয়
+========================================================= */
+
+function imageTag(p){
+
+ const url=productImage(p);
+
+ if(!url){
+  return `
+   <div class="product-img"
+        style="display:flex;align-items:center;justify-content:center">
+    ছবি পাওয়া যায়নি
+   </div>
+  `;
+ }
+
+ return `
+  <img
+   class="product-img"
+   src="${url}"
+   alt="${p.name}"
+   loading="lazy"
+   onerror="this.style.display='none';
+   this.nextElementSibling.style.display='flex'">
+  <div class="product-img"
+       style="display:none;align-items:center;justify-content:center;color:#777">
+    এই পণ্যের ছবি লোড হয়নি
+  </div>
+ `;
+}
+
 
 /* =========================================================
    CATEGORIES
-   ========================================================= */
+========================================================= */
 
 function renderCategories(){
 
-  const cats=[
-    "সব",
-    "ফ্যাশন",
-    "সফট ড্রিঙ্কস",
-    "পানীয়",
-    "খাবার"
-  ];
+ const cats=[
+  "সব",
+  "ফ্যাশন",
+  "সফট ড্রিঙ্কস",
+  "পানীয়",
+  "খাবার"
+ ];
 
-  document.getElementById("categoryNav").innerHTML=
-    cats.map(c=>`
-      <button
-        class="${currentCategory===c?'active':''}"
-        onclick="setCategory('${c}')">
-        ${c}
-      </button>
-    `).join("");
+ document.getElementById("categoryNav").innerHTML=
+ cats.map(c=>`
+  <button
+   class="${currentCategory===c?"active":""}"
+   onclick="setCategory('${c}')">
+   ${c}
+  </button>
+ `).join("");
 }
 
 function setCategory(cat){
 
-  currentCategory=cat;
-  currentPage="shop";
+ currentCategory=cat;
+ currentPage="shop";
 
-  renderCategories();
-  renderProducts();
-  updateNav();
+ renderCategories();
+ renderProducts();
+ updateNav();
 }
 
+
 /* =========================================================
-   PRODUCT FILTER
-   ========================================================= */
+   FILTER
+========================================================= */
 
 function filteredProducts(){
 
-  const q=(document.getElementById("searchInput")?.value || "")
-    .trim()
-    .toLowerCase();
+ const q=
+  (document.getElementById("searchInput")?.value||"")
+  .trim()
+  .toLowerCase();
 
-  return products.filter(p=>{
+ return products.filter(p=>{
 
-    const categoryOK=
-      currentCategory==="সব" ||
-      p.cat===currentCategory;
+  const categoryOK=
+   currentCategory==="সব"||
+   p.cat===currentCategory;
 
-    const text=(p.name+" "+p.en+" "+p.cat).toLowerCase();
+  const text=
+   (p.name+" "+p.en+" "+p.cat)
+   .toLowerCase();
 
-    return categoryOK && (!q || text.includes(q));
-  });
+  return categoryOK &&
+   (!q||text.includes(q));
+ });
 }
 
+
 /* =========================================================
-   PRODUCT CARD
-   ========================================================= */
+   CARD
+========================================================= */
 
 function card(p){
 
-  const price=p.variants[0][1];
+ const price=p.variants[0][1];
 
-  return `
-    <div class="card">
+ return `
+ <div class="card">
 
-      <img
-        class="product-img"
-        src="${productImage(p)}"
-        alt="${p.name}">
+  ${imageTag(p)}
 
-      <div class="card-body">
+  <div class="card-body">
 
-        <h3>${language==="bn"?p.name:p.en}</h3>
+   <h3>
+    ${language==="bn"?p.name:p.en}
+   </h3>
 
-        <div class="cat">${p.cat}</div>
+   <div class="cat">${p.cat}</div>
 
-        <div class="small">
-          ${p.variants.length}টি মাপ/ভ্যারিয়েন্ট
-        </div>
+   <div class="small">
+    ${p.variants.length}টি ভ্যারিয়েন্ট
+   </div>
 
-        <div class="price">
-          ৳${price} থেকে
-        </div>
+   <div class="price">
+    ৳${price} থেকে
+   </div>
 
-        <div class="card-actions">
+   <div class="card-actions">
 
-          <button
-            class="primary"
-            onclick="openProduct(${p.id})">
-            দেখুন
-          </button>
+    <button
+     class="primary"
+     onclick="openProduct(${p.id})">
+     দেখুন
+    </button>
 
-          <button
-            class="secondary"
-            onclick="quickAdd(${p.id})">
-            + কার্ট
-          </button>
+    <button
+     class="secondary"
+     onclick="quickAdd(${p.id})">
+     + কার্ট
+    </button>
 
-        </div>
+   </div>
 
-      </div>
-    </div>
-  `;
+  </div>
+ </div>
+ `;
 }
 
+
 /* =========================================================
-   RENDER PRODUCTS
-   ========================================================= */
+   SHOP
+========================================================= */
 
 function renderProducts(){
 
-  const list=filteredProducts();
+ const list=filteredProducts();
 
-  const title=
-    currentCategory==="সব"
-      ?"সব পণ্য"
-      :currentCategory;
-
-  document.getElementById("app").innerHTML=`
-
-    <div class="page-title">
-
-      <h2>${title}</h2>
-
-      <span class="badge">
-        ${list.length} পণ্য
-      </span>
-
-    </div>
-
-    ${
-      list.length
-      ?
-      `<div class="grid">
-        ${list.map(card).join("")}
-       </div>`
-      :
-      `<div class="section empty">
-        কোনো পণ্য পাওয়া যায়নি।
-       </div>`
-    }
-
-    <footer>
-      একসাথে — আপনার প্রয়োজন, এক জায়গায়।
-    </footer>
-  `;
-}
-
-/* =========================================================
-   HOME
-   ========================================================= */
-
-function renderHome(){
-
-  document.getElementById("app").innerHTML=`
-
-    <div class="section">
-
-      <h2>স্বাগতম 👋</h2>
-
-      <p>
-        <b>একসাথে</b> অ্যাপে কাপড়, জুতা, পানীয় এবং খাবার
-        এক জায়গা থেকে দেখুন ও অর্ডার করুন।
-      </p>
-
-      <button
-        class="primary full"
-        onclick="showPage('shop')">
-        🛍️ এখনই শপিং করুন
-      </button>
-
-    </div>
-
-    <div class="section">
-
-      <h3>ক্যাটাগরি</h3>
-
-      <div class="grid">
-
-        <button
-          class="secondary"
-          onclick="setCategory('ফ্যাশন')">
-          👕 ফ্যাশন
-        </button>
-
-        <button
-          class="secondary"
-          onclick="setCategory('সফট ড্রিঙ্কস')">
-          🥤 সফট ড্রিঙ্কস
-        </button>
-
-        <button
-          class="secondary"
-          onclick="setCategory('পানীয়')">
-          💧 পানীয়
-        </button>
-
-        <button
-          class="secondary"
-          onclick="setCategory('খাবার')">
-          🍔 খাবার
-        </button>
-
-      </div>
-
-    </div>
-
-    <div class="section">
-
-      <h3>জনপ্রিয় পণ্য</h3>
-
-      <div class="grid">
-        ${products.slice(0,4).map(card).join("")}
-      </div>
-
-    </div>
-
-  `;
-}
-
-/* =========================================================
-   PRODUCT DETAILS
-   ========================================================= */
-
-function openProduct(id){
-
-  selectedProduct=
-    products.find(p=>p.id===id);
-
-  selectedVariant=0;
-
-  const p=selectedProduct;
-
-  document.getElementById("modalSheet").innerHTML=`
-
-    <div class="row-flex">
-
-      <h2>${language==="bn"?p.name:p.en}</h2>
-
-      <button
-        class="close"
-        onclick="closeModal()">
-        ×
-      </button>
-
-    </div>
-
-    <img
-      src="${productImage(p)}"
-      alt="${p.name}">
-
-    <div class="variant-title">
-      মাপ / ভ্যারিয়েন্ট নির্বাচন করুন
-    </div>
-
-    <div id="variantList">
-
-      ${p.variants.map((v,i)=>`
-
-        <button
-          class="variant ${i===0?'selected':''}"
-          onclick="selectVariant(${i})">
-
-          <span>${v[0]}</span>
-
-          <b>৳${v[1]}</b>
-
-        </button>
-
-      `).join("")}
-
-    </div>
-
-    <button
-      class="primary full"
-      onclick="addSelectedToCart()">
-      🛒 কার্টে যোগ করুন
-    </button>
-
-  `;
-
-  document.getElementById("modal").classList.add("show");
-}
-
-function selectVariant(index){
-
-  selectedVariant=index;
-
-  document.querySelectorAll(".variant")
-    .forEach((el,i)=>{
-      el.classList.toggle("selected",i===index);
-    });
-}
-
-function closeModal(){
-
-  document
-    .getElementById("modal")
-    .classList.remove("show");
-}
-
-/* বাইরে চাপ দিলে বন্ধ */
-
-document.getElementById("modal").addEventListener("click",e=>{
-  if(e.target.id==="modal") closeModal();
-});
-
-/* =========================================================
-   CART
-   ========================================================= */
-
-function saveCart(){
-
-  localStorage.setItem(
-    "ekshathe_cart",
-    JSON.stringify(cart)
-  );
-
-  updateCartCount();
-}
-
-function quickAdd(id){
-
-  const p=products.find(x=>x.id===id);
-
-  addToCart(p,0);
-
-  alert("পণ্যটি কার্টে যোগ হয়েছে।");
-}
-
-function addSelectedToCart(){
-
-  if(!selectedProduct)return;
-
-  addToCart(
-    selectedProduct,
-    selectedVariant
-  );
-
-  closeModal();
-
-  alert("পণ্যটি কার্টে যোগ হয়েছে।");
-}
-
-function addToCart(p,variantIndex){
-
-  const variant=p.variants[variantIndex];
-
-  const key=p.id+"-"+variantIndex;
-
-  const existing=
-    cart.find(x=>x.key===key);
-
-  if(existing){
-
-    existing.qty++;
-
-  }else{
-
-    cart.push({
-      key:key,
-      productId:p.id,
-      variantIndex:variantIndex,
-      name:p.name,
-      variant:variant[0],
-      price:variant[1],
-      qty:1
-    });
-
-  }
-
-  saveCart();
-}
-
-function updateCartCount(){
-
-  const count=
-    cart.reduce((sum,x)=>sum+x.qty,0);
-
-  document.getElementById("cartCount").textContent=count;
-}
-
-function cartTotal(){
-
-  return cart.reduce(
-    (sum,x)=>sum+(x.price*x.qty),
-    0
-  );
-}
-
-function changeQty(key,delta){
-
-  const item=
-    cart.find(x=>x.key===key);
-
-  if(!item)return;
-
-  item.qty+=delta;
-
-  if(item.qty<=0){
-
-    cart=
-      cart.filter(x=>x.key!==key);
-  }
-
-  saveCart();
-
-  renderCart();
-}
-
-/* =========================================================
-   CART PAGE
-   ========================================================= */
-
-function renderCart(){
-
-  if(cart.length===0){
-
-    document.getElementById("app").innerHTML=`
-
-      <div class="section empty">
-
-        <div style="font-size:50px">🛒</div>
-
-        <h3>কার্ট খালি</h3>
-
-        <p>পছন্দের পণ্য কার্টে যোগ করুন।</p>
-
-        <button
-          class="primary"
-          onclick="showPage('shop')">
-          শপিং শুরু করুন
-        </button>
-
-      </div>
-
-    `;
-
-    return;
-  }
-
-  document.getElementById("app").innerHTML=`
-
-    <div class="page-title">
-
-      <h2>আমার কার্ট</h2>
-
-      <span class="badge">
-        ${cart.length} আইটেম
-      </span>
-
-    </div>
-
-    ${cart.map(item=>`
-
-      <div class="product-row">
-
-        <div class="row-flex">
-
-          <div>
-
-            <b>${item.name}</b>
-
-            <div class="small">
-              ${item.variant}
-            </div>
-
-            <div class="price">
-              ৳${item.price}
-            </div>
-
-          </div>
-
-          <div class="qty">
-
-            <button
-              onclick="changeQty('${item.key}',-1)">
-              −
-            </button>
-
-            <b>${item.qty}</b>
-
-            <button
-              onclick="changeQty('${item.key}',1)">
-              +
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    `).join("")}
-
-    <div class="section">
-
-      <div class="row-flex">
-
-        <b>মোট</b>
-
-        <strong class="price">
-          ৳${cartTotal()}
-        </strong>
-
-      </div>
-
-      <br>
-
-      <button
-        class="primary full"
-        onclick="showPage('checkout')">
-        💳 চেকআউট
-      </button>
-
-    </div>
-
-  `;
-}
-
-/* =========================================================
-   CHECKOUT
-   ========================================================= */
-
-function renderCheckout(){
-
-  const total=cartTotal();
-
-  document.getElementById("app").innerHTML=`
-
-    <div class="page-title">
-      <h2>চেকআউট</h2>
-    </div>
-
-    <div class="section">
-
-      <h3>ডেলিভারি তথ্য</h3>
-
-      <label>আপনার নাম</label>
-
-      <input
-        id="customerName"
-        placeholder="নাম লিখুন">
-
-      <label>মোবাইল নম্বর</label>
-
-      <input
-        id="customerPhone"
-        type="tel"
-        placeholder="01XXXXXXXXX">
-
-      <label>ঠিকানা</label>
-
-      <textarea
-        id="customerAddress"
-        placeholder="সম্পূর্ণ ঠিকানা লিখুন"></textarea>
-
-    </div>
-
-    <div class="section">
-
-      <h3>পেমেন্ট</h3>
-
-      <div class="payment-box">
-
-        <b>বিকাশ</b>
-        <br>
-        ${PAYMENT.bkash}
-
-        <hr>
-
-        <b>নগদ</b>
-        <br>
-        ${PAYMENT.nagad}
-
-        <hr>
-
-        <b>রকেট</b>
-        <br>
-        ${PAYMENT.rocket}
-
-      </div>
-
-      <select id="paymentMethod">
-
-        <option value="Cash on Delivery">
-          ক্যাশ অন ডেলিভারি
-        </option>
-
-        <option value="bKash">
-          বিকাশ
-        </option>
-
-        <option value="Nagad">
-          নগদ
-        </option>
-
-        <option value="Rocket">
-          রকেট
-        </option>
-
-      </select>
-
-    </div>
-
-    <div class="section">
-
-      <div class="row-flex">
-
-        <b>অর্ডারের মোট</b>
-
-        <strong class="price">
-          ৳${total}
-        </strong>
-
-      </div>
-
-      <br>
-
-      <button
-        class="primary full"
-        onclick="placeOrder()">
-        ✅ অর্ডার কনফার্ম করুন
-      </button>
-
-    </div>
-
-  `;
-}
-
-/* =========================================================
-   PLACE ORDER
-   ========================================================= */
-
-function placeOrder(){
-
-  const name=
-    document.getElementById("customerName").value.trim();
-
-  const phone=
-    document.getElementById("customerPhone").value.trim();
-
-  const address=
-    document.getElementById("customerAddress").value.trim();
-
-  const payment=
-    document.getElementById("paymentMethod").value;
-
-  if(!name || !phone || !address){
-
-    alert("নাম, মোবাইল এবং ঠিকানা পূরণ করুন।");
-    return;
-  }
-
-  const order={
-    id:"EK"+Date.now(),
-    date:new Date().toLocaleString("bn-BD"),
-    customer:{
-      name:name,
-      phone:phone,
-      address:address
-    },
-    payment:payment,
-    items:[...cart],
-    total:cartTotal(),
-    status:"অর্ডার গ্রহণ করা হয়েছে"
-  };
-
-  orders.unshift(order);
-
-  localStorage.setItem(
-    "ekshathe_orders",
-    JSON.stringify(orders)
-  );
-
-  cart=[];
-
-  saveCart();
-
-  alert(
-    "অর্ডার সফলভাবে গ্রহণ করা হয়েছে।\nঅর্ডার নম্বর: "+order.id
-  );
-
-  showPage("orders");
-}
-
-/* =========================================================
-   ORDERS
-   ========================================================= */
-
-function renderOrders(){
-
-  if(orders.length===0){
-
-    document.getElementById("app").innerHTML=`
-
-      <div class="section empty">
-
-        <div style="font-size:50px">📦</div>
-
-        <h3>এখনো কোনো অর্ডার নেই</h3>
-
-        <button
-          class="primary"
-          onclick="showPage('shop')">
-          শপিং করুন
-        </button>
-
-      </div>
-
-    `;
-
-    return;
-  }
-
-  document.getElementById("app").innerHTML=`
-
-    <div class="page-title">
-      <h2>আমার অর্ডার</h2>
-    </div>
-
-    ${orders.map(o=>`
-
-      <div class="order-row">
-
-        <div class="row-flex">
-
-          <b>${o.id}</b>
-
-          <span class="status">
-            ${o.status}
-          </span>
-
-        </div>
-
-        <div class="small">
-          ${o.date}
-        </div>
-
-        <hr>
-
-        ${o.items.map(i=>`
-
-          <div class="row-flex">
-
-            <span>
-              ${i.name}
-              <br>
-              <small>${i.variant} × ${i.qty}</small>
-            </span>
-
-            <b>
-              ৳${i.price*i.qty}
-            </b>
-
-          </div>
-
-        `).join("")}
-
-        <hr>
-
-        <div class="row-flex">
-
-          <b>মোট</b>
-
-          <strong class="price">
-            ৳${o.total}
-          </strong>
-
-        </div>
-
-      </div>
-
-    `).join("")}
-
-  `;
-}
-
-/* =========================================================
-   PROFILE
-   ========================================================= */
-
-function renderProfile(){
-
-  document.getElementById("app").innerHTML=`
-
-    <div class="section">
-
-      <div class="profile-icon">👤</div>
-
-      <h2 style="text-align:center">
-        আমার প্রোফাইল
-      </h2>
-
-      <input
-        id="profileName"
-        placeholder="আপনার নাম">
-
-      <input
-        id="profilePhone"
-        placeholder="মোবাইল নম্বর">
-
-      <button
-        class="primary full"
-        onclick="saveProfile()">
-        💾 সেভ করুন
-      </button>
-
-    </div>
-
-    <div class="section">
-
-      <h3>আমার পরিসংখ্যান</h3>
-
-      <div class="stat-grid">
-
-        <div class="stat">
-          <b>${orders.length}</b>
-          অর্ডার
-        </div>
-
-        <div class="stat">
-          <b>${cart.length}</b>
-          কার্ট আইটেম
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="section">
-
-      <h3>অ্যাপ সম্পর্কে</h3>
-
-      <p>
-        <b>একসাথে</b> একটি স্মার্ট শপিং প্ল্যাটফর্মের
-        MVP সংস্করণ।
-      </p>
-
-      <p class="small">
-        এখানে ভবিষ্যতে কাস্টমার, সেলার, ডেলিভারি এবং
-        অ্যাডমিন সিস্টেম আরও উন্নত করা যাবে।
-      </p>
-
-    </div>
-
-  `;
-}
-
-function saveProfile(){
-
-  const data={
-    name:document.getElementById("profileName").value,
-    phone:document.getElementById("profilePhone").value
-  };
-
-  localStorage.setItem(
-    "ekshathe_profile",
-    JSON.stringify(data)
-  );
-
-  alert("প্রোফাইল সেভ হয়েছে।");
-}
-
-/* =========================================================
-   SELLER PANEL
-   ========================================================= */
-
-function renderSeller(){
-
-  document.getElementById("app").innerHTML=`
-
-    <div class="section">
-
-      <h2>🏪 Seller Panel</h2>
-
-      <p>
-        এখানে ভবিষ্যতে সেলাররা নিজেদের পণ্য,
-        দাম, স্টক এবং অর্ডার পরিচালনা করতে পারবে।
-      </p>
-
-    </div>
-
-    <div class="section">
-
-      <h3>বর্তমান পণ্য</h3>
-
-      ${products.map(p=>`
-
-        <div class="product-row">
-
-          <div class="row-flex">
-
-            <div>
-              <b>${p.name}</b>
-              <div class="small">${p.cat}</div>
-            </div>
-
-            <span class="badge">
-              ${p.variants.length} ভ্যারিয়েন্ট
-            </span>
-
-          </div>
-
-        </div>
-
-      `).join("")}
-
-    </div>
-
-  `;
-}
-
-/* =========================================================
-   ADMIN PANEL
-   ========================================================= */
-
-function renderAdmin(){
-
-  document.getElementById("app").innerHTML=`
-
-    <div class="section">
-
-      <h2>⚙️ Admin Panel</h2>
-
-      <div class="stat-grid">
-
-        <div class="stat">
-          <b>${products.length}</b>
-          পণ্য
-        </div>
-
-        <div class="stat">
-          <b>${orders.length}</b>
-          অর্ডার
-        </div>
-
-        <div class="stat">
-          <b>৳${orders.reduce((s,o)=>s+o.total,0)}</b>
-          বিক্রি
-        </div>
-
-        <div class="stat">
-          <b>${cart.length}</b>
-          কার্ট
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="section">
-
-      <h3>অর্ডার ম্যানেজমেন্ট</h3>
-
-      ${
-        orders.length
-        ?
-        orders.map(o=>`
-
-          <div class="order-row">
-
-            <div class="row-flex">
-
-              <b>${o.id}</b>
-
-              <select
-                onchange="updateOrderStatus('${o.id}',this.value)">
-
-                <option
-                  ${o.status==="অর্ডার গ্রহণ করা হয়েছে"?"selected":""}>
-                  অর্ডার গ্রহণ করা হয়েছে
-                </option>
-
-                <option
-                  ${o.status==="প্রস্তুত হচ্ছে"?"selected":""}>
-                  প্রস্তুত হচ্ছে
-                </option>
-
-                <option
-                  ${o.status==="ডেলিভারির পথে"?"selected":""}>
-                  ডেলিভারির পথে
-                </option>
-
-                <option
-                  ${o.status==="ডেলিভারি সম্পন্ন"?"selected":""}>
-                  ডেলিভারি সম্পন্ন
-                </option>
-
-                <option
-                  ${o.status==="বাতিল"?"selected":""}>
-                  বাতিল
-                </option>
-
-              </select>
-
-            </div>
-
-            <div class="small">
-              ${o.customer.name} —
-              ${o.customer.phone}
-            </div>
-
-          </div>
-
-        `).join("")
-        :
-        `<div class="empty">কোনো অর্ডার নেই।</div>`
-      }
-
-    </div>
-
-    <div class="section">
-
-      <h3>পেমেন্ট নম্বর</h3>
-
-      <input
-        id="adminBkash"
-        value="${PAYMENT.bkash}"
-        placeholder="বিকাশ">
-
-      <input
-        id="adminNagad"
-        value="${PAYMENT.nagad}"
-        placeholder="নগদ">
-
-      <input
-        id="adminRocket"
-        value="${PAYMENT.rocket}"
-        placeholder="রকেট">
-
-      <button
-        class="primary full"
-        onclick="savePaymentNumbers()">
-        💾 পেমেন্ট নম্বর সেভ
-      </button>
-
-    </div>
-
-  `;
-}
-
-function updateOrderStatus(id,status){
-
-  const order=
-    orders.find(o=>o.id===id);
-
-  if(!order)return;
-
-  order.status=status;
-
-  localStorage.setItem(
-    "ekshathe_orders",
-    JSON.stringify(orders)
-  );
-
-  alert("অর্ডারের স্ট্যাটাস আপডেট হয়েছে।");
-}
-
-function savePaymentNumbers(){
-
-  PAYMENT.bkash=
-    document.getElementById("adminBkash").value;
-
-  PAYMENT.nagad=
-    document.getElementById("adminNagad").value;
-
-  PAYMENT.rocket=
-    document.getElementById("adminRocket").value;
-
-  localStorage.setItem(
-    "ekshathe_payment",
-    JSON.stringify(PAYMENT)
-  );
-
-  alert("পেমেন্ট নম্বর সেভ হয়েছে।");
-}
-
-/* =========================================================
-   PAGE ROUTER
-   ========================================================= */
-
-function showPage(page){
-
-  currentPage=page;
-
-  if(page==="home"){
-    renderHome();
-  }
-
-  else if(page==="shop"){
-    renderProducts();
-  }
-
-  else if(page==="cart"){
-    renderCart();
-  }
-
-  else if(page==="checkout"){
-    renderCheckout();
-  }
-
-  else if(page==="orders"){
-    renderOrders();
-  }
-
-  else if(page==="profile"){
-    renderProfile();
-  }
-
-  else if(page==="seller"){
-    renderSeller();
-  }
-
-  else if(page==="admin"){
-    renderAdmin();
-  }
-
-  updateNav();
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-}
-
-/* =========================================================
-   NAV ACTIVE
-   ========================================================= */
-
-function updateNav(){
-
-  document.querySelectorAll(".bottom button")
-    .forEach(b=>b.classList.remove("active"));
-
-  const map={
-    home:"navHome",
-    shop:"navShop",
-    cart:"navCart",
-    orders:"navOrders",
-    profile:"navProfile"
-  };
-
-  if(map[currentPage]){
-    document
-      .getElementById(map[currentPage])
-      .classList.add("active");
-  }
-}
-
-/* =========================================================
-   LANGUAGE
-   ========================================================= */
-
-function toggleLanguage(){
-
-  language=
-    language==="bn"
-      ?"en"
-      :"bn";
-
-  renderProducts();
-}
-
-/* =========================================================
-   LOAD SAVED DATA
-   ========================================================= */
-
-function loadSavedData(){
-
-  const savedPayment=
-    JSON.parse(
-      localStorage.getItem("ekshathe_payment") || "null"
-    );
-
-  if(savedPayment){
-
-    PAYMENT.bkash=savedPayment.bkash;
-    PAYMENT.nagad=savedPayment.nagad;
-    PAYMENT.rocket=savedPayment.rocket;
-  }
-
-  const profile=
-    JSON.parse(
-      localStorage.getItem("ekshathe_profile") || "null"
-    );
-
-  if(profile){
-
-    window.savedProfile=profile;
-  }
-}
-
-/* =========================================================
-   INITIALIZE
-   ========================================================= */
-
-loadSavedData();
-
-renderCategories();
-
-updateCartCount();
-
-showPage("home");
-
-</script>
-
-</body>
-</html>
+ const title=
+  currentCategory
