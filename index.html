@@ -13,6 +13,7 @@ body{
   font-family:Arial,"Noto Sans Bengali",sans-serif;
   background:#f4f7f5;
   color:#17352b;
+  padding-bottom:72px
 }
 
 header{
@@ -20,40 +21,39 @@ header{
   top:0;
   z-index:50;
   background:#087f5b;
-  color:white;
+  color:#fff;
   padding:12px 14px;
-  box-shadow:0 2px 10px #0002;
+  box-shadow:0 2px 10px #0002
 }
 
 .top{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:8px;
+  gap:8px
 }
 
 .logo{
   font-size:23px;
-  font-weight:800;
+  font-weight:800
 }
 
 .header-actions{
   display:flex;
-  gap:7px;
-  align-items:center;
+  gap:7px
 }
 
 .hbtn{
   border:0;
-  background:white;
+  background:#fff;
   color:#087f5b;
   border-radius:20px;
   padding:7px 11px;
-  font-weight:bold;
+  font-weight:bold
 }
 
 .search{
-  margin-top:10px;
+  margin-top:10px
 }
 
 .search input{
@@ -61,20 +61,20 @@ header{
   padding:12px 14px;
   border:0;
   border-radius:12px;
-  outline:none;
-  font-size:15px;
+  outline:0;
+  font-size:15px
 }
 
 nav{
   position:sticky;
-  top:112px;
+  top:111px;
   z-index:40;
-  background:white;
+  background:#fff;
   display:flex;
   overflow:auto;
   gap:8px;
   padding:9px;
-  border-bottom:1px solid #ddd;
+  border-bottom:1px solid #ddd
 }
 
 nav button{
@@ -83,91 +83,95 @@ nav button{
   color:#176047;
   padding:8px 13px;
   border-radius:20px;
-  white-space:nowrap;
+  white-space:nowrap
 }
 
 nav button.active{
   background:#087f5b;
-  color:white;
+  color:#fff
 }
 
 main{
   padding:14px;
-  max-width:1000px;
-  margin:auto;
+  max-width:1100px;
+  margin:auto
 }
 
 .page-title{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin-bottom:12px;
+  margin-bottom:12px
 }
 
 .page-title h2{
   margin:0;
-  font-size:21px;
+  font-size:21px
 }
 
 .grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:12px;
+  gap:12px
 }
 
 .card{
-  background:white;
+  background:#fff;
   border-radius:16px;
   overflow:hidden;
-  box-shadow:0 3px 12px #00000012;
+  box-shadow:0 3px 12px #00000012
 }
 
 .product-img{
   width:100%;
-  height:175px;
+  height:180px;
   object-fit:contain;
-  background:#f7faf8;
   display:block;
+  background:#f7faf8;
+  padding:8px
 }
 
 .card-body{
-  padding:11px;
+  padding:11px
 }
 
 .card h3{
   margin:0 0 5px;
-  font-size:16px;
+  font-size:16px
+}
+
+.cat,.small{
+  font-size:12px;
+  color:#6b7d76
 }
 
 .cat{
-  font-size:12px;
-  color:#6b7d76;
-  margin-bottom:6px;
+  margin-bottom:6px
 }
 
 .price{
   color:#087f5b;
   font-size:18px;
-  font-weight:800;
+  font-weight:800
 }
 
 .card-actions{
   display:flex;
   gap:6px;
-  margin-top:9px;
+  margin-top:9px
 }
 
 button{
-  cursor:pointer;
+  cursor:pointer
 }
 
 .primary{
   background:#087f5b;
-  color:white;
+  color:#fff;
   border:0;
   border-radius:9px;
   padding:9px 12px;
-  font-weight:bold;
+  font-weight:bold
 }
 
 .secondary{
@@ -176,7 +180,7 @@ button{
   border:0;
   border-radius:9px;
   padding:9px 12px;
-  font-weight:bold;
+  font-weight:bold
 }
 
 .danger{
@@ -185,23 +189,23 @@ button{
   border:0;
   border-radius:9px;
   padding:8px 11px;
-  font-weight:bold;
+  font-weight:bold
 }
 
 .full{
-  width:100%;
+  width:100%
 }
 
 .section{
-  background:white;
+  background:#fff;
   padding:14px;
   border-radius:15px;
   margin-bottom:13px;
-  box-shadow:0 2px 10px #0000000d;
+  box-shadow:0 2px 10px #0000000d
 }
 
 .section h3{
-  margin-top:0;
+  margin-top:0
 }
 
 input,select,textarea{
@@ -211,12 +215,12 @@ input,select,textarea{
   border-radius:9px;
   margin:5px 0 9px;
   font-size:15px;
-  outline:none;
+  outline:0
 }
 
 textarea{
   min-height:80px;
-  resize:vertical;
+  resize:vertical
 }
 
 .product-row,
@@ -225,25 +229,20 @@ textarea{
   border-radius:12px;
   padding:11px;
   margin-bottom:9px;
-  background:#fbfdfc;
+  background:#fbfdfc
 }
 
 .row-flex{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:8px;
-}
-
-.small{
-  font-size:12px;
-  color:#6b7d76;
+  gap:8px
 }
 
 .qty{
   display:flex;
   align-items:center;
-  gap:9px;
+  gap:9px
 }
 
 .qty button{
@@ -254,38 +253,37 @@ textarea{
   background:#e7f4ee;
   color:#087f5b;
   font-size:18px;
-  font-weight:bold;
+  font-weight:bold
 }
 
 .empty{
   text-align:center;
   padding:35px 10px;
-  color:#71817b;
+  color:#71817b
 }
 
 .profile-icon{
   font-size:48px;
-  text-align:center;
-  margin-bottom:5px;
+  text-align:center
 }
 
 .stat-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:9px;
+  gap:9px
 }
 
 .stat{
   background:#eaf6f1;
   border-radius:12px;
   padding:14px;
-  text-align:center;
+  text-align:center
 }
 
 .stat b{
   display:block;
   font-size:22px;
-  color:#087f5b;
+  color:#087f5b
 }
 
 .bottom{
@@ -293,36 +291,36 @@ textarea{
   left:0;
   right:0;
   bottom:0;
-  background:white;
+  background:#fff;
   border-top:1px solid #ddd;
   display:grid;
   grid-template-columns:repeat(5,1fr);
-  z-index:60;
+  z-index:60
 }
 
 .bottom button{
   border:0;
-  background:white;
+  background:#fff;
   padding:8px 2px;
   color:#52645d;
-  font-size:11px;
+  font-size:11px
 }
 
 .bottom button.active{
   color:#087f5b;
-  font-weight:bold;
+  font-weight:bold
 }
 
 .bottom span{
   display:block;
-  font-size:20px;
+  font-size:20px
 }
 
 footer{
-  padding:20px 10px 90px;
+  padding:20px 10px;
   text-align:center;
   color:#71817b;
-  font-size:11px;
+  font-size:11px
 }
 
 .badge{
@@ -332,7 +330,7 @@ footer{
   border-radius:20px;
   padding:5px 9px;
   font-size:12px;
-  font-weight:bold;
+  font-weight:bold
 }
 
 .payment-box{
@@ -340,26 +338,131 @@ footer{
   border:1px solid #cce9dc;
   border-radius:12px;
   padding:12px;
-  margin-top:8px;
+  margin-top:8px
+}
+
+.chips{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  margin:6px 0 10px
+}
+
+.chip{
+  border:1px solid #cfe4da;
+  background:#fff;
+  color:#176047;
+  border-radius:20px;
+  padding:7px 10px
+}
+
+.chip.active{
+  background:#087f5b;
+  color:#fff
+}
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:#0008;
+  z-index:100;
+  display:none;
+  align-items:flex-end
+}
+
+.modal.show{
+  display:flex
+}
+
+.sheet{
+  background:#fff;
+  width:100%;
+  max-height:92vh;
+  overflow:auto;
+  border-radius:20px 20px 0 0;
+  padding:16px
+}
+
+.sheet img{
+  width:100%;
+  height:230px;
+  object-fit:contain;
+  background:#f6faf8;
+  border-radius:14px
+}
+
+.variant-title{
+  font-weight:bold;
+  margin:10px 0 5px
+}
+
+.variant{
+  border:1px solid #d5e2dc;
+  background:#fff;
+  border-radius:10px;
+  padding:10px;
+  margin:7px 0;
+  display:flex;
+  justify-content:space-between;
+  gap:8px
+}
+
+.variant.selected{
+  border:2px solid #087f5b;
+  background:#edf9f4
+}
+
+.close{
+  background:#eee;
+  border:0;
+  border-radius:50%;
+  width:35px;
+  height:35px;
+  font-size:18px
+}
+
+.notice{
+  padding:11px;
+  border-radius:10px;
+  background:#fff8df;
+  border:1px solid #f0df9c;
+  margin-bottom:10px;
+  font-size:13px
+}
+
+.status{
+  display:inline-block;
+  padding:5px 9px;
+  border-radius:15px;
+  background:#e8f6f0;
+  color:#087f5b;
+  font-size:12px;
+  font-weight:bold
 }
 
 @media(min-width:700px){
   .grid{
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:repeat(4,1fr)
   }
 
   .product-img{
-    height:190px;
+    height:190px
+  }
+
+  .sheet{
+    max-width:650px;
+    margin:auto;
+    border-radius:20px 20px 0 0
   }
 }
 
 @media(max-width:360px){
   .grid{
-    gap:8px;
+    gap:8px
   }
 
   .product-img{
-    height:145px;
+    height:150px
   }
 }
 </style>
@@ -370,2450 +473,1759 @@ footer{
 <header>
 
   <div class="top">
-
     <div class="logo">🛍️ একসাথে</div>
 
     <div class="header-actions">
-
-      <button class="hbtn"
-        onclick="toggleLang()"
-        id="langBtn">
-        বাংলা
-      </button>
-
-      <button class="hbtn"
-        onclick="go('cart')">
+      <button class="hbtn" onclick="toggleLanguage()">বাংলা/EN</button>
+      <button class="hbtn" onclick="showPage('cart')">
         🛒 <span id="cartCount">0</span>
       </button>
-
     </div>
-
   </div>
 
   <div class="search">
-
     <input
       id="searchInput"
+      type="search"
       placeholder="পণ্য খুঁজুন..."
-      oninput="renderHome()">
-
+      oninput="renderProducts()">
   </div>
 
 </header>
 
-<nav id="categories"></nav>
+<nav id="categoryNav"></nav>
 
 <main id="app"></main>
 
-<footer>
-একসাথে — আপনার সহজ অনলাইন শপিং প্ল্যাটফর্ম
-</footer>
+<div class="modal" id="modal">
+  <div class="sheet" id="modalSheet"></div>
+</div>
 
 <div class="bottom">
 
-<button id="nav-home" onclick="go('home')">
-<span>🏠</span>হোম
-</button>
+  <button id="navHome" onclick="showPage('home')">
+    <span>🏠</span>হোম
+  </button>
 
-<button id="nav-shop" onclick="go('shop')">
-<span>🛍️</span>শপ
-</button>
+  <button id="navShop" onclick="showPage('shop')">
+    <span>🛍️</span>শপ
+  </button>
 
-<button id="nav-cart" onclick="go('cart')">
-<span>🛒</span>কার্ট
-</button>
+  <button id="navCart" onclick="showPage('cart')">
+    <span>🛒</span>কার্ট
+  </button>
 
-<button id="nav-orders" onclick="go('orders')">
-<span>📦</span>অর্ডার
-</button>
+  <button id="navOrders" onclick="showPage('orders')">
+    <span>📦</span>অর্ডার
+  </button>
 
-<button id="nav-profile" onclick="go('profile')">
-<span>👤</span>প্রোফাইল
-</button>
+  <button id="navProfile" onclick="showPage('profile')">
+    <span>👤</span>প্রোফাইল
+  </button>
 
 </div>
 
 <script>
 
-/* =====================================================
-   EKSHATHE UPDATED VERSION
-   ===================================================== */
-
-/* নতুন STORE VERSION
-   যাতে আগের ভুল LocalStorage data না আসে
-*/
-
-const STORE = "ekshathe_final_v4";
-
+/* =========================================================
+   একসাথে — COMPLETE SMART SHOPPING APP
+   ১৮টি পণ্য
+   ========================================================= */
 
 const PAYMENT = {
-
-  bkash:"01758310379",
-
-  nagad:"01758310379",
-
-  rocket:"01850252566"
-
+  bkash:"01XXXXXXXXX",
+  nagad:"01XXXXXXXXX",
+  rocket:"01XXXXXXXXX"
 };
 
+let language = "bn";
+let currentPage = "home";
+let currentCategory = "সব";
+let selectedProduct = null;
+let selectedVariant = 0;
 
-/* =====================================================
-   VERIFIED IMAGE SOURCES
-   ===================================================== */
+let cart = JSON.parse(localStorage.getItem("ekshathe_cart") || "[]");
+let orders = JSON.parse(localStorage.getItem("ekshathe_orders") || "[]");
 
-const REAL_IMAGES = {
+/* =========================================================
+   PRODUCT IMAGE SYSTEM
+   কোনো মানুষের ছবি নয়।
+   প্রতিটি পণ্যের জন্য আলাদা SVG product illustration।
+   ========================================================= */
 
-  coke:
-  "https://upload.wikimedia.org/wikipedia/commons/8/84/Bengali_Coca-Cola_can.jpg",
+function svgData(type,title,sub){
 
-  sprite:
-  "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sprite%20bottle.JPG",
+  let art = "";
 
-  water:
-  "https://commons.wikimedia.org/wiki/Special:Redirect/file/A_bottle_of_Aqua_mineral_water.JPG",
+  if(type==="shirt"){
+    art=`
+    <path d="M210 130 L285 90 L350 125 L415 90 L490 130 L455 220 L405 190 L405 400 L295 400 L295 190 L245 220 Z"
+    fill="#4f81bd" stroke="#183b61" stroke-width="7"/>
+    <path d="M285 90 Q350 150 415 90" fill="none" stroke="#183b61" stroke-width="7"/>
+    <path d="M295 190 L350 225 L405 190" fill="none" stroke="#183b61" stroke-width="7"/>
+    `;
+  }
 
-  pepsi:
-  "https://commons.wikimedia.org/wiki/Special:Redirect/file/Pepsi_Bottle.jpg",
+  else if(type==="pants"){
+    art=`
+    <path d="M250 80 L450 80 L425 190 L410 420 L350 420 L330 240 L310 420 L250 420 L235 190 Z"
+    fill="#263b63" stroke="#17243d" stroke-width="8"/>
+    <path d="M250 80 L450 80" stroke="#17243d" stroke-width="12"/>
+    <path d="M330 95 L330 235" stroke="#17243d" stroke-width="7"/>
+    `;
+  }
 
-  kacchi:
-  "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kacchi_Biryani.jpg"
+  else if(type==="dress"){
+    art=`
+    <path d="M305 80 Q350 115 395 80 L410 145 L475 430 L225 430 L290 145 Z"
+    fill="#d85b76" stroke="#812b43" stroke-width="7"/>
+    <path d="M305 80 Q350 125 395 80" fill="none" stroke="#812b43" stroke-width="7"/>
+    <path d="M275 210 Q350 245 425 210" fill="none" stroke="#f7b7c5" stroke-width="8"/>
+    `;
+  }
 
-};
+  else if(type==="panjabi"){
+    art=`
+    <path d="M285 75 L350 105 L415 75 L455 120 L425 205 L400 185 L400 425 L300 425 L300 185 L275 205 L245 120 Z"
+    fill="#e9e1ce" stroke="#766d5a" stroke-width="7"/>
+    <path d="M350 105 L350 205" stroke="#766d5a" stroke-width="6"/>
+    <circle cx="350" cy="150" r="5" fill="#766d5a"/>
+    <circle cx="350" cy="175" r="5" fill="#766d5a"/>
+    <path d="M315 120 L350 150 L385 120" fill="none" stroke="#766d5a" stroke-width="5"/>
+    `;
+  }
 
+  else if(type==="kurti"){
+    art=`
+    <path d="M300 75 L350 105 L400 75 L435 125 L410 220 L395 420 L305 420 L290 220 L265 125 Z"
+    fill="#8b63b7" stroke="#553a72" stroke-width="7"/>
+    <path d="M300 75 Q350 120 400 75" fill="none" stroke="#553a72" stroke-width="7"/>
+    <path d="M310 165 L390 165 M305 205 L395 205 M310 245 L390 245"
+    stroke="#d7bde9" stroke-width="7"/>
+    `;
+  }
 
-/* =====================================================
-   DEFAULT PRODUCTS
-   ===================================================== */
+  else if(type==="menShoes"){
+    art=`
+    <path d="M170 320 Q240 300 290 245 L350 285 L425 335 Q465 360 520 360 L540 420 L155 420 Q120 400 170 320Z"
+    fill="#343434" stroke="#111" stroke-width="8"/>
+    <path d="M275 270 L420 355" stroke="#aaa" stroke-width="8"/>
+    <path d="M315 290 L450 365" stroke="#aaa" stroke-width="8"/>
+    `;
+  }
 
-const starter = [
+  else if(type==="sandals"){
+    art=`
+    <path d="M250 70 Q350 60 405 120 L430 405 Q350 440 270 405 L245 150 Q235 105 250 70Z"
+    fill="#c58b45" stroke="#70491f" stroke-width="7"/>
+    <path d="M260 130 Q350 180 420 130" fill="none" stroke="#70491f" stroke-width="15"/>
+    <path d="M270 210 Q350 260 420 210" fill="none" stroke="#70491f" stroke-width="15"/>
+    `;
+  }
+
+  else if(type==="kidsShoes"){
+    art=`
+    <path d="M155 325 Q230 305 275 245 L330 290 L400 340 Q445 365 500 360 L525 420 L145 420 Q120 395 155 325Z"
+    fill="#4d8fd8" stroke="#244b79" stroke-width="8"/>
+    <circle cx="280" cy="330" r="9" fill="white"/>
+    <circle cx="315" cy="345" r="9" fill="white"/>
+    `;
+  }
+
+  else if(type==="tee"){
+    art=`
+    <path d="M215 130 L285 85 L350 125 L415 85 L485 130 L445 220 L405 190 L405 410 L295 410 L295 190 L255 220 Z"
+    fill="#35a86b" stroke="#216b48" stroke-width="7"/>
+    <path d="M285 85 Q350 145 415 85" fill="none" stroke="#216b48" stroke-width="7"/>
+    <circle cx="350" cy="260" r="38" fill="#f8d45c"/>
+    <path d="M330 260 L370 260 M350 240 L350 280" stroke="#216b48" stroke-width="7"/>
+    `;
+  }
+
+  else if(type==="coke"){
+    art=`
+    <rect x="275" y="65" width="150" height="365" rx="30" fill="#202020" stroke="#111" stroke-width="8"/>
+    <rect x="292" y="185" width="116" height="115" rx="10" fill="#c91424"/>
+    <text x="350" y="245" text-anchor="middle" font-size="25" font-weight="bold" fill="white">Coca-Cola</text>
+    <rect x="300" y="55" width="100" height="20" rx="8" fill="#aaa"/>
+    `;
+  }
+
+  else if(type==="sprite"){
+    art=`
+    <path d="M290 55 L410 55 L425 95 L420 415 Q350 445 280 415 L275 95Z"
+    fill="#78c84a" stroke="#3e7726" stroke-width="7"/>
+    <rect x="285" y="175" width="130" height="115" rx="10" fill="#e9f3df"/>
+    <text x="350" y="245" text-anchor="middle" font-size="42" font-weight="bold" fill="#18863a">Sprite</text>
+    <circle cx="310" cy="150" r="14" fill="#fff"/>
+    <circle cx="390" cy="140" r="12" fill="#fff"/>
+    `;
+  }
+
+  else if(type==="pepsi"){
+    art=`
+    <path d="M290 55 L410 55 L425 95 L420 415 Q350 445 280 415 L275 95Z"
+    fill="#1556a8" stroke="#123c76" stroke-width="7"/>
+    <rect x="282" y="170" width="136" height="125" rx="12" fill="#fff"/>
+    <circle cx="350" cy="230" r="42" fill="#e92335"/>
+    <path d="M310 230 Q350 200 390 230 Q350 260 310 230Z" fill="#fff"/>
+    <text x="350" y="285" text-anchor="middle" font-size="25" font-weight="bold" fill="#174f99">PEPSI</text>
+    `;
+  }
+
+  else if(type==="water"){
+    art=`
+    <path d="M300 55 L400 55 L410 100 L420 415 Q350 440 280 415 L290 100Z"
+    fill="#d9f1ff" stroke="#4b9bc5" stroke-width="7"/>
+    <rect x="288" y="185" width="124" height="105" rx="12" fill="#3e9ed0"/>
+    <text x="350" y="232" text-anchor="middle" font-size="23" font-weight="bold" fill="white">MINERAL</text>
+    <text x="350" y="260" text-anchor="middle" font-size="21" fill="white">WATER</text>
+    <rect x="315" y="45" width="70" height="18" rx="6" fill="#4b9bc5"/>
+    `;
+  }
+
+  else if(type==="kacchi"){
+    art=`
+    <ellipse cx="350" cy="330" rx="220" ry="80" fill="#ddd"/>
+    <ellipse cx="350" cy="300" rx="190" ry="100" fill="#f0d17a" stroke="#9c7527" stroke-width="8"/>
+    <ellipse cx="350" cy="290" rx="150" ry="75" fill="#d9a83c"/>
+    <circle cx="300" cy="275" r="35" fill="#b56d35"/>
+    <circle cx="390" cy="305" r="37" fill="#b56d35"/>
+    <circle cx="355" cy="255" r="30" fill="#fff1ce"/>
+    <path d="M245 270 Q350 215 455 270" fill="none" stroke="#f6e3a5" stroke-width="12"/>
+    `;
+  }
+
+  else if(type==="burger"){
+    art=`
+    <path d="M190 230 Q350 110 510 230 Z" fill="#d89a4b" stroke="#8b5c26" stroke-width="8"/>
+    <rect x="200" y="230" width="300" height="35" rx="12" fill="#f1cf54"/>
+    <rect x="205" y="265" width="290" height="45" rx="8" fill="#7d3e22"/>
+    <rect x="200" y="310" width="300" height="35" rx="8" fill="#45a64f"/>
+    <path d="M200 345 Q350 375 500 345 L480 390 Q350 430 220 390Z" fill="#d89a4b" stroke="#8b5c26" stroke-width="8"/>
+    `;
+  }
+
+  else if(type==="chickenBurger"){
+    art=`
+    <path d="M190 230 Q350 110 510 230 Z" fill="#d99d54" stroke="#8b5c26" stroke-width="8"/>
+    <rect x="200" y="230" width="300" height="35" rx="12" fill="#f2d56a"/>
+    <rect x="205" y="265" width="290" height="55" rx="10" fill="#e7e0c4"/>
+    <rect x="200" y="320" width="300" height="32" rx="8" fill="#49a84f"/>
+    <path d="M200 352 Q350 380 500 352 L480 395 Q350 430 220 395Z" fill="#d99d54" stroke="#8b5c26" stroke-width="8"/>
+    `;
+  }
+
+  else if(type==="roll"){
+    art=`
+    <path d="M210 130 Q350 75 490 130 L445 390 Q350 430 255 390Z"
+    fill="#e6c07b" stroke="#8f672f" stroke-width="8"/>
+    <path d="M245 180 Q350 230 455 180 M235 240 Q350 290 465 240 M230 300 Q350 350 470 300"
+    fill="none" stroke="#c48739" stroke-width="14"/>
+    <circle cx="310" cy="205" r="15" fill="#7c492b"/>
+    <circle cx="390" cy="275" r="15" fill="#7c492b"/>
+    `;
+  }
+
+  return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
+  <svg xmlns="http://www.w3.org/2000/svg" width="700" height="520" viewBox="0 0 700 520">
+    <rect width="700" height="520" fill="#f7faf8"/>
+    <rect x="20" y="20" width="660" height="480" rx="30" fill="#ffffff"/>
+    ${art}
+    <text x="350" y="475" text-anchor="middle"
+      font-family="Arial,sans-serif"
+      font-size="27"
+      font-weight="bold"
+      fill="#17352b">${title}</text>
+    <text x="350" y="500" text-anchor="middle"
+      font-family="Arial,sans-serif"
+      font-size="15"
+      fill="#6b7d76">${sub}</text>
+  </svg>
+  `)}`
+}
+
+/* =========================================================
+   PRODUCTS
+   ========================================================= */
+
+const products = [
 
 {
  id:1,
- n:"পুরুষের শার্ট",
+ name:"পুরুষের শার্ট",
  en:"Men's Shirt",
- c:"ফ্যাশন",
- ce:"Fashion",
- p:850,
- i:"https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=700&q=80"
+ cat:"ফ্যাশন",
+ type:"shirt",
+ variants:[
+  ["M • কালো • ফুলহাতা • কলার",850],
+  ["L • নীল • ফুলহাতা • কলার",850],
+  ["XL • সাদা • ফুলহাতা • কলার",900],
+  ["XXL • চেক • ফুলহাতা • কলার",950]
+ ]
 },
 
 {
  id:2,
- n:"মহিলাদের ড্রেস",
- en:"Women's Dress",
- c:"ফ্যাশন",
- ce:"Fashion",
- p:1250,
- i:"https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=700&q=80"
+ name:"পুরুষদের প্যান্ট",
+ en:"Men's Pants",
+ cat:"ফ্যাশন",
+ type:"pants",
+ variants:[
+  ["30 • কালো",1100],
+  ["32 • নেভি",1100],
+  ["34 • কালো",1150],
+  ["36 • ধূসর",1200]
+ ]
 },
 
 {
  id:3,
- n:"স্মার্ট ওয়াচ",
- en:"Smart Watch",
- c:"ইলেকট্রনিক্স",
- ce:"Electronics",
- p:3000,
- i:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=80"
+ name:"মহিলাদের ড্রেস",
+ en:"Women's Dress",
+ cat:"ফ্যাশন",
+ type:"dress",
+ variants:[
+  ["S • লাল • ফুল ডিজাইন",1250],
+  ["M • নীল • প্রিন্ট",1250],
+  ["L • সবুজ • এমব্রয়ডারি",1350],
+  ["XL • কালো • প্রিন্ট",1450],
+  ["XXL • মেরুন • ডিজাইন",1550]
+ ]
 },
 
 {
  id:4,
- n:"ব্যাকপ্যাক",
- en:"Backpack",
- c:"ফ্যাশন",
- ce:"Fashion",
- p:900,
- i:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=700&q=80"
+ name:"পাঞ্জাবি",
+ en:"Panjabi",
+ cat:"ফ্যাশন",
+ type:"panjabi",
+ variants:[
+  ["M • সাদা • এমব্রয়ডারি",1450],
+  ["L • কালো • সাদামাটা",1450],
+  ["XL • নেভি • ডিজাইন",1550],
+  ["XXL • মেরুন • এমব্রয়ডারি",1650]
+ ]
 },
 
 {
  id:5,
- n:"টেবিল ল্যাম্প",
- en:"Table Lamp",
- c:"হোম",
- ce:"Home",
- p:700,
- i:"https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=700&q=80"
+ name:"মহিলাদের কুর্তি",
+ en:"Women's Kurti",
+ cat:"ফ্যাশন",
+ type:"kurti",
+ variants:[
+  ["S • নীল • প্রিন্ট",950],
+  ["M • লাল • প্রিন্ট",950],
+  ["L • সবুজ • ডিজাইন",1050],
+  ["XL • কালো • এমব্রয়ডারি",1150]
+ ]
 },
 
 {
  id:6,
- n:"স্পোর্টস জুতা",
- en:"Sports Shoes",
- c:"ফ্যাশন",
- ce:"Fashion",
- p:1300,
- i:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80"
+ name:"পুরুষদের জুতা",
+ en:"Men's Shoes",
+ cat:"ফ্যাশন",
+ type:"menShoes",
+ variants:[
+  ["39 • কালো",1800],
+  ["40 • বাদামি",1800],
+  ["41 • কালো",1850],
+  ["42 • নেভি",1850],
+  ["43 • কালো",1900]
+ ]
 },
-
-/* ================= FOOD ================= */
 
 {
  id:7,
- n:"কাচ্চি বিরিয়ানি",
- en:"Kacchi Biryani",
- c:"খাবার",
- ce:"Food",
- p:300,
- i:REAL_IMAGES.kacchi
+ name:"মহিলাদের স্যান্ডেল",
+ en:"Women's Sandals",
+ cat:"ফ্যাশন",
+ type:"sandals",
+ variants:[
+  ["36 • কালো",950],
+  ["37 • গোল্ড",950],
+  ["38 • কালো",1000],
+  ["39 • বাদামি",1000],
+  ["40 • কালো",1050]
+ ]
 },
 
 {
  id:8,
- n:"চিকেন বার্গার",
- en:"Chicken Burger",
- c:"খাবার",
- ce:"Food",
- p:180,
- i:"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+ name:"বাচ্চাদের জুতা",
+ en:"Kids Shoes",
+ cat:"ফ্যাশন",
+ type:"kidsShoes",
+ variants:[
+  ["28 • নীল",750],
+  ["29 • লাল",750],
+  ["30 • কালো",800],
+  ["31 • নীল",800],
+  ["32 • কালো",850]
+ ]
 },
 
 {
  id:9,
- n:"পিজ্জা",
- en:"Pizza",
- c:"খাবার",
- ce:"Food",
- p:280,
- i:"https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=700&q=80"
+ name:"বাচ্চাদের টি-শার্ট",
+ en:"Kids T-Shirt",
+ cat:"ফ্যাশন",
+ type:"tee",
+ variants:[
+  ["2Y • নীল • প্রিন্ট",450],
+  ["4Y • লাল • প্রিন্ট",450],
+  ["6Y • সবুজ • ডিজাইন",500],
+  ["8Y • কালো • প্রিন্ট",550]
+ ]
 },
-
-/* ================= SOFT DRINKS ================= */
 
 {
  id:10,
- n:"Coca-Cola 250ml",
- en:"Coca-Cola 250ml",
- c:"সফট ড্রিংকস",
- ce:"Soft Drinks",
- p:30,
- i:REAL_IMAGES.coke
+ name:"বড়দের টি-শার্ট",
+ en:"Adult T-Shirt",
+ cat:"ফ্যাশন",
+ type:"tee",
+ variants:[
+  ["S • কালো • কলার ছাড়া • সাদামাটা",650],
+  ["M • সাদা • কলার ছাড়া • প্রিন্ট",650],
+  ["L • নীল • কলারসহ • সাদামাটা",750],
+  ["XL • সবুজ • কলারসহ • ডিজাইন",800],
+  ["XXL • মেরুন • কলার ছাড়া • ডিজাইন",850]
+ ]
 },
 
 {
  id:11,
- n:"Sprite 250ml",
- en:"Sprite 250ml",
- c:"সফট ড্রিংকস",
- ce:"Soft Drinks",
- p:30,
- i:REAL_IMAGES.sprite
+ name:"Coca-Cola",
+ en:"Coca-Cola",
+ cat:"সফট ড্রিঙ্কস",
+ type:"coke",
+ variants:[
+  ["250 ml",30],
+  ["500 ml",45],
+  ["1 L",80],
+  ["2 L",140]
+ ]
 },
 
 {
  id:12,
- n:"Pepsi 250ml",
- en:"Pepsi 250ml",
- c:"সফট ড্রিংকস",
- ce:"Soft Drinks",
- p:30,
- i:REAL_IMAGES.pepsi
+ name:"Sprite",
+ en:"Sprite",
+ cat:"সফট ড্রিঙ্কস",
+ type:"sprite",
+ variants:[
+  ["250 ml",30],
+  ["500 ml",45],
+  ["1 L",80],
+  ["2 L",140]
+ ]
 },
-
-/* ================= BEVERAGES ================= */
 
 {
  id:13,
- n:"মিনারেল পানি 500ml",
- en:"Mineral Water 500ml",
- c:"পানীয়",
- ce:"Beverages",
- p:20,
- i:REAL_IMAGES.water
+ name:"Pepsi",
+ en:"Pepsi",
+ cat:"সফট ড্রিঙ্কস",
+ type:"pepsi",
+ variants:[
+  ["250 ml",30],
+  ["500 ml",45],
+  ["1 L",80],
+  ["2 L",140]
+ ]
+},
+
+{
+ id:14,
+ name:"মিনারেল ওয়াটার",
+ en:"Mineral Water",
+ cat:"পানীয়",
+ type:"water",
+ variants:[
+  ["500 ml",20],
+  ["1 L",30],
+  ["1.5 L",40],
+  ["2 L",50]
+ ]
+},
+
+{
+ id:15,
+ name:"কাচ্চি বিরিয়ানি",
+ en:"Kacchi Biryani",
+ cat:"খাবার",
+ type:"kacchi",
+ variants:[
+  ["১ প্লেট",300],
+  ["২ প্লেট",590],
+  ["৪ প্লেট",1150]
+ ]
+},
+
+{
+ id:16,
+ name:"চিজ বার্গার",
+ en:"Cheese Burger",
+ cat:"খাবার",
+ type:"burger",
+ variants:[
+  ["১ পিস",220],
+  ["২ পিস",420]
+ ]
+},
+
+{
+ id:17,
+ name:"চিকেন বার্গার",
+ en:"Chicken Burger",
+ cat:"খাবার",
+ type:"chickenBurger",
+ variants:[
+  ["১ পিস",180],
+  ["২ পিস",350]
+ ]
+},
+
+{
+ id:18,
+ name:"চিকেন রোল",
+ en:"Chicken Roll",
+ cat:"খাবার",
+ type:"roll",
+ variants:[
+  ["১ পিস",120],
+  ["২ পিস",230],
+  ["৪ পিস",450]
+ ]
 }
 
 ];
 
+/* =========================================================
+   IMAGE
+   ========================================================= */
 
-/* =====================================================
-   LOAD DATA
-   ===================================================== */
+function productImage(p){
 
-let P =
-JSON.parse(
-localStorage.getItem(STORE+"_products") || "null"
-);
+  let sub="শুধু পণ্যের ছবি";
 
-if(!Array.isArray(P) || P.length===0){
+  if(p.cat==="ফ্যাশন") sub="মানুষ ছাড়া পণ্যের ছবি";
+  if(p.cat==="সফট ড্রিঙ্কস") sub="পরিষ্কার বোতল/ক্যান";
+  if(p.cat==="পানীয়") sub="পরিষ্কার মিনারেল ওয়াটার বোতল";
+  if(p.cat==="খাবার") sub="পরিষ্কার খাবারের ছবি";
 
- P =
- JSON.parse(
- JSON.stringify(starter)
- );
-
+  return svgData(p.type,p.name,sub);
 }
 
-
-/* =====================================================
-   EXTRA SAFETY:
-   পুরোনো ভুল category থাকলেও ঠিক করে দেবে
-   ===================================================== */
-
-P.forEach(x=>{
-
- const name =
- String(x.n||"").toLowerCase();
-
- const en =
- String(x.en||"").toLowerCase();
-
-
- if(
-   name.includes("coca") ||
-   name.includes("কোকা") ||
-   en.includes("coca")
- ){
-
-   x.c="সফট ড্রিংকস";
-   x.ce="Soft Drinks";
-
- }
-
-
- if(
-   name.includes("sprite") ||
-   en.includes("sprite")
- ){
-
-   x.c="সফট ড্রিংকস";
-   x.ce="Soft Drinks";
-
- }
-
-
- if(
-   name.includes("pepsi") ||
-   en.includes("pepsi")
- ){
-
-   x.c="সফট ড্রিংকস";
-   x.ce="Soft Drinks";
-
- }
-
-
- if(
-   name.includes("water") ||
-   name.includes("পানি") ||
-   name.includes("পানীয়") ||
-   en.includes("water")
- ){
-
-   x.c="পানীয়";
-   x.ce="Beverages";
-
- }
-
-
- if(
-   name.includes("কাচ্চি") ||
-   en.includes("kacchi")
- ){
-
-   x.c="খাবার";
-   x.ce="Food";
-
-   if(
-     !x.i ||
-     x.i.includes("placeholder")
-   ){
-
-     x.i=REAL_IMAGES.kacchi;
-
-   }
-
- }
-
-});
-
-
-let CART =
-JSON.parse(
-localStorage.getItem(STORE+"_cart") || "{}"
-);
-
-
-let ORDERS =
-JSON.parse(
-localStorage.getItem(STORE+"_orders") || "[]"
-);
-
-
-let PROFILE =
-JSON.parse(
-localStorage.getItem(STORE+"_profile") || "{}"
-);
-
-
-let currentPage="home";
-
-let currentCategory="সব";
-
-let lang =
-localStorage.getItem(STORE+"_lang") || "bn";
-
-
-/* SAVE */
-
-function saveAll(){
-
- localStorage.setItem(
-   STORE+"_products",
-   JSON.stringify(P)
- );
-
- localStorage.setItem(
-   STORE+"_cart",
-   JSON.stringify(CART)
- );
-
- localStorage.setItem(
-   STORE+"_orders",
-   JSON.stringify(ORDERS)
- );
-
- localStorage.setItem(
-   STORE+"_profile",
-   JSON.stringify(PROFILE)
- );
-
- localStorage.setItem(
-   STORE+"_lang",
-   lang
- );
-
-}
-
-
-/* LANGUAGE */
-
-function toggleLang(){
-
- lang =
- lang==="bn"
- ? "en"
- : "bn";
-
- saveAll();
-
- renderAll();
-
-}
-
-
-function T(bn,en){
-
- return lang==="bn"
- ? bn
- : en;
-
-}
-
-
-/* NAVIGATION */
-
-function go(page){
-
- currentPage=page;
-
- renderAll();
-
- window.scrollTo({
-   top:0,
-   behavior:"smooth"
- });
-
-}
-
-
-/* =====================================================
+/* =========================================================
    CATEGORIES
-   ===================================================== */
+   ========================================================= */
 
 function renderCategories(){
 
- const cats=[
+  const cats=[
+    "সব",
+    "ফ্যাশন",
+    "সফট ড্রিঙ্কস",
+    "পানীয়",
+    "খাবার"
+  ];
 
-   ["সব","All"],
-
-   ["ফ্যাশন","Fashion"],
-
-   ["ইলেকট্রনিক্স","Electronics"],
-
-   ["হোম","Home"],
-
-   ["খাবার","Food"],
-
-   ["সফট ড্রিংকস","Soft Drinks"],
-
-   ["পানীয়","Beverages"]
-
- ];
-
-
- document.getElementById("categories").innerHTML=
-
- cats.map(x=>`
-
- <button
- class="${currentCategory===x[0]?'active':''}"
- onclick="setCategory('${x[0]}')">
-
- ${lang==="bn"?x[0]:x[1]}
-
- </button>
-
- `).join("");
-
+  document.getElementById("categoryNav").innerHTML=
+    cats.map(c=>`
+      <button
+        class="${currentCategory===c?'active':''}"
+        onclick="setCategory('${c}')">
+        ${c}
+      </button>
+    `).join("");
 }
 
+function setCategory(cat){
 
-function setCategory(c){
+  currentCategory=cat;
+  currentPage="shop";
 
- currentCategory=c;
-
- currentPage="shop";
-
- renderAll();
-
+  renderCategories();
+  renderProducts();
+  updateNav();
 }
 
+/* =========================================================
+   PRODUCT FILTER
+   ========================================================= */
 
-/* PRODUCT NAME */
+function filteredProducts(){
 
-function productName(x){
+  const q=(document.getElementById("searchInput")?.value || "")
+    .trim()
+    .toLowerCase();
 
- return lang==="bn"
- ? x.n
- : x.en;
+  return products.filter(p=>{
 
+    const categoryOK=
+      currentCategory==="সব" ||
+      p.cat===currentCategory;
+
+    const text=(p.name+" "+p.en+" "+p.cat).toLowerCase();
+
+    return categoryOK && (!q || text.includes(q));
+  });
 }
 
+/* =========================================================
+   PRODUCT CARD
+   ========================================================= */
 
-/* =====================================================
-   HOME / SHOP
-   ===================================================== */
+function card(p){
+
+  const price=p.variants[0][1];
+
+  return `
+    <div class="card">
+
+      <img
+        class="product-img"
+        src="${productImage(p)}"
+        alt="${p.name}">
+
+      <div class="card-body">
+
+        <h3>${language==="bn"?p.name:p.en}</h3>
+
+        <div class="cat">${p.cat}</div>
+
+        <div class="small">
+          ${p.variants.length}টি মাপ/ভ্যারিয়েন্ট
+        </div>
+
+        <div class="price">
+          ৳${price} থেকে
+        </div>
+
+        <div class="card-actions">
+
+          <button
+            class="primary"
+            onclick="openProduct(${p.id})">
+            দেখুন
+          </button>
+
+          <button
+            class="secondary"
+            onclick="quickAdd(${p.id})">
+            + কার্ট
+          </button>
+
+        </div>
+
+      </div>
+    </div>
+  `;
+}
+
+/* =========================================================
+   RENDER PRODUCTS
+   ========================================================= */
+
+function renderProducts(){
+
+  const list=filteredProducts();
+
+  const title=
+    currentCategory==="সব"
+      ?"সব পণ্য"
+      :currentCategory;
+
+  document.getElementById("app").innerHTML=`
+
+    <div class="page-title">
+
+      <h2>${title}</h2>
+
+      <span class="badge">
+        ${list.length} পণ্য
+      </span>
+
+    </div>
+
+    ${
+      list.length
+      ?
+      `<div class="grid">
+        ${list.map(card).join("")}
+       </div>`
+      :
+      `<div class="section empty">
+        কোনো পণ্য পাওয়া যায়নি।
+       </div>`
+    }
+
+    <footer>
+      একসাথে — আপনার প্রয়োজন, এক জায়গায়।
+    </footer>
+  `;
+}
+
+/* =========================================================
+   HOME
+   ========================================================= */
 
 function renderHome(){
 
- const q=
- (
-  document.getElementById("searchInput")?.value
-  || ""
- )
- .toLowerCase()
- .trim();
+  document.getElementById("app").innerHTML=`
 
+    <div class="section">
 
- let list=P.filter(x=>{
+      <h2>স্বাগতম 👋</h2>
 
-   const matchCat=
+      <p>
+        <b>একসাথে</b> অ্যাপে কাপড়, জুতা, পানীয় এবং খাবার
+        এক জায়গা থেকে দেখুন ও অর্ডার করুন।
+      </p>
 
-   currentCategory==="সব"
-   ||
-   x.c===currentCategory
-   ||
-   (
-     lang==="en"
-     &&
-     x.ce===currentCategory
-   );
+      <button
+        class="primary full"
+        onclick="showPage('shop')">
+        🛍️ এখনই শপিং করুন
+      </button>
 
+    </div>
 
-   const text=
-   (
-    x.n+" "+
-    x.en+" "+
-    x.c+" "+
-    x.ce
-   ).toLowerCase();
+    <div class="section">
 
+      <h3>ক্যাটাগরি</h3>
 
-   const matchSearch=
-   !q ||
-   text.includes(q);
+      <div class="grid">
 
+        <button
+          class="secondary"
+          onclick="setCategory('ফ্যাশন')">
+          👕 ফ্যাশন
+        </button>
 
-   return matchCat && matchSearch;
+        <button
+          class="secondary"
+          onclick="setCategory('সফট ড্রিঙ্কস')">
+          🥤 সফট ড্রিঙ্কস
+        </button>
 
- });
+        <button
+          class="secondary"
+          onclick="setCategory('পানীয়')">
+          💧 পানীয়
+        </button>
 
+        <button
+          class="secondary"
+          onclick="setCategory('খাবার')">
+          🍔 খাবার
+        </button>
 
- let title=
+      </div>
 
- currentPage==="home"
+    </div>
 
- ? T(
-   "জনপ্রিয় পণ্য",
-   "Popular Products"
- )
+    <div class="section">
 
- : T(
-   "সব পণ্য",
-   "All Products"
- );
+      <h3>জনপ্রিয় পণ্য</h3>
 
+      <div class="grid">
+        ${products.slice(0,4).map(card).join("")}
+      </div>
 
- if(currentCategory!=="সব"){
+    </div>
 
-   title=
-
-   lang==="bn"
-
-   ? currentCategory
-
-   : (
-     list[0]?.ce
-     ||
-     currentCategory
-   );
-
- }
-
-
- document.getElementById("app").innerHTML=`
-
- <div class="page-title">
-
-   <h2>${title}</h2>
-
-   <span class="badge">
-   ${list.length} ${T("টি","items")}
-   </span>
-
- </div>
-
-
- ${
- list.length
-
- ?
-
- `<div class="grid">
-
- ${list.map(card).join("")}
-
- </div>`
-
- :
-
- `<div class="empty">
-
- 😔<br><br>
-
- ${T(
- "কোনো পণ্য পাওয়া যায়নি",
- "No products found"
- )}
-
- </div>`
- }
-
- `;
-
+  `;
 }
 
+/* =========================================================
+   PRODUCT DETAILS
+   ========================================================= */
 
-/* =====================================================
-   PRODUCT CARD
-   ===================================================== */
+function openProduct(id){
 
-function card(x){
+  selectedProduct=
+    products.find(p=>p.id===id);
 
- return `
+  selectedVariant=0;
 
- <div class="card">
+  const p=selectedProduct;
 
- <img
- class="product-img"
- src="${x.i}"
- alt="${productName(x)}"
- onerror="
- this.onerror=null;
- this.src='data:image/svg+xml;charset=UTF-8,
- <svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22500%22 height=%22400%22>
- <rect width=%22100%%22 height=%22100%%22 fill=%22%23f1f5f3%22/>
- <text x=%2250%%22 y=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2224%22 fill=%22%23087f5b%22>Image unavailable</text>
- </svg>';
- ">
+  document.getElementById("modalSheet").innerHTML=`
 
- <div class="card-body">
+    <div class="row-flex">
 
- <h3>
- ${productName(x)}
- </h3>
+      <h2>${language==="bn"?p.name:p.en}</h2>
 
- <div class="cat">
- ${lang==="bn"?x.c:x.ce}
- </div>
+      <button
+        class="close"
+        onclick="closeModal()">
+        ×
+      </button>
 
- <div class="price">
- ৳${Number(x.p).toLocaleString("en-BD")}
- </div>
+    </div>
 
- <div class="card-actions">
+    <img
+      src="${productImage(p)}"
+      alt="${p.name}">
 
- <button
- class="primary"
- onclick="addCart(${x.id})">
+    <div class="variant-title">
+      মাপ / ভ্যারিয়েন্ট নির্বাচন করুন
+    </div>
 
- 🛒 ${T(
- "কার্টে যোগ",
- "Add"
- )}
+    <div id="variantList">
 
- </button>
+      ${p.variants.map((v,i)=>`
 
- <button
- class="secondary"
- onclick="buyNow(${x.id})">
+        <button
+          class="variant ${i===0?'selected':''}"
+          onclick="selectVariant(${i})">
 
- ${T(
- "কিনুন",
- "Buy"
- )}
+          <span>${v[0]}</span>
 
- </button>
+          <b>৳${v[1]}</b>
 
- </div>
+        </button>
 
- </div>
+      `).join("")}
 
- </div>
+    </div>
 
- `;
+    <button
+      class="primary full"
+      onclick="addSelectedToCart()">
+      🛒 কার্টে যোগ করুন
+    </button>
 
+  `;
+
+  document.getElementById("modal").classList.add("show");
 }
 
+function selectVariant(index){
 
-/* =====================================================
+  selectedVariant=index;
+
+  document.querySelectorAll(".variant")
+    .forEach((el,i)=>{
+      el.classList.toggle("selected",i===index);
+    });
+}
+
+function closeModal(){
+
+  document
+    .getElementById("modal")
+    .classList.remove("show");
+}
+
+/* বাইরে চাপ দিলে বন্ধ */
+
+document.getElementById("modal").addEventListener("click",e=>{
+  if(e.target.id==="modal") closeModal();
+});
+
+/* =========================================================
    CART
-   ===================================================== */
+   ========================================================= */
 
-function addCart(id){
+function saveCart(){
 
- CART[id]=(CART[id]||0)+1;
+  localStorage.setItem(
+    "ekshathe_cart",
+    JSON.stringify(cart)
+  );
 
- saveAll();
-
- updateCartCount();
-
- alert(
- T(
- "কার্টে যোগ হয়েছে",
- "Added to cart"
- )
- );
-
+  updateCartCount();
 }
 
+function quickAdd(id){
 
-function buyNow(id){
+  const p=products.find(x=>x.id===id);
 
- CART[id]=(CART[id]||0)+1;
+  addToCart(p,0);
 
- saveAll();
-
- go("cart");
-
+  alert("পণ্যটি কার্টে যোগ হয়েছে।");
 }
 
+function addSelectedToCart(){
 
-function cartItems(){
+  if(!selectedProduct)return;
 
- return Object.keys(CART)
- .map(id=>{
+  addToCart(
+    selectedProduct,
+    selectedVariant
+  );
 
-   const p=
-   P.find(x=>x.id==id);
+  closeModal();
 
-   if(!p) return null;
-
-   return {
-     p:p,
-     q:CART[id]
-   };
-
- })
- .filter(Boolean);
-
+  alert("পণ্যটি কার্টে যোগ হয়েছে।");
 }
 
+function addToCart(p,variantIndex){
 
-function changeQty(id,n){
+  const variant=p.variants[variantIndex];
 
- CART[id]=(CART[id]||0)+n;
+  const key=p.id+"-"+variantIndex;
 
- if(CART[id]<=0){
+  const existing=
+    cart.find(x=>x.key===key);
 
-   delete CART[id];
+  if(existing){
 
- }
+    existing.qty++;
 
- saveAll();
+  }else{
 
- renderCart();
+    cart.push({
+      key:key,
+      productId:p.id,
+      variantIndex:variantIndex,
+      name:p.name,
+      variant:variant[0],
+      price:variant[1],
+      qty:1
+    });
 
- updateCartCount();
+  }
 
+  saveCart();
 }
-
-
-function removeCart(id){
-
- delete CART[id];
-
- saveAll();
-
- renderCart();
-
- updateCartCount();
-
-}
-
-
-function cartTotal(){
-
- return cartItems().reduce(
-   (s,x)=>
-   s+
-   (Number(x.p.p)||0)*x.q,
-   0
- );
-
-}
-
-
-function renderCart(){
-
- const items=cartItems();
-
- document.getElementById("app").innerHTML=`
-
- <div class="page-title">
-
- <h2>
- 🛒 ${T(
- "আমার কার্ট",
- "My Cart"
- )}
- </h2>
-
- <span class="badge">
- ${items.length}
- </span>
-
- </div>
-
-
- ${
- items.length
-
- ?
-
- `
- ${items.map(x=>`
-
- <div class="product-row">
-
- <div class="row-flex">
-
- <div
- style="
- display:flex;
- gap:10px;
- align-items:center
- ">
-
- <img
- src="${x.p.i}"
- style="
- width:65px;
- height:65px;
- object-fit:contain;
- border-radius:8px;
- background:#f5f8f6
- "
- onerror="this.style.display='none'">
-
- <div>
-
- <b>
- ${productName(x.p)}
- </b>
-
- <div class="small">
- ৳${Number(x.p.p)
- .toLocaleString("en-BD")}
- </div>
-
- </div>
-
- </div>
-
-
- <button
- class="danger"
- onclick="removeCart(${x.p.id})">
-
- ✕
-
- </button>
-
- </div>
-
-
- <div
- class="row-flex"
- style="margin-top:10px">
-
- <div class="qty">
-
- <button
- onclick="changeQty(${x.p.id},-1)">
- −
- </button>
-
- <b>${x.q}</b>
-
- <button
- onclick="changeQty(${x.p.id},1)">
- +
- </button>
-
- </div>
-
-
- <b>
- ৳${(x.p.p*x.q)
- .toLocaleString("en-BD")}
- </b>
-
- </div>
-
- </div>
-
- `).join("")}
-
-
- <div class="section">
-
- <div class="row-flex">
-
- <b>
- ${T("মোট","Total")}
- </b>
-
- <b class="price">
- ৳${cartTotal()
- .toLocaleString("en-BD")}
- </b>
-
- </div>
-
-
- <button
- class="primary full"
- style="margin-top:12px"
- onclick="checkout()">
-
- ${T(
- "অর্ডার করুন",
- "Place Order"
- )}
-
- </button>
-
- </div>
-
- `
-
- :
-
- `
- <div class="empty">
-
- 🛒<br><br>
-
- ${T(
- "আপনার কার্ট খালি",
- "Your cart is empty"
- )}
-
- <br><br>
-
- <button
- class="primary"
- onclick="go('shop')">
-
- ${T(
- "শপিং শুরু করুন",
- "Start Shopping"
- )}
-
- </button>
-
- </div>
- `
-
- }
-
- `;
-
-}
-
-
-/* =====================================================
-   CHECKOUT
-   ===================================================== */
-
-function checkout(){
-
- const items=cartItems();
-
- if(!items.length){
-
-   alert(
-    T(
-     "কার্ট খালি",
-     "Cart is empty"
-    )
-   );
-
-   return;
-
- }
-
-
- document.getElementById("app").innerHTML=`
-
- <div class="page-title">
-
- <h2>
- 🧾 ${T(
- "অর্ডার তথ্য",
- "Order Information"
- )}
- </h2>
-
- </div>
-
-
- <div class="section">
-
- <label>
- ${T("নাম","Name")}
- </label>
-
- <input
- id="cName"
- value="${PROFILE.name||""}"
- placeholder="${T(
- "আপনার নাম",
- "Your name"
- )}">
-
-
- <label>
- ${T(
- "মোবাইল নম্বর",
- "Mobile Number"
- )}
- </label>
-
- <input
- id="cPhone"
- value="${PROFILE.phone||""}"
- placeholder="01XXXXXXXXX">
-
-
- <label>
- ${T(
- "ঠিকানা",
- "Address"
- )}
- </label>
-
- <textarea
- id="cAddress"
- placeholder="${T(
- "ডেলিভারি ঠিকানা",
- "Delivery address"
- )}">${PROFILE.address||""}</textarea>
-
-
- <label>
- ${T(
- "পেমেন্ট পদ্ধতি",
- "Payment Method"
- )}
- </label>
-
-
- <select
- id="payment"
- onchange="showPaymentNumber()">
-
- <option value="cod">
- Cash on Delivery
- </option>
-
- <option value="bkash">
- bKash
- </option>
-
- <option value="nagad">
- Nagad
- </option>
-
- <option value="rocket">
- Rocket
- </option>
-
- </select>
-
-
- <div id="paymentNumber"></div>
-
-
- <label>
- ${T(
- "Transaction ID (যদি থাকে)",
- "Transaction ID (if applicable)"
- )}
- </label>
-
-
- <input
- id="trx"
- placeholder="${T(
- "Transaction ID",
- "Transaction ID"
- )}">
-
-
- <div class="payment-box">
-
- <b>
- ${T(
- "অর্ডার মোট",
- "Order Total"
- )}
- </b>
-
- <div class="price">
- ৳${cartTotal()
- .toLocaleString("en-BD")}
- </div>
-
- </div>
-
-
- <button
- class="primary full"
- style="margin-top:12px"
- onclick="placeOrder()">
-
- ✅ ${T(
- "অর্ডার কনফার্ম করুন",
- "Confirm Order"
- )}
-
- </button>
-
- </div>
-
- `;
-
-
- showPaymentNumber();
-
-}
-
-
-function showPaymentNumber(){
-
- const method=
- document.getElementById("payment")?.value;
-
- const box=
- document.getElementById("paymentNumber");
-
- if(!box) return;
-
-
- if(method==="bkash"){
-
-   box.innerHTML=`
-
-   <div class="payment-box">
-
-   <b>bKash</b><br>
-
-   ${PAYMENT.bkash}
-
-   </div>
-
-   `;
-
- }
-
- else if(method==="nagad"){
-
-   box.innerHTML=`
-
-   <div class="payment-box">
-
-   <b>Nagad</b><br>
-
-   ${PAYMENT.nagad}
-
-   </div>
-
-   `;
-
- }
-
- else if(method==="rocket"){
-
-   box.innerHTML=`
-
-   <div class="payment-box">
-
-   <b>Rocket</b><br>
-
-   ${PAYMENT.rocket}
-
-   </div>
-
-   `;
-
- }
-
- else{
-
-   box.innerHTML=`
-
-   <div class="payment-box">
-
-   ${T(
-   "Cash on Delivery — পণ্য হাতে পেয়ে পেমেন্ট করবেন।",
-   "Cash on Delivery — Pay when you receive the product."
-   )}
-
-   </div>
-
-   `;
-
- }
-
-}
-
-
-/* =====================================================
-   PLACE ORDER
-   ===================================================== */
-
-function placeOrder(){
-
- const name=
- document.getElementById("cName")
- .value.trim();
-
- const phone=
- document.getElementById("cPhone")
- .value.trim();
-
- const address=
- document.getElementById("cAddress")
- .value.trim();
-
- const payment=
- document.getElementById("payment")
- .value;
-
- const trx=
- document.getElementById("trx")
- .value.trim();
-
-
- if(!name||!phone||!address){
-
-   alert(
-    T(
-     "নাম, মোবাইল ও ঠিকানা দিন।",
-     "Please enter name, mobile and address."
-    )
-   );
-
-   return;
-
- }
-
-
- PROFILE={
-   name:name,
-   phone:phone,
-   address:address
- };
-
-
- const order={
-
-   id:"ES"+Date.now(),
-
-   date:new Date()
-   .toLocaleString("bn-BD"),
-
-   name:name,
-
-   phone:phone,
-
-   address:address,
-
-   payment:payment,
-
-   trx:trx,
-
-   items:
-   cartItems().map(x=>({
-
-     id:x.p.id,
-
-     name:x.p.n,
-
-     en:x.p.en,
-
-     price:x.p.p,
-
-     qty:x.q,
-
-     image:x.p.i
-
-   })),
-
-   total:cartTotal(),
-
-   status:"Pending"
-
- };
-
-
- ORDERS.unshift(order);
-
- CART={};
-
- saveAll();
-
- updateCartCount();
-
-
- alert(
-  T(
-   "অর্ডার সফল হয়েছে!",
-   "Order placed successfully!"
-  )
- );
-
-
- go("orders");
-
-}
-
-
-/* =====================================================
-   ORDERS
-   ===================================================== */
-
-function renderOrders(){
-
- document.getElementById("app").innerHTML=`
-
- <div class="page-title">
-
- <h2>
- 📦 ${T(
- "আমার অর্ডার",
- "My Orders"
- )}
- </h2>
-
- </div>
-
-
- ${
- ORDERS.length
-
- ?
-
- ORDERS.map(o=>`
-
- <div class="order-row">
-
- <div class="row-flex">
-
- <b>${o.id}</b>
-
- <span class="badge">
- ${o.status}
- </span>
-
- </div>
-
-
- <div
- class="small"
- style="margin-top:5px">
-
- ${o.date}
-
- </div>
-
-
- <hr>
-
-
- ${o.items.map(i=>`
-
- <div
- class="row-flex"
- style="margin:7px 0">
-
- <span>
-
- ${lang==="bn"
- ?i.name
- :i.en}
-
- × ${i.qty}
-
- </span>
-
- <b>
- ৳${(i.price*i.qty)
- .toLocaleString("en-BD")}
- </b>
-
- </div>
-
- `).join("")}
-
-
- <hr>
-
-
- <div class="row-flex">
-
- <b>
- ${T("মোট","Total")}
- </b>
-
- <b class="price">
- ৳${o.total
- .toLocaleString("en-BD")}
- </b>
-
- </div>
-
-
- <div
- class="small"
- style="margin-top:7px">
-
- ${T(
- "পেমেন্ট",
- "Payment"
- )}: ${o.payment}
-
- </div>
-
- </div>
-
- `).join("")
-
- :
-
- `
- <div class="empty">
-
- 📦<br><br>
-
- ${T(
- "এখনো কোনো অর্ডার নেই",
- "No orders yet"
- )}
-
- </div>
- `
-
- }
-
- `;
-
-}
-
-
-/* =====================================================
-   PROFILE
-   ===================================================== */
-
-function renderProfile(){
-
- document.getElementById("app").innerHTML=`
-
- <div class="page-title">
-
- <h2>
- ${T(
- "প্রোফাইল",
- "Profile"
- )}
- </h2>
-
- </div>
-
-
- <div class="section">
-
- <div class="profile-icon">
- 👤
- </div>
-
-
- <input
- id="profileName"
- placeholder="${T(
- "আপনার নাম",
- "Your name"
- )}"
- value="${PROFILE.name||""}">
-
-
- <input
- id="profilePhone"
- placeholder="${T(
- "মোবাইল নম্বর",
- "Mobile number"
- )}"
- value="${PROFILE.phone||""}">
-
-
- <textarea
- id="profileAddress"
- placeholder="${T(
- "ঠিকানা",
- "Address"
- )}">${PROFILE.address||""}</textarea>
-
-
- <button
- class="primary full"
- onclick="saveProfile()">
-
- 💾 ${T(
- "প্রোফাইল সেভ করুন",
- "Save Profile"
- )}
-
- </button>
-
- </div>
-
-
- <div class="section">
-
- <h3>
- 🏪 ${T(
- "Seller Panel",
- "Seller Panel"
- )}
- </h3>
-
-
- <button
- class="secondary full"
- onclick="go('seller')">
-
- ${T(
- "Seller Panel খুলুন",
- "Open Seller Panel"
- )}
-
- </button>
-
- </div>
-
-
- <div class="section">
-
- <h3>
- ⚙️ ${T(
- "Admin Panel",
- "Admin Panel"
- )}
- </h3>
-
-
- <button
- class="primary full"
- onclick="go('admin')">
-
- ${T(
- "Admin Panel খুলুন",
- "Open Admin Panel"
- )}
-
- </button>
-
- </div>
-
- `;
-
-}
-
-
-function saveProfile(){
-
- PROFILE={
-
-   name:
-   document.getElementById(
-   "profileName"
-   ).value.trim(),
-
-   phone:
-   document.getElementById(
-   "profilePhone"
-   ).value.trim(),
-
-   address:
-   document.getElementById(
-   "profileAddress"
-   ).value.trim()
-
- };
-
-
- saveAll();
-
-
- alert(
-  T(
-   "প্রোফাইল সেভ হয়েছে।",
-   "Profile saved."
-  )
- );
-
-}
-
-
-/* =====================================================
-   SELLER
-   ===================================================== */
-
-function renderSeller(){
-
- document.getElementById("app").innerHTML=`
-
- <div class="page-title">
-
- <h2>
- 🏪 ${T(
- "Seller Panel",
- "Seller Panel"
- )}
- </h2>
-
- </div>
-
-
- <div class="section">
-
- <h3>
- ${T(
- "নতুন পণ্য যোগ করুন",
- "Add New Product"
- )}
- </h3>
-
-
- <input
- id="sn"
- placeholder="${T(
- "পণ্যের নাম",
- "Product name"
- )}">
-
-
- <select id="sc">
-
- <option>ফ্যাশন</option>
-
- <option>ইলেকট্রনিক্স</option>
-
- <option>হোম</option>
-
- <option>খাবার</option>
-
- <option>সফট ড্রিংকস</option>
-
- <option>পানীয়</option>
-
- </select>
-
-
- <input
- id="sp"
- type="number"
- placeholder="${T(
- "দাম",
- "Price"
- )}">
-
-
- <input
- id="si"
- placeholder="${T(
- "ছবির URL (ঐচ্ছিক)",
- "Image URL (optional)"
- )}">
-
-
- <button
- class="primary full"
- onclick="sellerAdd()">
-
- ➕ ${T(
- "পণ্য যোগ করুন",
- "Add Product"
- )}
-
- </button>
-
- </div>
-
-
- <div class="section">
-
- <h3>
- ${T(
- "আমার পণ্য",
- "My Products"
- )}
- </h3>
-
-
- ${P.map(x=>`
-
- <div class="product-row">
-
- <div class="row-flex">
-
- <div>
-
- <b>
- ${productName(x)}
- </b>
-
- <div class="small">
- ${x.c}
- </div>
-
- </div>
-
-
- <b class="price">
- ৳${x.p}
- </b>
-
- </div>
-
-
- <div
- style="
- display:flex;
- gap:7px;
- margin-top:9px
- ">
-
- <button
- class="secondary"
- onclick="changePrice(${x.id},10)">
- +10
- </button>
-
-
- <button
- class="secondary"
- onclick="changePrice(${x.id},-10)">
- -10
- </button>
-
-
- <button
- class="danger"
- onclick="deleteProduct(${x.id})">
-
- ${T(
- "ডিলিট",
- "Delete"
- )}
-
- </button>
-
- </div>
-
- </div>
-
- `).join("")}
-
- </div>
-
- `;
-
-}
-
-
-function sellerAdd(){
-
- const n=
- document.getElementById("sn")
- .value.trim();
-
- const c=
- document.getElementById("sc")
- .value;
-
- const p=
- Number(
- document.getElementById("sp")
- .value
- );
-
- const i=
- document.getElementById("si")
- .value.trim();
-
-
- if(!n||!p){
-
-   alert(
-    T(
-     "পণ্যের নাম ও দাম দিন।",
-     "Enter product name and price."
-    )
-   );
-
-   return;
-
- }
-
-
- P.push({
-
-   id:Date.now(),
-
-   n:n,
-
-   en:n,
-
-   c:c,
-
-   ce:c,
-
-   p:p,
-
-   i:
-   i ||
-   "https://via.placeholder.com/500x400?text=Product"
-
- });
-
-
- saveAll();
-
-
- alert(
-  T(
-   "পণ্য যোগ হয়েছে।",
-   "Product added."
-  )
- );
-
-
- renderSeller();
-
-}
-
-
-function changePrice(id,amount){
-
- const p=
- P.find(x=>x.id===id);
-
- if(!p) return;
-
-
- p.p=
- Math.max(
-   0,
-   Number(p.p)+amount
- );
-
-
- saveAll();
-
- renderAll();
-
-}
-
-
-function deleteProduct(id){
-
- if(
- !confirm(
-  T(
-   "পণ্যটি মুছে ফেলবেন?",
-   "Delete this product?"
-  )
- )
- ) return;
-
-
- P=P.filter(
-  x=>x.id!==id
- );
-
-
- delete CART[id];
-
- saveAll();
-
- renderSeller();
-
- updateCartCount();
-
-}
-
-
-/* =====================================================
-   ADMIN
-   ===================================================== */
-
-function renderAdmin(){
-
- const sales=
- ORDERS.reduce(
-  (s,o)=>s+Number(o.total||0),
-  0
- );
-
-
- const commission=
- Math.round(
-  sales*0.05
- );
-
-
- document.getElementById("app").innerHTML=`
-
- <div class="page-title">
-
- <h2>
- ⚙️ ${T(
- "Admin Panel",
- "Admin Panel"
- )}
- </h2>
-
- </div>
-
-
- <div class="stat-grid">
-
- <div class="stat">
-
- <b>${P.length}</b>
-
- ${T(
- "পণ্য",
- "Products"
- )}
-
- </div>
-
-
- <div class="stat">
-
- <b>${ORDERS.length}</b>
-
- ${T(
- "অর্ডার",
- "Orders"
- )}
-
- </div>
-
-
- <div class="stat">
-
- <b>
- ৳${sales.toLocaleString("en-BD")}
- </b>
-
- ${T(
- "মোট বিক্রি",
- "Sales"
- )}
-
- </div>
-
-
- <div class="stat">
-
- <b>
- ৳${commission.toLocaleString("en-BD")}
- </b>
-
- ${T(
- "৫% কমিশন",
- "5% Commission"
- )}
-
- </div>
-
- </div>
-
-
- <div
- class="section"
- style="margin-top:13px">
-
- <h3>
- 💳 ${T(
- "পেমেন্ট নম্বর",
- "Payment Numbers"
- )}
- </h3>
-
-
- <label>bKash</label>
-
- <input
- id="bk"
- value="${PAYMENT.bkash}">
-
-
- <label>Nagad</label>
-
- <input
- id="ng"
- value="${PAYMENT.nagad}">
-
-
- <label>Rocket</label>
-
- <input
- id="rk"
- value="${PAYMENT.rocket}">
-
-
- <button
- class="primary full"
- onclick="savePayment()">
-
- 💾 ${T(
- "নম্বর সেভ করুন",
- "Save Numbers"
- )}
-
- </button>
-
- </div>
-
-
- <div class="section">
-
- <h3>
- 💰 ${T(
- "পণ্যের দাম",
- "Product Prices"
- )}
- </h3>
-
-
- ${P.map(x=>`
-
- <div class="product-row">
-
- <div class="row-flex">
-
- <div>
-
- <b>
- ${productName(x)}
- </b>
-
- <div class="small">
- ${x.c}
- </div>
-
- </div>
-
-
- <div
- style="
- display:flex;
- align-items:center;
- gap:6px
- ">
-
- <button
- class="secondary"
- onclick="adminPrice(${x.id},-10)">
- −
- </button>
-
-
- <b>
- ৳${x.p}
- </b>
-
-
- <button
- class="secondary"
- onclick="adminPrice(${x.id},10)">
- +
- </button>
-
- </div>
-
- </div>
-
- </div>
-
- `).join("")}
-
- </div>
-
-
- <div class="section">
-
- <h3>
- 📦 ${T(
- "অর্ডার ম্যানেজমেন্ট",
- "Order Management"
- )}
- </h3>
-
-
- ${
- ORDERS.length
-
- ?
-
- ORDERS.map(o=>`
-
- <div class="order-row">
-
- <div class="row-flex">
-
- <b>
- ${o.id}
- </b>
-
-
- <select
- onchange="changeOrderStatus('${o.id}',this.value)"
- style="
- width:auto;
- margin:0
- ">
-
- <option
- ${o.status==="Pending"?"selected":""}>
- Pending
- </option>
-
- <option
- ${o.status==="Confirmed"?"selected":""}>
- Confirmed
- </option>
-
- <option
- ${o.status==="Processing"?"selected":""}>
- Processing
- </option>
-
- <option
- ${o.status==="Delivered"?"selected":""}>
- Delivered
- </option>
-
- <option
- ${o.status==="Cancelled"?"selected":""}>
- Cancelled
- </option>
-
- </select>
-
- </div>
-
-
- <div class="small">
-
- ${o.name} —
- ${o.phone}
-
- </div>
-
-
- <div style="margin-top:5px">
-
- ৳${o.total
- .toLocaleString("en-BD")}
-
- </div>
-
- </div>
-
- `).join("")
-
- :
-
- `<div class="empty">
-
- ${T(
- "কোনো অর্ডার নেই",
- "No orders"
- )}
-
- </div>`
-
- }
-
- </div>
-
- `;
-
-}
-
-
-function adminPrice(id,amount){
-
- const p=
- P.find(x=>x.id===id);
-
- if(!p) return;
-
-
- p.p=
- Math.max(
-  0,
-  Number(p.p)+amount
- );
-
-
- saveAll();
-
- renderAdmin();
-
-}
-
-
-function savePayment(){
-
- PAYMENT.bkash=
- document.getElementById("bk")
- .value.trim();
-
-
- PAYMENT.nagad=
- document.getElementById("ng")
- .value.trim();
-
-
- PAYMENT.rocket=
- document.getElementById("rk")
- .value.trim();
-
-
- localStorage.setItem(
-  STORE+"_payment",
-  JSON.stringify(PAYMENT)
- );
-
-
- alert(
-  T(
-   "পেমেন্ট নম্বর সেভ হয়েছে।",
-   "Payment numbers saved."
-  )
- );
-
-}
-
-
-/* =====================================================
-   ORDER STATUS
-   ===================================================== */
-
-function changeOrderStatus(id,status){
-
- const o=
- ORDERS.find(x=>x.id===id);
-
- if(!o) return;
-
- o.status=status;
-
- saveAll();
-
- renderAdmin();
-
-}
-
-
-/* =====================================================
-   LOAD PAYMENT
-   ===================================================== */
-
-const savedPayment=
-JSON.parse(
-localStorage.getItem(
-STORE+"_payment"
-)||"null"
-);
-
-
-if(savedPayment){
-
- PAYMENT.bkash=
- savedPayment.bkash||
- PAYMENT.bkash;
-
- PAYMENT.nagad=
- savedPayment.nagad||
- PAYMENT.nagad;
-
- PAYMENT.rocket=
- savedPayment.rocket||
- PAYMENT.rocket;
-
-}
-
-
-/* =====================================================
-   CART COUNT
-   ===================================================== */
 
 function updateCartCount(){
 
- const count=
- Object.values(CART)
- .reduce(
-  (a,b)=>a+Number(b),
-  0
- );
+  const count=
+    cart.reduce((sum,x)=>sum+x.qty,0);
 
-
- document.getElementById(
- "cartCount"
- ).textContent=count;
-
+  document.getElementById("cartCount").textContent=count;
 }
 
+function cartTotal(){
 
-/* =====================================================
-   PAGE RENDER
-   ===================================================== */
-
-function renderAll(){
-
- renderCategories();
-
-
- document.getElementById(
- "langBtn"
- ).textContent=
- lang==="bn"
- ? "বাংলা"
- : "English";
-
-
- document
- .querySelectorAll(".bottom button")
- .forEach(
-  b=>b.classList.remove("active")
- );
-
-
- const nav=
- document.getElementById(
- "nav-"+currentPage
- );
-
-
- if(nav){
-
-   nav.classList.add("active");
-
- }
-
-
- if(
- currentPage==="home" ||
- currentPage==="shop"
- ){
-
-   renderHome();
-
- }
-
- else if(currentPage==="cart"){
-
-   renderCart();
-
- }
-
- else if(currentPage==="orders"){
-
-   renderOrders();
-
- }
-
- else if(currentPage==="profile"){
-
-   renderProfile();
-
- }
-
- else if(currentPage==="seller"){
-
-   renderSeller();
-
- }
-
- else if(currentPage==="admin"){
-
-   renderAdmin();
-
- }
-
-
- updateCartCount();
-
+  return cart.reduce(
+    (sum,x)=>sum+(x.price*x.qty),
+    0
+  );
 }
 
+function changeQty(key,delta){
 
-/* =====================================================
-   START
-   ===================================================== */
+  const item=
+    cart.find(x=>x.key===key);
 
-saveAll();
+  if(!item)return;
 
-renderAll();
+  item.qty+=delta;
+
+  if(item.qty<=0){
+
+    cart=
+      cart.filter(x=>x.key!==key);
+  }
+
+  saveCart();
+
+  renderCart();
+}
+
+/* =========================================================
+   CART PAGE
+   ========================================================= */
+
+function renderCart(){
+
+  if(cart.length===0){
+
+    document.getElementById("app").innerHTML=`
+
+      <div class="section empty">
+
+        <div style="font-size:50px">🛒</div>
+
+        <h3>কার্ট খালি</h3>
+
+        <p>পছন্দের পণ্য কার্টে যোগ করুন।</p>
+
+        <button
+          class="primary"
+          onclick="showPage('shop')">
+          শপিং শুরু করুন
+        </button>
+
+      </div>
+
+    `;
+
+    return;
+  }
+
+  document.getElementById("app").innerHTML=`
+
+    <div class="page-title">
+
+      <h2>আমার কার্ট</h2>
+
+      <span class="badge">
+        ${cart.length} আইটেম
+      </span>
+
+    </div>
+
+    ${cart.map(item=>`
+
+      <div class="product-row">
+
+        <div class="row-flex">
+
+          <div>
+
+            <b>${item.name}</b>
+
+            <div class="small">
+              ${item.variant}
+            </div>
+
+            <div class="price">
+              ৳${item.price}
+            </div>
+
+          </div>
+
+          <div class="qty">
+
+            <button
+              onclick="changeQty('${item.key}',-1)">
+              −
+            </button>
+
+            <b>${item.qty}</b>
+
+            <button
+              onclick="changeQty('${item.key}',1)">
+              +
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    `).join("")}
+
+    <div class="section">
+
+      <div class="row-flex">
+
+        <b>মোট</b>
+
+        <strong class="price">
+          ৳${cartTotal()}
+        </strong>
+
+      </div>
+
+      <br>
+
+      <button
+        class="primary full"
+        onclick="showPage('checkout')">
+        💳 চেকআউট
+      </button>
+
+    </div>
+
+  `;
+}
+
+/* =========================================================
+   CHECKOUT
+   ========================================================= */
+
+function renderCheckout(){
+
+  const total=cartTotal();
+
+  document.getElementById("app").innerHTML=`
+
+    <div class="page-title">
+      <h2>চেকআউট</h2>
+    </div>
+
+    <div class="section">
+
+      <h3>ডেলিভারি তথ্য</h3>
+
+      <label>আপনার নাম</label>
+
+      <input
+        id="customerName"
+        placeholder="নাম লিখুন">
+
+      <label>মোবাইল নম্বর</label>
+
+      <input
+        id="customerPhone"
+        type="tel"
+        placeholder="01XXXXXXXXX">
+
+      <label>ঠিকানা</label>
+
+      <textarea
+        id="customerAddress"
+        placeholder="সম্পূর্ণ ঠিকানা লিখুন"></textarea>
+
+    </div>
+
+    <div class="section">
+
+      <h3>পেমেন্ট</h3>
+
+      <div class="payment-box">
+
+        <b>বিকাশ</b>
+        <br>
+        ${PAYMENT.bkash}
+
+        <hr>
+
+        <b>নগদ</b>
+        <br>
+        ${PAYMENT.nagad}
+
+        <hr>
+
+        <b>রকেট</b>
+        <br>
+        ${PAYMENT.rocket}
+
+      </div>
+
+      <select id="paymentMethod">
+
+        <option value="Cash on Delivery">
+          ক্যাশ অন ডেলিভারি
+        </option>
+
+        <option value="bKash">
+          বিকাশ
+        </option>
+
+        <option value="Nagad">
+          নগদ
+        </option>
+
+        <option value="Rocket">
+          রকেট
+        </option>
+
+      </select>
+
+    </div>
+
+    <div class="section">
+
+      <div class="row-flex">
+
+        <b>অর্ডারের মোট</b>
+
+        <strong class="price">
+          ৳${total}
+        </strong>
+
+      </div>
+
+      <br>
+
+      <button
+        class="primary full"
+        onclick="placeOrder()">
+        ✅ অর্ডার কনফার্ম করুন
+      </button>
+
+    </div>
+
+  `;
+}
+
+/* =========================================================
+   PLACE ORDER
+   ========================================================= */
+
+function placeOrder(){
+
+  const name=
+    document.getElementById("customerName").value.trim();
+
+  const phone=
+    document.getElementById("customerPhone").value.trim();
+
+  const address=
+    document.getElementById("customerAddress").value.trim();
+
+  const payment=
+    document.getElementById("paymentMethod").value;
+
+  if(!name || !phone || !address){
+
+    alert("নাম, মোবাইল এবং ঠিকানা পূরণ করুন।");
+    return;
+  }
+
+  const order={
+    id:"EK"+Date.now(),
+    date:new Date().toLocaleString("bn-BD"),
+    customer:{
+      name:name,
+      phone:phone,
+      address:address
+    },
+    payment:payment,
+    items:[...cart],
+    total:cartTotal(),
+    status:"অর্ডার গ্রহণ করা হয়েছে"
+  };
+
+  orders.unshift(order);
+
+  localStorage.setItem(
+    "ekshathe_orders",
+    JSON.stringify(orders)
+  );
+
+  cart=[];
+
+  saveCart();
+
+  alert(
+    "অর্ডার সফলভাবে গ্রহণ করা হয়েছে।\nঅর্ডার নম্বর: "+order.id
+  );
+
+  showPage("orders");
+}
+
+/* =========================================================
+   ORDERS
+   ========================================================= */
+
+function renderOrders(){
+
+  if(orders.length===0){
+
+    document.getElementById("app").innerHTML=`
+
+      <div class="section empty">
+
+        <div style="font-size:50px">📦</div>
+
+        <h3>এখনো কোনো অর্ডার নেই</h3>
+
+        <button
+          class="primary"
+          onclick="showPage('shop')">
+          শপিং করুন
+        </button>
+
+      </div>
+
+    `;
+
+    return;
+  }
+
+  document.getElementById("app").innerHTML=`
+
+    <div class="page-title">
+      <h2>আমার অর্ডার</h2>
+    </div>
+
+    ${orders.map(o=>`
+
+      <div class="order-row">
+
+        <div class="row-flex">
+
+          <b>${o.id}</b>
+
+          <span class="status">
+            ${o.status}
+          </span>
+
+        </div>
+
+        <div class="small">
+          ${o.date}
+        </div>
+
+        <hr>
+
+        ${o.items.map(i=>`
+
+          <div class="row-flex">
+
+            <span>
+              ${i.name}
+              <br>
+              <small>${i.variant} × ${i.qty}</small>
+            </span>
+
+            <b>
+              ৳${i.price*i.qty}
+            </b>
+
+          </div>
+
+        `).join("")}
+
+        <hr>
+
+        <div class="row-flex">
+
+          <b>মোট</b>
+
+          <strong class="price">
+            ৳${o.total}
+          </strong>
+
+        </div>
+
+      </div>
+
+    `).join("")}
+
+  `;
+}
+
+/* =========================================================
+   PROFILE
+   ========================================================= */
+
+function renderProfile(){
+
+  document.getElementById("app").innerHTML=`
+
+    <div class="section">
+
+      <div class="profile-icon">👤</div>
+
+      <h2 style="text-align:center">
+        আমার প্রোফাইল
+      </h2>
+
+      <input
+        id="profileName"
+        placeholder="আপনার নাম">
+
+      <input
+        id="profilePhone"
+        placeholder="মোবাইল নম্বর">
+
+      <button
+        class="primary full"
+        onclick="saveProfile()">
+        💾 সেভ করুন
+      </button>
+
+    </div>
+
+    <div class="section">
+
+      <h3>আমার পরিসংখ্যান</h3>
+
+      <div class="stat-grid">
+
+        <div class="stat">
+          <b>${orders.length}</b>
+          অর্ডার
+        </div>
+
+        <div class="stat">
+          <b>${cart.length}</b>
+          কার্ট আইটেম
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="section">
+
+      <h3>অ্যাপ সম্পর্কে</h3>
+
+      <p>
+        <b>একসাথে</b> একটি স্মার্ট শপিং প্ল্যাটফর্মের
+        MVP সংস্করণ।
+      </p>
+
+      <p class="small">
+        এখানে ভবিষ্যতে কাস্টমার, সেলার, ডেলিভারি এবং
+        অ্যাডমিন সিস্টেম আরও উন্নত করা যাবে।
+      </p>
+
+    </div>
+
+  `;
+}
+
+function saveProfile(){
+
+  const data={
+    name:document.getElementById("profileName").value,
+    phone:document.getElementById("profilePhone").value
+  };
+
+  localStorage.setItem(
+    "ekshathe_profile",
+    JSON.stringify(data)
+  );
+
+  alert("প্রোফাইল সেভ হয়েছে।");
+}
+
+/* =========================================================
+   SELLER PANEL
+   ========================================================= */
+
+function renderSeller(){
+
+  document.getElementById("app").innerHTML=`
+
+    <div class="section">
+
+      <h2>🏪 Seller Panel</h2>
+
+      <p>
+        এখানে ভবিষ্যতে সেলাররা নিজেদের পণ্য,
+        দাম, স্টক এবং অর্ডার পরিচালনা করতে পারবে।
+      </p>
+
+    </div>
+
+    <div class="section">
+
+      <h3>বর্তমান পণ্য</h3>
+
+      ${products.map(p=>`
+
+        <div class="product-row">
+
+          <div class="row-flex">
+
+            <div>
+              <b>${p.name}</b>
+              <div class="small">${p.cat}</div>
+            </div>
+
+            <span class="badge">
+              ${p.variants.length} ভ্যারিয়েন্ট
+            </span>
+
+          </div>
+
+        </div>
+
+      `).join("")}
+
+    </div>
+
+  `;
+}
+
+/* =========================================================
+   ADMIN PANEL
+   ========================================================= */
+
+function renderAdmin(){
+
+  document.getElementById("app").innerHTML=`
+
+    <div class="section">
+
+      <h2>⚙️ Admin Panel</h2>
+
+      <div class="stat-grid">
+
+        <div class="stat">
+          <b>${products.length}</b>
+          পণ্য
+        </div>
+
+        <div class="stat">
+          <b>${orders.length}</b>
+          অর্ডার
+        </div>
+
+        <div class="stat">
+          <b>৳${orders.reduce((s,o)=>s+o.total,0)}</b>
+          বিক্রি
+        </div>
+
+        <div class="stat">
+          <b>${cart.length}</b>
+          কার্ট
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="section">
+
+      <h3>অর্ডার ম্যানেজমেন্ট</h3>
+
+      ${
+        orders.length
+        ?
+        orders.map(o=>`
+
+          <div class="order-row">
+
+            <div class="row-flex">
+
+              <b>${o.id}</b>
+
+              <select
+                onchange="updateOrderStatus('${o.id}',this.value)">
+
+                <option
+                  ${o.status==="অর্ডার গ্রহণ করা হয়েছে"?"selected":""}>
+                  অর্ডার গ্রহণ করা হয়েছে
+                </option>
+
+                <option
+                  ${o.status==="প্রস্তুত হচ্ছে"?"selected":""}>
+                  প্রস্তুত হচ্ছে
+                </option>
+
+                <option
+                  ${o.status==="ডেলিভারির পথে"?"selected":""}>
+                  ডেলিভারির পথে
+                </option>
+
+                <option
+                  ${o.status==="ডেলিভারি সম্পন্ন"?"selected":""}>
+                  ডেলিভারি সম্পন্ন
+                </option>
+
+                <option
+                  ${o.status==="বাতিল"?"selected":""}>
+                  বাতিল
+                </option>
+
+              </select>
+
+            </div>
+
+            <div class="small">
+              ${o.customer.name} —
+              ${o.customer.phone}
+            </div>
+
+          </div>
+
+        `).join("")
+        :
+        `<div class="empty">কোনো অর্ডার নেই।</div>`
+      }
+
+    </div>
+
+    <div class="section">
+
+      <h3>পেমেন্ট নম্বর</h3>
+
+      <input
+        id="adminBkash"
+        value="${PAYMENT.bkash}"
+        placeholder="বিকাশ">
+
+      <input
+        id="adminNagad"
+        value="${PAYMENT.nagad}"
+        placeholder="নগদ">
+
+      <input
+        id="adminRocket"
+        value="${PAYMENT.rocket}"
+        placeholder="রকেট">
+
+      <button
+        class="primary full"
+        onclick="savePaymentNumbers()">
+        💾 পেমেন্ট নম্বর সেভ
+      </button>
+
+    </div>
+
+  `;
+}
+
+function updateOrderStatus(id,status){
+
+  const order=
+    orders.find(o=>o.id===id);
+
+  if(!order)return;
+
+  order.status=status;
+
+  localStorage.setItem(
+    "ekshathe_orders",
+    JSON.stringify(orders)
+  );
+
+  alert("অর্ডারের স্ট্যাটাস আপডেট হয়েছে।");
+}
+
+function savePaymentNumbers(){
+
+  PAYMENT.bkash=
+    document.getElementById("adminBkash").value;
+
+  PAYMENT.nagad=
+    document.getElementById("adminNagad").value;
+
+  PAYMENT.rocket=
+    document.getElementById("adminRocket").value;
+
+  localStorage.setItem(
+    "ekshathe_payment",
+    JSON.stringify(PAYMENT)
+  );
+
+  alert("পেমেন্ট নম্বর সেভ হয়েছে।");
+}
+
+/* =========================================================
+   PAGE ROUTER
+   ========================================================= */
+
+function showPage(page){
+
+  currentPage=page;
+
+  if(page==="home"){
+    renderHome();
+  }
+
+  else if(page==="shop"){
+    renderProducts();
+  }
+
+  else if(page==="cart"){
+    renderCart();
+  }
+
+  else if(page==="checkout"){
+    renderCheckout();
+  }
+
+  else if(page==="orders"){
+    renderOrders();
+  }
+
+  else if(page==="profile"){
+    renderProfile();
+  }
+
+  else if(page==="seller"){
+    renderSeller();
+  }
+
+  else if(page==="admin"){
+    renderAdmin();
+  }
+
+  updateNav();
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+
+/* =========================================================
+   NAV ACTIVE
+   ========================================================= */
+
+function updateNav(){
+
+  document.querySelectorAll(".bottom button")
+    .forEach(b=>b.classList.remove("active"));
+
+  const map={
+    home:"navHome",
+    shop:"navShop",
+    cart:"navCart",
+    orders:"navOrders",
+    profile:"navProfile"
+  };
+
+  if(map[currentPage]){
+    document
+      .getElementById(map[currentPage])
+      .classList.add("active");
+  }
+}
+
+/* =========================================================
+   LANGUAGE
+   ========================================================= */
+
+function toggleLanguage(){
+
+  language=
+    language==="bn"
+      ?"en"
+      :"bn";
+
+  renderProducts();
+}
+
+/* =========================================================
+   LOAD SAVED DATA
+   ========================================================= */
+
+function loadSavedData(){
+
+  const savedPayment=
+    JSON.parse(
+      localStorage.getItem("ekshathe_payment") || "null"
+    );
+
+  if(savedPayment){
+
+    PAYMENT.bkash=savedPayment.bkash;
+    PAYMENT.nagad=savedPayment.nagad;
+    PAYMENT.rocket=savedPayment.rocket;
+  }
+
+  const profile=
+    JSON.parse(
+      localStorage.getItem("ekshathe_profile") || "null"
+    );
+
+  if(profile){
+
+    window.savedProfile=profile;
+  }
+}
+
+/* =========================================================
+   INITIALIZE
+   ========================================================= */
+
+loadSavedData();
+
+renderCategories();
+
+updateCartCount();
+
+showPage("home");
 
 </script>
 
